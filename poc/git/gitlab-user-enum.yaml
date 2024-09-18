@@ -1,5 +1,4 @@
 id: gitlab-user-enum
-
 info:
   name: GitLab - User Enumeration
   author: Suman_Kar
@@ -9,8 +8,6 @@ info:
   metadata:
     shodan-query: http.title:"GitLab"
   tags: gitlab,enum,misconfig,fuzz
-  mongoid: 0000
-
 requests:
   - raw:
       - |
@@ -18,23 +15,18 @@ requests:
         Host: {{Hostname}}
         Accept: application/json, text/plain, */*
         Referer: {{BaseURL}}
-
     payloads:
       user: helpers/wordlists/user-list.txt
-
     stop-at-first-match: true
     matchers-condition: and
     matchers:
-
       - type: regex
         part: body
         regex:
           - "exists.*:true"
-
       - type: status
         status:
           - 200
-
       - type: word
         part: header
         words:
