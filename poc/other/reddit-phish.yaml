@@ -8,8 +8,9 @@ info:
     A reddit phishing website was detected
   reference:
     - https://reddit.com
+  metadata:
+    max-request: 1
   tags: phishing,reddit,osint
-
 http:
   - method: GET
     path:
@@ -31,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"reddit.com")'
-# digest: 4a0a0047304502210080ece41fd7644127c9785e7ff1f02def7bd0cca8b9c0648ca3cd48eb4a76b5550220386b4913b74fa26113393ddfa3c9ba9976d8cdb3014dea6f0064121f4ff54cc5:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402204d37d32ea666dd570774cee0fac5e9500ae078dc0be42d1358f52e93bcc2ce0b02204857a3c46d4de47b952a6144ced2011bea09e63d6f91df464347fd6db673f37f:922c64590222798bb761d5b6d8e72950
