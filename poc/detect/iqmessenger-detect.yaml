@@ -11,7 +11,7 @@ info:
     max-request: 2
     shodan-query: http.favicon.hash:1033082340
     vendor: IQ Messenger
-  tags: detect,release-date,iqmessenger
+  tags: tech,detect,iqmessenger
 
 http:
   - method: GET

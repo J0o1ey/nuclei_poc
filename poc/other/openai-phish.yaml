@@ -8,9 +8,8 @@ info:
     A openai phishing website was detected
   reference:
     - https://openai.com
-  metadata:
-    max-request: 1
   tags: phishing,openai,osint
+
 http:
   - method: GET
     path:
@@ -32,4 +31,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"openai.com")'
-# digest: 4a0a00473045022100d5a6f176b62a285c3cc0ae46e590a8840a6f1230802d2f804212d42db5fd2016022063c4c1ed98d205a2741049f25c62811db1349ebfef3b4bf3beceea8be9d44ebd:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220781a6a6e89172fd19d37dfb2410a21d1b4cb2608937565f7b292e4a375e56d45022100b86da283f4a9ee4e49e9ec0edf0601d59c073b5454626d284dd7787a56719d2f:922c64590222798bb761d5b6d8e72950

@@ -8,9 +8,8 @@ info:
     A lastpass phishing website was detected
   reference:
     - https://lastpass.com
-  metadata:
-    max-request: 1
   tags: phishing,lastpass,osint
+
 http:
   - method: GET
     path:
@@ -32,4 +31,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"lastpass.com")'
-# digest: 4b0a00483046022100a0c0a4e676f12f9f7b709a8116915bab51398b6bdac6bf00274f822a279ee1dc022100e73c3d8e57e0cd70d62a0f144bcca5e8924a46d2dca4ea5daf9c7b129afa7d9f:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100def2107861c9e9105b4be353614b96a5d415e8cc3f55985379c8e8ab647d29d102200db83423d210a8e4508cb7ae4628a5741e7a26d12ffaec1ca88f74df2169f846:922c64590222798bb761d5b6d8e72950

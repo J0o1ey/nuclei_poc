@@ -8,9 +8,8 @@ info:
     A pinterest phishing website was detected
   reference:
     - https://pinterest.com
-  metadata:
-    max-request: 1
   tags: phishing,pinterest,osint
+
 http:
   - method: GET
     path:
@@ -36,4 +35,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"pinterest.com")'
-# digest: 4a0a00473045022100b1cec1ce13bfe5c01e9445966e1d3b8219185ee47fd0c282a0ef7d5a15fb8d4302201e3d14fcb64d8e440d7b6a6878b8984524c25b8e9df449d1fb474584256844ec:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100926a2b8e90abc6569c9e6e19e62c86660ec4acedabc4a10beef6260bf78b395e0220535d6e66ca67b69e38ae0d953b0888adf8fa0c9b0fc735181e27ea23728d62b0:922c64590222798bb761d5b6d8e72950
