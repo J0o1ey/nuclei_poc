@@ -1,7 +1,7 @@
 id: doubleclick-pubads-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via DoubleClick PubAds
+  name: Content-Security-Policy Bypass - DoubleClick PubAds
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,doubleclick-pubads
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "doubleclick.net"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "doubleclick_pubads_csp_xss == true"
-# digest: 490a0046304402200407abd0c349838dfea8c91485beb5f512ade6ce239eadc436ed6cbef58b2d4502205ed03124281bf4fc67b81a62a68cfbb00e7ac95caddece06d2af410997367f3e:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a0048304602210090cfe65d86a1237519e3be1997156772e5e57bb18a537b74e4d7111ca8ab8470022100d59985bd02085689e6d337004f2bbee21631c605e85ba8c339b748a34a097aea:922c64590222798bb761d5b6d8e72950

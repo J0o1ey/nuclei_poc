@@ -1,7 +1,7 @@
 id: soundcloud-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via SoundCloud
+  name: Content-Security-Policy Bypass - SoundCloud
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,soundcloud
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "soundcloud.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "soundcloud_csp_xss == true"
-# digest: 4b0a00483046022100bc63e51c3a893e301e047cb4767d76547d27bff6698341e5af2c7a4fff31427e0221009dbd762772b2cbd2ca12bc197494cdb8fc2e40c657bd342e709271a8f4570eae:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100fc931aad3674f910ca0b641dc649589645873c2f050b2b2fff56ce0596a9468902205cefa945caf4367f7d34b0fe8921ce452e92ba69f106db91a0dc6ea7813597e1:922c64590222798bb761d5b6d8e72950

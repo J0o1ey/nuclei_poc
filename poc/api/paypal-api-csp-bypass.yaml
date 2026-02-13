@@ -1,7 +1,7 @@
 id: paypal-api-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via PayPal API
+  name: Content-Security-Policy Bypass - PayPal API
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,paypal-api
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "paypal.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "paypal_api_csp_xss == true"
-# digest: 4a0a0047304502200ea885c761237b66e898c1289d7f14ce0b733cdca9a368e0d26bbf9be8525df80221008d1fbb589844f63fe354b0478a10413753e73716c352f46b3e6d2942dce223e8:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220092b7e2fbec181fcf64e000484fc5fbd7823502f42d52132dbb420c49e175582022100b208ffe8f29e16801dc1750deabac6a861a68bea7cf8b73d2e1b5f40828fb704:922c64590222798bb761d5b6d8e72950

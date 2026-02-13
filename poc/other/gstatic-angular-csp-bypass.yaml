@@ -1,7 +1,7 @@
 id: gstatic-angular-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via GStatic Angular
+  name: Content-Security-Policy Bypass - GStatic Angular
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,gstatic-angular
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "gstatic.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "gstatic_angular_csp_xss == true"
-# digest: 490a00463044022059eb0b597c81859cc31b56c138977d6615fc9b539a4092bc80397fab497fd1a7022031bea3861d5b7abcc7e33e676acd0df032ccba575bc7301f8fbd16d9746c7dd4:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100fd582b9afcf492fb21cb3b5933624dc5b8a3d6b47bfcc43967f810258efbe3310221008ee73c6053f0e9ddfbff6aceb9eb7d3c05b0d7ca49f97de5a65a7cfb5ce965fd:922c64590222798bb761d5b6d8e72950

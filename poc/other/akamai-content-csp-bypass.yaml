@@ -1,7 +1,7 @@
 id: akamai-content-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via Akamai Content
+  name: Content-Security-Policy Bypass - Akamai Content
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,akamai-content
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "akamai.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "akamai_content_csp_xss == true"
-# digest: 490a00463044022039ea6d18785241d4d042916e1cf0ef0052352b7dadf1fc60666ad7d3485b6d11022056f2913aa7bcf129498011aac325c2d348916661c27f595dbb663cda4b6ebcb0:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022000ffd731b8b6855c429bc7bc54a4db73ba61af03b2093ba139a165c6034417e0022100cb777e362ba2f6611b18e919a1d01260ab002bed79f1968a50d1272af8272a1b:922c64590222798bb761d5b6d8e72950

@@ -10,12 +10,11 @@ info:
     cvss-score: 0.0
     cwe-id: CWE-200
   metadata:
-    max-request: 1
     verified: true
     shodan-query: http.title:"RocketMq-console-ng"
   tags: panel,apache
 
-http:
+requests:
   - method: GET
     path:
       - '{{BaseURL}}'

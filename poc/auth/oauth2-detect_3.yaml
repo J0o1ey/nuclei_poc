@@ -7,7 +7,7 @@ info:
   description: Try to detect OAuth 2.0 Authorization Server via the "oauth/token" endpoint
   metadata:
     max-request: 1
-  tags: tech,oauth,discovery
+  tags: tech,oauth
 
 http:
   - method: POST

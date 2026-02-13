@@ -6,10 +6,8 @@ info:
   severity: info
   description: Detects HashiCorp Vault
   tags: tech,hashicorp
-  metadata:
-    max-request: 1
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/ui/vault/auth"

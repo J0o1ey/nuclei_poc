@@ -1,7 +1,7 @@
 id: x-api-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via X API
+  name: Content-Security-Policy Bypass - X API
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,x-api
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "x.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "x_api_csp_xss == true"
-# digest: 4b0a004830460221008050a9d5ce0c8f139c7665204a4d26d974a52a1e7276376ebfd264272cf32c4b02210086f8a9868c2ca6f86ac23a3fd9722f38fe4c1151c244cc0c9c65883ed0ed1f2e:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022021590e8b57ea477329895f8bb96244e58e8cb6b7435d527347226d363252369702210099bc6089ef6ff069790c6dbca27964af30179652a3f2c42421131add4f0d8601:922c64590222798bb761d5b6d8e72950

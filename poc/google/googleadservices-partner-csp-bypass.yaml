@@ -1,7 +1,7 @@
 id: googleadservices-partner-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via Google Ad Services Partner
+  name: Content-Security-Policy Bypass - Google Ad Services Partner
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,googleadservices-partner
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "googleadservices.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "googleadservices_partner_csp_xss == true"
-# digest: 4a0a0047304502210099254b0e94650e3cd19599eef119b351553ce1c4f95a97b55cfaa7dca291ae05022025ec3420f975bbb111658da3bcd914282ffcbc0c532c84da05ac3ea2999506de:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402201af57eeb6a67b1eb842cedab15d452c0481e11ce1d585b9fd6ddb77f655e7bdd022025312272e004d9e2d52ce69d4a6533ee27548e3510e2229c9e1358c782974d60:922c64590222798bb761d5b6d8e72950

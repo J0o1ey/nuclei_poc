@@ -1,7 +1,7 @@
 id: google-maps-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via Google Maps
+  name: Content-Security-Policy Bypass - Google Maps
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,google-maps
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "google.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "google_maps_csp_xss == true"
-# digest: 4a0a004730450221009ec461f8134686a15c08424faa3c6c22a797c8280e977cba751d9d173c693cdf02207584d3eb77c8455778edcfe03774363e18b7383b5a77e5bdd50d56b5c4a07bc9:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100aa472803c61f9079f456368715efc9520b543b89272ab628c41c74fcb2e9dcb402202be1d6894c61ff84d4d59a3edb6b8084956bd449ab170675e2d63fad84e02904:922c64590222798bb761d5b6d8e72950

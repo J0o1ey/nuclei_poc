@@ -1,7 +1,7 @@
 id: amazon-romania-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via Amazon Romania
+  name: Content-Security-Policy Bypass - Amazon Romania
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,amazon-romania
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "amazon.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "amazon_romania_csp_xss == true"
-# digest: 4a0a004730450221009a1a79c29af27dbf05e6be56ea2fe66d9601c3f39bfe20c3f6b158045b3d8af7022003c320c81b1f373aea4edd8e08e81162cb1e1a852cbee1b7273ef31bde8f3808:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221009be4a337333ab4e29f07c645abdc0eb5ac992dc1a12d05f98441bc9598cb05b5022100f6070314376bf21f948b52486361171c0c42acc3386a34f35e201b7f423a02d8:922c64590222798bb761d5b6d8e72950

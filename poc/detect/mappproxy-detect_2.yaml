@@ -12,7 +12,7 @@ info:
   metadata:
     max-request: 2
     shodan-query: http.html:"Welcome to MapProxy"
-  tags: tech,mapproxy,detect,discovery
+  tags: tech,mapproxy,detect
 
 http:
   - method: GET

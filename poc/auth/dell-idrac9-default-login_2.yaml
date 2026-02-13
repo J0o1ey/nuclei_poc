@@ -10,10 +10,8 @@ info:
   classification:
     cwe-id: cwe-798
   tags: dell,idrac,default-login
-  metadata:
-    max-request: 1
 
-http:
+requests:
   - raw:
       - |
         POST /sysmgmt/2015/bmc/session HTTP/1.1

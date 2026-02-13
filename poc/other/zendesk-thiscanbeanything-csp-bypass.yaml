@@ -1,7 +1,7 @@
 id: zendesk-thiscanbeanything-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via Zendesk ThisCanBeAnything
+  name: Content-Security-Policy Bypass - Zendesk ThisCanBeAnything
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,zendesk-thiscanbeanything
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "zendesk.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "zendesk_thiscanbeanything_csp_xss == true"
-# digest: 4a0a0047304502206c43a0d7e72af836a48a2aa50c6410dd3f7a59bbd57880ddeaefa08c6c6d97a0022100babb2a49134fcd18eb74e16eddf33866882181a8096ddf98eb537eed1a0cee30:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100d8c935817b4370ff61c3b86956c5cb4b991401cc203ee56f028cf1acef2217b102205c46a9f73ccb78c024371221fe4ec1793f2e357a3bca04cd6a22257340c4625c:922c64590222798bb761d5b6d8e72950

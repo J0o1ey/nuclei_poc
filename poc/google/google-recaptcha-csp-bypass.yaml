@@ -1,7 +1,7 @@
 id: google-recaptcha-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via Google reCAPTCHA
+  name: Content-Security-Policy Bypass - Google reCAPTCHA
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,google-recaptcha
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "google.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "google_recaptcha_csp_xss == true"
-# digest: 4a0a0047304502207d16179d3161fd553aa20c11374a2b6e60c47cc11a9124f144a6d6e3d1fcf59b022100807d7725bfe3d46a3c9e7f52f711e1ddfa50417c67129010e9c1e8b8bf37d6cf:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022009511b75beca3aeda94bccd3805e2ce3135ea0c9aa9d234fd1d83ef0c6857f9c0221009b5d3fdc272f1745ee6c9a98ce3530aa8b88e5e08dd8bab770eb3d6319855210:922c64590222798bb761d5b6d8e72950

@@ -1,7 +1,7 @@
 id: criteo-cas-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via Criteo CAS
+  name: Content-Security-Policy Bypass - Criteo CAS
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,criteo-cas
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "criteo.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "criteo_cas_csp_xss == true"
-# digest: 4b0a00483046022100a7e290e7404a97007eb976b024e7b575d872ae8e92be73994ce69649a603c2ca022100c3163ecba3768515c4f3bf370b2e07979f9677165526ddcb04f4662c2dc25782:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210089e69d58253c2bc7f95cca3dd0db9fe02ad24fce3e4a4403b2010353eeae4b1e02203cc9e58a0ddbb6c17f5445ef597574fe327ea4c02543e2d9e26234d58dc6440a:922c64590222798bb761d5b6d8e72950

@@ -1,7 +1,7 @@
 id: snyk-go-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via Snyk Go
+  name: Content-Security-Policy Bypass - Snyk Go
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,snyk-go
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "snyk.io"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "snyk_go_csp_xss == true"
-# digest: 4b0a00483046022100de63844d2390bfcc762892cce9189c10862d95d42ead9f0730b9c3cbc89a4ad3022100e05026eaa82f478abc172d0565b5570d54dd73668f2defe2f8b593bcbbada39e:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100ea99fbbcf03922c7b6b9fae8d130fbb0add2c7860d2a024b7997c8a0923739f9022100df5f7e4fbfa816726b8bb798748b1d3aa8530ee7fddea5565760e938827dedda:922c64590222798bb761d5b6d8e72950

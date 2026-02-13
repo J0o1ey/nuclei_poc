@@ -1,7 +1,7 @@
 id: taobao-suggest-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via Taobao Suggest
+  name: Content-Security-Policy Bypass - Taobao Suggest
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,taobao-suggest
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "taobao.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "taobao_suggest_csp_xss == true"
-# digest: 4a0a00473045022100fc27d973ad2960fcab12fea17bd97018ba3de413c4d4f0f36411c4e48cebcb9c0220549cba3e08fcb1a5ad3a70c4fd89647471ed1e6330f57a459047ea2437b31f63:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100a36b9600ac844d7d2f27dab2e7c77c679508856e20b0a9eee782f79e5c1b352402203e2c666134649b3a1120402774113c755512b9e6208bdef1a4ed4e1a23a17b4f:922c64590222798bb761d5b6d8e72950

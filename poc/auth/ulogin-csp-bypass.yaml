@@ -1,7 +1,7 @@
 id: ulogin-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via ULogin
+  name: Content-Security-Policy Bypass - ULogin
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,ulogin
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "ulogin.ru"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "ulogin_csp_xss == true"
-# digest: 4b0a004830460221008d86653d78325568f601f6fc73956e43acdad61b869a024a236a275442b69f12022100d50bfa2b8f4a303034f68915333a87adbf1d3b8df619397f546defc9603f5917:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220396cf20eee376cc5cf8f4b3d6868e64013b2e49894015d8b5593372e178f69cc022062c46fab94ed15101c8b93ab7b4f0f5420d132d5adb4f4c6074c694a09455784:922c64590222798bb761d5b6d8e72950

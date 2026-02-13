@@ -9,7 +9,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"MobSF"
-  tags: misconfig,exposure,mobsf,vuln
+  tags: misconfig,exposure,mobsf
 
 http:
   - method: GET

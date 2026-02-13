@@ -2,7 +2,7 @@ id: woofilter_pro-68ac08b0-19f7-4e05-80f8-0eb4e7b96a5f
 
 info:
   name: >
-    Product Filter Pro <= 2.7.6 - Unauthenticated SQL Injection
+    Product Filter Pro < 2.9.6 - Unauthenticated SQL Injection
   author: topscoder
   severity: critical
   description: >
@@ -32,16 +32,8 @@ http:
         name: version
         part: body
         group: 1
-        internal: true
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
-
-      - type: regex
-        name: version
-        part: body
-        group: 1
-        regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - "(?mi)Stable tag:\\s*([0-9.]+)"
 
     matchers-condition: and
     matchers:
@@ -56,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 2.7.6')
+          - compare_versions(version, '< 2.9.6')

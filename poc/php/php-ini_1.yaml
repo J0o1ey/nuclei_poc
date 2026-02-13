@@ -10,7 +10,7 @@ info:
     shodan-query: php.ini
   tags: config,exposure,files
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/php.ini"

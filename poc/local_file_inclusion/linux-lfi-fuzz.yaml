@@ -10,10 +10,9 @@ info:
   tags: lfi,dast,linux
 
 http:
-  - pre-condition:
-      - type: dsl
-        dsl:
-          - 'method == "GET"'
+  - method: GET
+    path:
+      - '{{BaseURL}}'
 
     payloads:
       nix_fuzz:

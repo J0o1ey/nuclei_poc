@@ -3,16 +3,12 @@ id: nginx-status
 info:
   name: Nginx Status Page
   author: dhiyaneshDK
-  severity: info
-  tags: misconfig,nginx,status
-  metadata:
-    max-request: 2
+  severity: low
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/nginx_status"
-      - "{{BaseURL}}/nginx-status"
 
     matchers-condition: and
     matchers:

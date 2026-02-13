@@ -1,7 +1,7 @@
 id: hubspot-forms-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via HubSpot Forms
+  name: Content-Security-Policy Bypass - HubSpot Forms
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,hubspot-forms
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "hubspot.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "hubspot_forms_csp_xss == true"
-# digest: 4a0a00473045022100c120d8ef112174bfd796bc9228ed84ad347c62fdcf1e2cf362f3a3c2f7a65d5e02200184871a66442493c29ded85eb9cf34d31d8caae02ba34c3fc5179dd2ccebe25:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221009e8a051d566940492b976c072883bfddc32a352f1eb8f237ecd77db17c430bb50221009ece5079647623a2bc37cb339a561c55baa652a0a1f7873b68e656314c172c82:922c64590222798bb761d5b6d8e72950

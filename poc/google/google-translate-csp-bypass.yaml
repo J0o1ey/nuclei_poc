@@ -1,7 +1,7 @@
 id: google-translate-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via Google Translate
+  name: Content-Security-Policy Bypass - Google Translate
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,google-translate
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "google.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "google_translate_csp_xss == true"
-# digest: 490a004630440220056c64122401d4520c159c3e6623c74e13a690771be27ac9b282e6ac3e122a7b02205d911a5c2d76701442c18732f6f324b873585f050593a3ff3b13a79310a951ae:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100df45dede42fbb13775476123b1a7cd9fef522e935ac4897dc83f3dda1f9580f0022030fd5b1349ec26ccd2de2ae9b7ca87f081758dd3641c42a8d1ea854ba490e813:922c64590222798bb761d5b6d8e72950

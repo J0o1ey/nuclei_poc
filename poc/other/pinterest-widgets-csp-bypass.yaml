@@ -1,7 +1,7 @@
 id: pinterest-widgets-csp-bypass
 
 info:
-  name: Content-Security-Policy Bypass via Pinterest Widgets
+  name: Content-Security-Policy Bypass - Pinterest Widgets
   author: renniepak,DhiyaneshDK
   severity: medium
   reference:
@@ -9,6 +9,22 @@ info:
   metadata:
     verified: true
   tags: xss,csp-bypass,pinterest-widgets
+
+flow: http(1) && headless(1)
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+
+    matchers:
+      - type: word
+        part: header
+        words:
+          - "Content-Security-Policy"
+          - "pinterest.com"
+        condition: and
+        internal: true
 
 headless:
   - steps:
@@ -36,4 +52,4 @@ headless:
       - type: dsl
         dsl:
           - "pinterest_widgets_csp_xss == true"
-# digest: 4a0a004730450221009e73632800df359d6e849c56d32e7349257bd66c2b6233ba82601ef129c2d6720220707e52553d77b9be2334d77808fafa0fd6e7714f7a3f12ea075f6089afc87dee:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100c868be9eee33d2d14b7ae997469c5a893ad2837a8a60c6ac25aa5e5f40c221d7022063d5d8a69eca66b13110262b364bfeb161ccf3b537f7bbebf738301e11cf0c9c:922c64590222798bb761d5b6d8e72950
