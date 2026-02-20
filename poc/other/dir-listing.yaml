@@ -1,9 +1,9 @@
-id: dir-listing
+id: dir-listing-2
 
 info:
   name: Directory Listing
   author: notnotnotveg
-  severity: informative
+  severity: info
 
 requests:
   - method: GET

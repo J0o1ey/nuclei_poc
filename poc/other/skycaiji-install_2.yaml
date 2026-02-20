@@ -6,8 +6,10 @@ info:
   severity: high
   description: SkyCaiji was discovered.
   tags: tech,skycaiji,exposure,misconfig
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - '{{BaseURL}}/index.php?s=/install/index/index'

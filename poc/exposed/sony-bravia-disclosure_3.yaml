@@ -10,8 +10,10 @@ info:
     - https://www.zeroscience.mk/en/vulnerabilities/ZSL-2020-5610.php
     - https://www.zeroscience.mk/codes/sonybravia_sysinfo.txt
   tags: misconfig,sony,unauth,exposure
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - '{{BaseURL}}/api/system'

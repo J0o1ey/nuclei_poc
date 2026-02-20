@@ -5,10 +5,11 @@ info:
   author: geeknik
   severity: info
   metadata:
-    verified: "true"
+    max-request: 1
+    verified: true
   tags: misc
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

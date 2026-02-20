@@ -11,8 +11,10 @@ info:
     cwe-id: CWE-200
   remediation: Ensure the approved and updated version is installed.
   tags: exposure,files
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/phpunit.xml"

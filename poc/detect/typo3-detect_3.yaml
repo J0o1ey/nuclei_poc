@@ -5,10 +5,11 @@ info:
   author: dadevel
   severity: info
   metadata:
+    max-request: 1
     shodan-query: http.component:"TYPO3"
   tags: tech,typo3
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

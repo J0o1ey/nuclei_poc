@@ -5,11 +5,12 @@ info:
   author: pdteam
   severity: info
   metadata:
+    max-request: 1
     verified: true
     shodan-query: http.html:"Interactsh Server"
   tags: tech,interactsh
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

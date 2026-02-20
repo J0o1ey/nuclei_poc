@@ -6,8 +6,10 @@ info:
   severity: medium
   description: Searches for exposed Cobbler Directories
   tags: cobbler,exposure,misconfig
+  metadata:
+    max-request: 2
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/cobbler/"
