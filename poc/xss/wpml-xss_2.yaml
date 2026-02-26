@@ -14,7 +14,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-  tags: xss,wp,wordpress,wpml,wp-plugin,vuln
+  tags: xss,wp,wordpress,wpml,wp-plugin
 
 http:
   - method: GET

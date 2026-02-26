@@ -4,7 +4,6 @@ info:
   name: Apache NiFi detect
   author: dwisiswant0
   severity: info
-  tags: tech,apache,nifi
 
 requests:
   - method: GET
@@ -16,7 +15,6 @@ requests:
       - "{{BaseURL}}/flow/registries"
       - "{{BaseURL}}/system-diagnostics"
       - "{{BaseURL}}/nifi-api/access/config"
-
     matchers-condition: and
     matchers:
       - type: regex
@@ -24,7 +22,6 @@ requests:
           - "supportsLogin"
           - "disconnectedNodeAcknowledged"
           - "(aggregate|node)Snapshots?"
-
       - type: status
         status:
           - 200

@@ -14,7 +14,7 @@ info:
     verified: true
     max-request: 2
     google-query: inurl:mod_jvtwitter/jvtwitter.php?id=
-  tags: joomla,jvtwitter,xss,vuln
+  tags: joomla,jvtwitter,xss
 
 http:
   - method: GET

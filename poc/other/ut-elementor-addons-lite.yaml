@@ -1,15 +1,15 @@
-id: ut-elementor-addons-lite
+id: ut-elementor-addons-lite-21cfaa25b53ee99358fa1bac9bfcd43b
 
 info:
   name: >
-    Ultra Addons Lite for Elementor <= 1.1.8 - Authenticated (Contributor+) Restricted Post Disclosure
+    Ultra Addons Lite for Elementor <= 1.1.8 - Authenticated (Contributor+) Stored Cross-Site Scripting
   author: topscoder
   severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/476883a8-c258-477b-99d3-f35423d7a312?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/edb34cf0-cbd7-412d-9ac3-2e065c7f32ab?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

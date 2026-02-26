@@ -1,4 +1,5 @@
 id: solar-log-authbypass
+
 info:
   name: Solar-Log 500 2.8.2 - Incorrect Access Control
   author: geeknik
@@ -8,20 +9,26 @@ info:
     - https://www.exploit-db.com/exploits/49986
   classification:
     cwe-id: CWE-284
-  tags: solarlog,auth-bypass
-requests:
+  metadata:
+    max-request: 1
+  tags: solarlog,auth-bypass,edb
+
+http:
   - method: GET
     path:
       - "{{BaseURL}}/lan.html"
+
     matchers-condition: and
     matchers:
       - type: status
         status:
           - 200
+
       - type: word
         part: header
         words:
           - "IPC@CHIP"
+
       - type: word
         part: body
         words:
@@ -29,4 +36,4 @@ requests:
           - "mailto:info@solar-log.com"
         condition: and
 
-# Enhanced by mp on 2022/04/12
+# digest: 4a0a00473045022100befc1d4bf898609aed2567951ef9d96923407a7ac74979b6969d38b7e0d2295702200e9232cb6c80aebd34b60aa9dc6af19437484593d9a84e0af8b06fbd584053d4:922c64590222798bb761d5b6d8e72950

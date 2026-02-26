@@ -12,7 +12,7 @@ info:
     vendor: payara
     product: payara
     shodan-query: 'title:"Payara Micro #badassfish - Error report"'
-  tags: tech,payara,discovery
+  tags: tech,payara
 
 http:
   - method: GET

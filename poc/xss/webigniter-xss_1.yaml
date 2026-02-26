@@ -12,7 +12,7 @@ info:
   metadata:
     verified: true
     max-request: 2
-  tags: xss,webigniter,vuln
+  tags: xss,webigniter
 
 http:
   - method: GET

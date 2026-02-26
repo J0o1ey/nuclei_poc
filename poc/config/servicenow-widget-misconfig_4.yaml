@@ -16,7 +16,7 @@ info:
     vendor: servicenow
     product: servicenow
     shodan-query: title:"servicenow"
-  tags: servicenow,widget,misconfig,vuln
+  tags: servicenow,widget,misconfig
 
 http:
   - raw:

@@ -19,7 +19,7 @@ info:
     shodan-query: "X-Influxdb-"
     product: influxdb
     vendor: influxdata
-  tags: tech,influxdb,api,discovery
+  tags: tech,influxdb,api
 
 http:
   - method: GET

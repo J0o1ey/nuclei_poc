@@ -1,14 +1,13 @@
 id: springboot-loggers
 
 info:
-  name: Springboot Loggers - Exposure
-  author: that_juan_,dwisiswant0,wdahlenb,TheZakMan
+  name: Detect Springboot Loggers
+  author: that_juan_,dwisiswant0,wdahlenb
   severity: low
   description: Springboot Loggers is exposed.
   metadata:
     max-request: 2
-    verified: true
-  tags: springboot,exposure,misconfig,vuln
+  tags: springboot,exposure,misconfig
 
 http:
   - method: GET
@@ -20,18 +19,22 @@ http:
 
     matchers-condition: and
     matchers:
-      - type: dsl
-        dsl:
-          - 'status_code == 200'
-          - 'contains(body, "\"loggers\"")'
-          - 'contains_any(tolower(content_type), "application/json", "application/vnd.spring-boot")'
-        condition: and
-
       - type: word
         part: body
         words:
+          - '"loggers"'
           - '"levels"'
-          - '"configuredLevel"'
-          - '"effectiveLevel"'
+        condition: and
+
+      - type: word
+        part: header
+        words:
+          - "application/json"
+          - "application/vnd.spring-boot.actuator"
+          - "application/vnd.spring-boot.actuator.v1+json"
         condition: or
-# digest: 4a0a00473045022078e9088fde046fdecfc872985bb5ccd101b42802d0b444ec091fe70f3f6b2a31022100d1b8045371332c573892eb71494033d68bf66cca65fd4fc686c4472fd1137242:922c64590222798bb761d5b6d8e72950
+
+      - type: status
+        status:
+          - 200
+# digest: 4a0a00473045022100ca166f64f52ded412b61ec006959c4e06b7235418ae58e6ccb5ba3d2827b213702203bd2f3815c1886bce98455368332855df0e66fc6d583585510e3ecc175abae9b:922c64590222798bb761d5b6d8e72950
