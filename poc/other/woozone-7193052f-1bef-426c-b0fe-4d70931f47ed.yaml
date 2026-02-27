@@ -2,7 +2,7 @@ id: woozone-7193052f-1bef-426c-b0fe-4d70931f47ed
 
 info:
   name: >
-    WooCommerce Amazon Affiliates - Wordpress Plugin <= 14.0.10 - Missing Authorization
+    WooCommerce Amazon Affiliates - Wordpress Plugin < 14.1.00 - Missing Authorization
   author: topscoder
   severity: high
   description: >
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 14.0.10')
+          - compare_versions(version, '< 14.1.00')

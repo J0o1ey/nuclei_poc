@@ -2,7 +2,7 @@ id: wishlist_member_x-d4f29711-6aec-4481-a3bc-2303592bb79c
 
 info:
   name: >
-    WishList Member X <= 3.25.1 - Authenticated (Subscriber+) Remote Code Execution
+    WishList Member X < 3.26.7 - Authenticated (Subscriber+) Remote Code Execution
   author: topscoder
   severity: low
   description: >
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.25.1')
+          - compare_versions(version, '< 3.26.7')

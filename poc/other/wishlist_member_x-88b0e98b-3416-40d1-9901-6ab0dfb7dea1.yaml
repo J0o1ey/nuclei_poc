@@ -2,7 +2,7 @@ id: wishlist_member_x-88b0e98b-3416-40d1-9901-6ab0dfb7dea1
 
 info:
   name: >
-    WishList Member X <= 3.25.1 - Missing Authorization to Stored Cross-Site Scripting
+    WishList Member X < 3.26.7 - Missing Authorization to Stored Cross-Site Scripting
   author: topscoder
   severity: high
   description: >
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.25.1')
+          - compare_versions(version, '< 3.26.7')

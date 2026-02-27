@@ -2,7 +2,7 @@ id: css3_web_pricing_tables_grids-7cf70172-b8d7-4854-ab8d-f57b430ada67
 
 info:
   name: >
-    CSS3 Compare Pricing Tables for WordPress <= 11.5 - Missing Authorization
+    CSS3 Compare Pricing Tables for WordPress <= 11.6 - Missing Authorization
   author: topscoder
   severity: high
   description: >
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 11.5')
+          - compare_versions(version, '<= 11.6')
