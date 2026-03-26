@@ -7,8 +7,10 @@ info:
   reference:
     - https://mkyong.com/spring-boot/spring-rest-error-handling-example/
   tags: tech,java,spring
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/error"

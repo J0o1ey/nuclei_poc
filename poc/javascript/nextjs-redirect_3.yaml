@@ -19,7 +19,7 @@ info:
     shodan-query: html:"/_next/static"
     product: next.js
     vendor: zeit
-  tags: redirect,nextjs,xss
+  tags: redirect,nextjs,xss,vuln
 
 http:
   - method: GET
@@ -36,4 +36,4 @@ http:
       - type: status
         status:
           - 308
-# digest: 490a0046304402202093e5c82557c7277bf20f7627b804ee1227084f0e793d87986a31122754c786022048b7855125a110d87cc44e67ea8c149b25b5626fb83a7c2ead070ee9e89b7b9d:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100b185f08167632fc3b126635ada113c1e8edd4fcf3cea19d3ebe5d49607239dbe022003d3c92ca7586862fa073c1d095604eb1c86acd74e80f9b03cc96f526e7c749b:922c64590222798bb761d5b6d8e72950

@@ -10,10 +10,11 @@ info:
     cvss-score: 0.0
     cwe-id: CWE-200
   metadata:
-    fofa-dork: 'app="Qualcomm-4G-LTE-WiFi-VoIP-Router"'
+    max-request: 1
+    fofa-query: 'app="Qualcomm-4G-LTE-WiFi-VoIP-Router"'
   tags: panel,qualcomm,iot,router,voip
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

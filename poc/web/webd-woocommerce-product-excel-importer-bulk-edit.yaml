@@ -1,15 +1,15 @@
-id: webd-woocommerce-product-excel-importer-bulk-edit-097022759bbbea5270ab0fffa57bd177
+id: webd-woocommerce-product-excel-importer-bulk-edit
 
 info:
   name: >
-    Product Excel Import Export & Bulk Edit for WooCommerce <= 4.7 - Reflected Cross-Site Scripting
+    PHPSpreadsheet Library < 2.3.0 - XXE Injection
   author: topscoder
-  severity: medium
+  severity: low
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/07a357f4-011e-45d3-bce3-6b5e38cada38?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/38f950b7-e3a0-4e05-a8b0-9cc6b6c66b0c?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/webd-woocommerce-product-excel-importer-bulk-edit/"
     google-query: inurl:"/wp-content/plugins/webd-woocommerce-product-excel-importer-bulk-edit/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,webd-woocommerce-product-excel-importer-bulk-edit,medium
+  tags: cve,wordpress,wp-plugin,webd-woocommerce-product-excel-importer-bulk-edit,low
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 4.7')
+          - compare_versions(version, '<= 4.6')

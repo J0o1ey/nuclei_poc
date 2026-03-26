@@ -8,8 +8,10 @@ info:
   reference:
     - https://spidercontrol.net/spidercontrol-inside/
   tags: spidercontrol,scada,exposure
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - '{{BaseURL}}/cgi-bin/GetSrvInfo.exe'

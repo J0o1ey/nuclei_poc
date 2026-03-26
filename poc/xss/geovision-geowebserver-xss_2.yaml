@@ -11,9 +11,9 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
     cwe-id: CWE-22
-  tags: geowebserver,xss,packetstorm
   metadata:
     max-request: 1
+  tags: geowebserver,xss,packetstorm,vuln
 
 http:
   - raw:
@@ -24,7 +24,6 @@ http:
 
     matchers-condition: and
     matchers:
-
       - type: regex
         regex:
           - "</script><script>alert(document.domain)</script>"
@@ -38,5 +37,4 @@ http:
         part: header
         words:
           - text/html
-
-# Enhanced by mp on 2022/07/27
+# digest: 4a0a0047304502205b5727eda0ba3daebf759641b2e907e7e2dac8406592db98063d25906ba12824022100b0b6b74743f61927150cb2229fc821c2a35f711632f2972cbd7fbd6f2c850263:922c64590222798bb761d5b6d8e72950

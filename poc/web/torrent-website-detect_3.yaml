@@ -11,7 +11,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-  tags: torrent,website,detect,piracy,osint
+  tags: torrent,website,detect,piracy,osint,vuln
 
 http:
   - method: GET
@@ -37,4 +37,4 @@ http:
         part: body
         regex:
           - "magnet:\\?xt=urn:btih:[a-zA-Z0-9]*[^\"'\\s<]*"
-# digest: 490a0046304402204e8d736b9711edb432a3ef80a426aa2214b54227c0dde2b1c523ec6428c8080c022029e9c3961cc9ec3f60c31c0826e99ce0f88d652df270868e30348a1d7136cc2e:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502204589f02ade27901ed6adcb92c2db641c7d1155bfe34c80af8ed41894ebb08c46022100e782a6f1f31e682f48476a2ab878fbedd01276dfa95f807beb081be3f0e58365:922c64590222798bb761d5b6d8e72950

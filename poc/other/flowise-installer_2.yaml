@@ -9,7 +9,7 @@ info:
   metadata:
     verified: true
     shodan-query: http.title:"Flowise - Build AI Agents, Visually"
-  tags: misconfig,exposure,install,flowise,intrusive
+  tags: misconfig,exposure,install,flowise,intrusive,vuln,ai
 
 variables:
   name: "{{to_lower(rand_text_alpha(5))}}"
@@ -44,4 +44,4 @@ http:
           - 'contains_all(body,"{{name}}","{{email}}","organization")'
           - 'status_code == 201'
         condition: and
-# digest: 4a0a0047304502207451b88d1875ceb1814cee2aec4225d3c518dc78eb605bec2062ac23239f27e70221008bba6ada03a56b093054ec25a6f122a7ae43717f28520dd86b38000c94b0881d:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221008b918ed26527adb5aafffbdacaa65f5066b6907695f84d3cea2a3c86c3748b1a022100816cd0a3fe90bf0f7756b6c382f635ba2f1ea6328689e3dda32601500146f0ea:922c64590222798bb761d5b6d8e72950

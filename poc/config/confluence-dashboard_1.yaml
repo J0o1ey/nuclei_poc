@@ -9,7 +9,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Dashboard - Confluence"
-  tags: misconfig,exposure,confluence,atlassian
+  tags: misconfig,exposure,confluence,atlassian,discovery
 
 http:
   - method: GET
@@ -37,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a00463044022075f6208aa4ba2e53fef553829aab9ae62e65a962c78f9b522a4e6fc8f58f0ee402204feaddf968bcd70fa6bb643b2a30ae06a22c75e7b34cfcc432563681d983e836:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100fe42233bee6cdc149d8dcf764f55fe3a2b074afe7728ea405c842f82ba2200ac02200fd8861c7954bf83f0f6b4a977f0d362e97b9078fde73bb8b0107b368abeb48f:922c64590222798bb761d5b6d8e72950
