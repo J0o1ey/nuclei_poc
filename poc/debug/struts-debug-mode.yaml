@@ -4,9 +4,11 @@ info:
   name: Apache Struts setup in Debug-Mode
   author: pdteam
   severity: low
-  tags: logs,struts,apache,exposure
+  tags: logs,struts,apache,exposure,setup
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - '{{BaseURL}}'

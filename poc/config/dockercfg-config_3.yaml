@@ -6,8 +6,6 @@ info:
   severity: high
   description: Docker registry authentication data
   tags: docker,exposure,config
-  metadata:
-    max-request: 2
 
 http:
   - method: GET

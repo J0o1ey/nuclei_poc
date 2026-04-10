@@ -13,7 +13,7 @@ info:
     max-request: 1
     shodan-query: html:"veraCoreScreenHeight"
     fofa-query: body="veraCoreScreenHeight"
-  tags: panel,veracore,login,detect,discovery
+  tags: panel,veracore,login,detect
 
 http:
   - method: GET

@@ -14,7 +14,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: body="js/select2css.js"
-  tags: feiyuxing,info-leak,disclosure,vuln
+  tags: feiyuxing,info-leak,disclosure
 
 http:
   - method: GET

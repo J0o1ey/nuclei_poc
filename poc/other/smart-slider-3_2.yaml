@@ -11,13 +11,14 @@ info:
     wpscan: https://wpscan.com/plugin/smart-slider-3
   tags: tech,wordpress,wp-plugin,top-100,top-200
 
-http:
+requests:
   - method: GET
+
     path:
       - "{{BaseURL}}/wp-content/plugins/smart-slider-3/readme.txt"
 
     payloads:
-      last_version: helpers/wordpress/plugins/smart-slider-3.txt
+      last_version: ../../../helpers/wordpress/plugins/smart-slider-3.txt
 
     extractors:
       - type: regex
@@ -46,4 +47,3 @@ http:
         part: body
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a00473045022019b5f154cc7a0c5061ac8c26da89bf8129e637658fbdef462a36aecdaf6687d1022100a2a12926917ad7c897459b9eb74050b27b9cec8fb673d000788eeb7504a5a139:922c64590222798bb761d5b6d8e72950

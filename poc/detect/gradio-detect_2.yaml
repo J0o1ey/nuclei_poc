@@ -12,7 +12,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: "Gradio"
-  tags: gradio,tech,detect,discovery
+  tags: gradio,tech,detect
 
 http:
   - method: GET

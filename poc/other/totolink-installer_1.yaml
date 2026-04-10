@@ -11,7 +11,7 @@ info:
     product: TOTOLINK
     shodan-query: title:"TOTOLINK"
     fofa-query: title="TOTOLINK"
-  tags: totolink,router,setup,exposure,installer,vuln
+  tags: totolink,router,setup,exposure,installer
 
 http:
   - method: GET

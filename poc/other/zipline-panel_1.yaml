@@ -14,7 +14,7 @@ info:
     vendor: diced
     product: zipline
     shodan-query: html:"Zipline"
-  tags: diced,zipline,login,panel,detect,discovery
+  tags: diced,zipline,login,panel,detect
 
 http:
   - method: GET

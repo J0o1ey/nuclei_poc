@@ -1,15 +1,15 @@
-id: store-locator-widget
+id: store-locator-widget-8ce33e2fb64931fac9dd86a022a7c1ab
 
 info:
   name: >
-    Store Locator Widget <= 20200131 - Authenticated (Contributor+) Stored Cross-Site Scripting
+    Store Locator Widget <= 2025r2 - Cross-Site Request Forgery to Stored Cross-Site Scripting
   author: topscoder
-  severity: low
+  severity: medium
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/c65b6793-42e3-40cb-a6fe-b000c879d41f?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/7be669db-eb70-4cdd-9705-cb68781254e0?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/store-locator-widget/"
     google-query: inurl:"/wp-content/plugins/store-locator-widget/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,store-locator-widget,low
+  tags: cve,wordpress,wp-plugin,store-locator-widget,medium
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 20200131')
+          - compare_versions(version, '<= 2025r2')

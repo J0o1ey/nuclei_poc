@@ -13,10 +13,13 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N
     cvss-score: 5.4
     cwe-id: CWE-80
+    cpe: cpe:2.3:a:car_rental_management_system_project:car_rental_management_system:*:*:*:*:*:*:*:*
   metadata:
     verified: true
     max-request: 3
     shodan-query: http.html:"Car Rental Management System"
+    product: car_rental_management_system
+    vendor: car_rental_management_system_project
   tags: xss,cms,authenticated,edb,intrusive
 
 http:
@@ -50,7 +53,6 @@ http:
 
     host-redirects: true
     max-redirects: 2
-    cookie-reuse: true
 
     matchers-condition: and
     matchers:
@@ -67,5 +69,4 @@ http:
       - type: status
         status:
           - 200
-
-# digest: 4a0a00473045022075cca4cd4b4b7783a19e7ded03248fac883d9118b500c1d7ddd7126b35c70c74022100deffc0352c71d2def6eeb5b3003a150283d0fd06e0caf46343a05006c818569e:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a0048304602210098912c4d3795195fbeebc37bf15f9a0af83bb912d412dc2039b0acbcc8d50bb9022100c293e32826ff4dea159b9ee98abe7d594f61235b9222e96bf28e7aead65ba88b:922c64590222798bb761d5b6d8e72950

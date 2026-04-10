@@ -12,7 +12,7 @@ info:
     verified: true
     max-request: 3
     shodan-query: OrangeHRM
-  tags: orangehrm,hrm,login,panel,discovery
+  tags: orangehrm,hrm,login,panel
 
 http:
   - method: GET

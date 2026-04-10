@@ -21,7 +21,7 @@ info:
     max-request: 1
     shodan-query: title:"MAMP"
     fofa-query: title="MAMP"
-  tags: mamp,server,xss,vuln
+  tags: mamp,server,xss
 
 http:
   - method: GET

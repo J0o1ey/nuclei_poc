@@ -16,7 +16,7 @@ info:
     shodan-query: http.title:"datagerry"
     fofa-query: title="datagerry"
     google-query: intitle:"datagerry"
-  tags: panel,login,datagerry,detect,discovery
+  tags: panel,login,datagerry,detect
 
 http:
   - method: GET

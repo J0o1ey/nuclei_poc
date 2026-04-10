@@ -1,19 +1,13 @@
 id: symfony-database-config
 
-info:
-  name: Symfony Database Configuration Exposure
-  author: pdteam
-  severity: high
-  tags: config,exposure
-
+name: Symfony Database Configuration Exposure
+severity: high
+  
 requests:
   - method: GET
-    path:
-      - "{{BaseURL}}/config/databases.yml"
-    matchers:
-      - type: word
-        words:
-          - "class:"
-          - "param:"
-        condition: and
-        part: body
+    paths:
+      - "HOSTNAME/config/databases.yml"
+
+    patterns:
+      - 'class:'
+      - 'param:'
