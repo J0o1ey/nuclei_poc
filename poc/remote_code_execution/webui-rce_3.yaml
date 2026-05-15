@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-77
   metadata:
     max-request: 1
-  tags: webui,rce,edb
+  tags: webui,rce,edb,vuln
 
 http:
   - method: GET
@@ -30,5 +30,4 @@ http:
       - type: status
         status:
           - 200
-
-# digest: 4b0a00483046022100b14b49f95f50a9f32431c4491034a1b6d26c07aeab06537327c5e8451167d49f022100dd9a4785307420a24fb449ed847f552f61cb46a75a7f1560be1bea277fbbcbda:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100c2607a103b71aba735b082bf1be62ff391960f1685e13b82e10d3691c2a7920c022100f994b4246a676fcc6db9900f87fc11885041e589c25c5e900bd14133460f33aa:922c64590222798bb761d5b6d8e72950

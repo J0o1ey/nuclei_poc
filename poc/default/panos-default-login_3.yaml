@@ -11,9 +11,9 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
     cwe-id: CWE-522
-  tags: panos,default-login
   metadata:
     max-request: 1
+  tags: panos,default-login,vuln
 
 http:
   - raw:
@@ -45,5 +45,4 @@ http:
       - type: status
         status:
           - 200
-
-# Enhanced by mp on 2022/03/10
+# digest: 4b0a00483046022100a9a96d6c71952fdc073cdc5910aa6c48e66d5736168f3d736dcb293dee7719ba022100c6a18b3a98092df15a556c3793e35bc5164e4205f3c76ccacff090aabfcc2d6d:922c64590222798bb761d5b6d8e72950

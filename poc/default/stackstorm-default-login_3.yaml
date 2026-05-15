@@ -17,7 +17,7 @@ info:
     fofa-query: app="stackstorm"
     product: stackstorm
     vendor: stackstorm
-  tags: stackstorm,default-login
+  tags: stackstorm,default-login,vuln
 
 http:
   - raw:
@@ -46,4 +46,4 @@ http:
       - type: status
         status:
           - 201
-# digest: 4a0a004730450220126a3063e39599694a605993f8a66fc4dd58e38ef71aa678a3d68e379065a5bf022100c375ea6d5203ff39a338067e0444cf823dcce37c99145c909ce1b1ddb0002925:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100b87f1772811b4808d6bd2e297fa5e64e16fdcd5734a33f84d79325262e22f2b3022100f9318d4a0a0f0ab021149a0751234e08b89bebcb05174fb0d03bbb3c3a82a2fb:922c64590222798bb761d5b6d8e72950

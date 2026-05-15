@@ -8,11 +8,13 @@ info:
     Unauthorised SQL injection vulnerability in the Cloudlog system interface request_form. In addition to being able to exploit the SQL injection vulnerability to obtain information from the database, unauthenticated remote attackers can also.
   reference:
     - https://github.com/wy876/POC/blob/main/Cloudlog/Cloudlog%E7%B3%BB%E7%BB%9Frequest_form%E5%AD%98%E5%9C%A8SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E.md
+  classification:
+    cwe-id: CWE-89
   metadata:
     verified: true
     max-request: 1
     fofa-query: "Login - Cloudlog"
-  tags: cloudlog,sqli
+  tags: cloudlog,sqli,vuln
 
 variables:
   num: "999999999"
@@ -33,4 +35,4 @@ http:
           - 'contains(content_type, "text/html")'
           - 'status_code == 500'
         condition: and
-# digest: 4b0a00483046022100a6ca1dabe5caa689a5a6c85b4e305440a9ac05d1c8290a9f40af7f9abffee18a022100b3e485c1a6b280e358bf80316dca60d7eacd485ae25491140cb599968c08e12b:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100e722cce5a6218663d2bf22e30581503f33df16c5199e49c137330a2c6d37ee90022100dd2fb182ec408876f50d234b2e12d65d1f531440fe6025e88ccd8b3f20e87bbc:922c64590222798bb761d5b6d8e72950

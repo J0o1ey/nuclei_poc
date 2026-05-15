@@ -11,7 +11,9 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
     cwe-id: CWE-522
-  tags: samsung,default-login
+  metadata:
+    max-request: 1
+  tags: samsung,default-login,vuln
 
 http:
   - raw:
@@ -39,5 +41,4 @@ http:
       - type: status
         status:
           - 200
-
-# Enhanced by mp on 2022/03/11
+# digest: 490a0046304402200af63f33627a572b625bf2befcb90aaa1c3c1cd3a03cf3f65239a3b9d67325970220276ae4b550c38a56d213f7556bc8a7130b114d340c5920fb9f9a2b7bcc7ed7c4:922c64590222798bb761d5b6d8e72950

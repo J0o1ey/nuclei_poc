@@ -8,29 +8,15 @@ info:
   reference:
     - https://github.com/ilmila/J2EEScan/blob/master/src/main/java/burp/j2ee/issues/impl/LFIModule.java
     - https://gist.github.com/harisec/519dc6b45c6b594908c37d9ac19edbc3
+  classification:
+    cwe-id: CWE-23,CWE-73
   metadata:
     verified: true
-    max-request: 14
+    max-request: 13
     shodan-query: http.title:"J2EE"
-  tags: lfi,generic,j2ee
-
-flow: http(1) && http(2)
+  tags: lfi,generic,j2ee,vuln
 
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/"
-
-    matchers:
-      - type: word
-        words:
-          - "J2EE"
-          - "Java"
-          - "servlet"
-        condition: or
-        internal: true
-
-  - method: GET
   - method: GET
     path:
       - "{{BaseURL}}{{paths}}"
@@ -64,4 +50,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a0046304402202ff993cd6cf0a21281344ebd95cff196730e8edd0ff78525ab913eb1562efd0602202496f4afd4cdb3727cd4577ef41191cb7bfc1dfbe50946f02cf9c7d97bfb4133:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210084df97c31856cab8157eea242482fd78c82c95e8877313aea8198b70bef5f52802203ec36471693b7ccb85323e4758d0a2da2c662816d651366c890e2f655cc9d50c:922c64590222798bb761d5b6d8e72950

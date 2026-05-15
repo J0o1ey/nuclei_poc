@@ -19,7 +19,7 @@ info:
     shodan-query: title:"IDEMIA"
     product: sigma_wide
     vendor: idemia
-  tags: idemia,biometrics,default-login
+  tags: idemia,biometrics,default-login,vuln
 
 http:
   - raw:
@@ -51,4 +51,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100ccdc9742091e0afc2a8973293428c914f6c787c356736b8e65d6e74841b3687202207693cb367996f99b2032609746d529d8aae3249e34ab93af597d8cb87e11a0c1:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502205c2678d11637a26c1a8004f7e13649194f26a6c4915c731985da87c41c781918022100d9f126f142f2e27a7cf3eac74f54fce3567232fed1b27574690f1df7d44e9215:922c64590222798bb761d5b6d8e72950

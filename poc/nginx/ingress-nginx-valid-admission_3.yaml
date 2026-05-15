@@ -10,7 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: ssl:"ingress-nginx" port:8443
-  tags: tech,kubernetes,ingress,nginx,k8s
+  tags: tech,kubernetes,ingress,nginx,k8s,vuln
 
 variables:
   string: "{{to_lower(rand_base(5))}}"
@@ -53,11 +53,9 @@ http:
         }
 
     matchers:
-      - type: word
-        part: body
-        words:
-          - 'AdmissionReview'
-          - 'response'
-          - 'test-{{string}}'
+      - type: dsl
+        dsl:
+          - 'status_code == 200'
+          - 'contains(content_type, "application/json")'
+          - 'contains_all(body, "AdmissionReview", "test-{{string}}")'
         condition: and
-# digest: 4a0a00473045022100f046eccecf7c48210876e2ecad64811734871bc64ac08cc986e15e3183660a15022043d084460c8fbbb96edfd16e7278547daaf5d7d31d85d97fd7bcbade657fdb0e:922c64590222798bb761d5b6d8e72950

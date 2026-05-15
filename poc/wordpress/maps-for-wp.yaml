@@ -1,4 +1,4 @@
-id: maps-for-wp-b569d3df92030b74ccda3485781ad4d4
+id: maps-for-wp
 
 info:
   name: >
@@ -9,7 +9,7 @@ info:
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/41fc7e7e-c9bb-434a-9960-7f0f2292d922?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/a16c8b5d-fd93-49b4-b1d7-f4cd9248aef3?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 

@@ -1,12 +1,27 @@
 id: zend-config-file
 
-name: Zend Configuration File  
-severity: high
-  
+info:
+  name: Zend Configuration File
+  author: pdteam
+  severity: high
+  tags: config,exposure,zend,php
+
 requests:
   - method: GET
-    paths:
-      - "HOSTNAME/application/configs/application.ini"
+    path:
+      - "{{BaseURL}}/application/configs/application.ini"
 
-    patterns:
-      - "resources.db.params.password"
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "resources.db.params.password"
+
+      - type: word
+        words:
+          - "text/plain"
+        part: header
+
+      - type: status
+        status:
+          - 200

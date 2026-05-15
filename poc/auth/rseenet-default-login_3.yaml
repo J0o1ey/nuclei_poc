@@ -11,9 +11,9 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
     cwe-id: CWE-522
-  tags: rseenet,default-login
   metadata:
     max-request: 1
+  tags: rseenet,default-login,vuln
 
 http:
   - raw:
@@ -42,5 +42,4 @@ http:
         part: body
         words:
           - "User is succesfully logged."
-
-# Enhanced by mp on 2022/03/11
+# digest: 4a0a00473045022100ce2cb88f1f032317dbea8d243c886def620f2282c7da4058f7b24a3e50f59da002204c87c0f4541d2384b991df164503f274c2a6212034f7ee4e6180d159bf9f26ca:922c64590222798bb761d5b6d8e72950

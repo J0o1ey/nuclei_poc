@@ -8,12 +8,18 @@ info:
     Veeam Backup Enterprise Manager Login
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cve-id: CWE-200
+    cwe-id: CWE-200
   metadata:
     max-request: 1
     verified: true
-    shodan-query: title:"veeam backup enterprise manager"
-  tags: veeam,panel,enterprise-manager,login,detect
+    shodan-query:
+      - title:"veeam backup enterprise manager"
+      - http.favicon.hash:169658321
+      - '"Set-Cookie: .ASPXANONYMOUS" http.html:"Veeam"'
+    fofa-query:
+      - title="veeam backup enterprise manager"
+      - icon_hash="169658321"
+  tags: veeam,panel,enterprise-manager,login,detect,discovery
 
 http:
   - method: GET
@@ -30,4 +36,11 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100e800bce8f560e78373987dc22a9d1dde7b46a7e03bafb1cb39624dd567bc58e202207fdce4b8c9b3ab85e92f3a2464c81c30a5305cb4605f4f3ade5cc3f8acd1f12c:922c64590222798bb761d5b6d8e72950
+
+    extractors:
+      - type: regex
+        name: version
+        group: 1
+        regex:
+          - login.bundle.js\?v=([\d\.]+)
+# digest: 4b0a00483046022100929d62d1b0478c45141db87a5d87c0c87b53e8f502c1baee48184af18c5da712022100cec3b089045069b6af198bdc48833d77f0455dc6fe79b44ec12dc40ce76f4d31:922c64590222798bb761d5b6d8e72950

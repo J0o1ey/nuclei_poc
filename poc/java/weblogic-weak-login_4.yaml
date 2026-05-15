@@ -12,16 +12,15 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
     cwe-id: CWE-522
-  tags: default-login,weblogic,vulhub
   metadata:
     max-request: 16
+  tags: default-login,weblogic,vulhub,vuln
 
 http:
   - raw:
       - |
         GET /console/ HTTP/1.1
         Host: {{Hostname}}
-
       - |
         POST /console/j_security_check HTTP/1.1
         Host: {{Hostname}}
@@ -40,7 +39,6 @@ http:
         - admin
         - admin
         - system
-
       password:
         - weblogic
         - weblogic1
@@ -50,9 +48,8 @@ http:
         - 12345678
         - security
         - password
-
     stop-at-first-match: true
-    cookie-reuse: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -65,5 +62,4 @@ http:
       - type: status
         status:
           - 302
-
-# Enhanced by mp on 2022/04/05
+# digest: 4a0a004730450220266ca92d38b180d9922223fd5a7be963edc6d9d0e969bf31dda08ee66cdd86f5022100882f2d8db0980a82142c770aa34b6fb34e26edf849a4323ac2eb08b341627f14:922c64590222798bb761d5b6d8e72950

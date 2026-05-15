@@ -4,11 +4,15 @@ info:
   name: WebSphere Liberty Default Page
   author: oppsec
   severity: info
+  classification:
+    cpe: cpe:2.3:a:ibm:websphere_liberty:*:*:*:*:*:*:*:*
   metadata:
     verified: true
     max-request: 1
+    vendor: ibm
+    product: websphere_liberty
     shodan-query: http.title:"WebSphere Liberty"
-  tags: tech,websphere,liberty
+  tags: tech,websphere,liberty,discovery
 
 http:
   - method: GET
@@ -31,5 +35,4 @@ http:
         part: body
         regex:
           - "(WebSphere Liberty).*?([a-zA-Z0-9.-]+)"
-
-# digest: 4b0a00483046022100c675cf6212578eac4d8bf53307bac4a8945cdf4891c4677bbb024b84c4ea858a0221009226a87945897e1e50379fd245515a95b6b70eec9f55b7f815859d1de3d1dbed:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502204cf7ce6990240be4527745b18b9200c35834c96763fb098ff58661bb16cb34a802210094cc60338911be1406b6a6f124ae421fc8e30e976ad5ce8233b8c2ee7245bd7c:922c64590222798bb761d5b6d8e72950

@@ -15,13 +15,13 @@ info:
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
     cvss-score: 5.3
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-83
   metadata:
     verified: true
     max-request: 1
     shodan-query: title:"MAMP"
     fofa-query: title="MAMP"
-  tags: mamp,server,xss
+  tags: mamp,server,xss,vuln
 
 http:
   - method: GET
@@ -45,4 +45,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100809309a588f23d985f78bebcbaba6c500fe6c8cef786bac5e228aa88d7fa8740022100e7861cdaa37e47ad63162f1a9e9d81f090eb718e8bc780575b4c8c4c27a80ce9:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022067550c7126c3c1f6d813245df9fc2b7b2ee6fdf434cd00feb34088af3437ec73022041bce7c6bd0a7f661ea1fdfa1c1935eeaf595b4f1861e03a8f71ee02cc52ab85:922c64590222798bb761d5b6d8e72950

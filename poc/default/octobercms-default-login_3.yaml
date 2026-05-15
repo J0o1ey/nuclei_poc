@@ -12,11 +12,14 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
     cwe-id: CWE-522
+    cpe: cpe:2.3:a:octobercms:october:*:*:*:*:*:*:*:*
   metadata:
     verified: true
     max-request: 4
     shodan-query: http.component:"October CMS"
-  tags: octobercms,default-login,oss
+    product: october
+    vendor: octobercms
+  tags: octobercms,default-login,oss,vuln
 
 http:
   - raw:
@@ -61,5 +64,4 @@ http:
         group: 1
         regex:
           - 'meta name="csrf\-token" content="([A-Za-z0-9]+)">'
-
-# digest: 4b0a004830460221008c9a98bee55491e7fe022bdcc030f081bf74c377b2de0061057ad20cadcb33a2022100e8ea2fb0bdee7e31aa27be618dcf8e91cfd91ae54928b37de4c70b77c43ffa89:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220375a14905eae071a9efb6a1807d7ecc01b02edc26d0991e4e1b7b8ede5c2da24022037854dd4dd85077437bd121f87aca2ec8206f1e8effd951fe7d0cdc2928ca716:922c64590222798bb761d5b6d8e72950

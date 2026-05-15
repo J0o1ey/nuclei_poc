@@ -6,11 +6,15 @@ info:
   severity: high
   description: |
     Netflow Analyzer default login was discovered.
+  classification:
+    cpe: cpe:2.3:a:zohocorp:manageengine_netflow_analyzer:*:*:*:*:*:*:*:*
   metadata:
     verified: true
     max-request: 1
+    vendor: zohocorp
+    product: manageengine_netflow_analyzer
     shodan-query: html:"Login - Netflow Analyzer"
-  tags: default-login,netflow,misconfig
+  tags: default-login,netflow,misconfig,vuln
 
 http:
   - raw:
@@ -41,4 +45,4 @@ http:
         part: location
         words:
           - "/netflow;jsessionid"
-# digest: 4b0a00483046022100a6e60cf558d5d6383bae690c8c770dbe0656def6cd80d1ddb7dfa85fe6ed1798022100d4981c561c132ddd0fab88f05be6f7d771c891e7958877ee6bcdf6725f637729:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220779ae5c43ad3d574f5112d3472e0067904f9a03a428137a8953a3e37e82611c9022076dcba5ed16b5e6c1236affb3c315f0f4af235a7a844c6b337c5c8a581afb65b:922c64590222798bb761d5b6d8e72950
