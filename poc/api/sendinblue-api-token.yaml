@@ -10,7 +10,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-  tags: sendinblue,exposure,tokens,vuln
+  tags: sendinblue,exposure,tokens
 
 http:
   - method: GET

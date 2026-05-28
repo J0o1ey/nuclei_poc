@@ -2,7 +2,7 @@ id: phpmyadmin-default-login
 
 info:
   name: phpMyAdmin - Default Login
-  author: Natto97,notwhy
+  author: Natto97
   severity: high
   description: phpMyAdmin contains a default login vulnerability. An attacker can obtain access to user accounts and access sensitive information, modify data, and/or execute unauthorized operations.
   reference:
@@ -11,13 +11,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
     cwe-id: CWE-522
-    cpe: cpe:2.3:a:phpmyadmin:phpmyadmin:*:*:*:*:*:*:*:*
   metadata:
-    verified: true
     max-request: 16
+    verified: true
     shodan-query: http.title:phpMyAdmin
-    product: phpmyadmin
-    vendor: phpmyadmin
   tags: default-login,phpmyadmin
 
 http:
@@ -25,6 +22,7 @@ http:
       - |
         GET /index.php HTTP/1.1
         Host: {{Hostname}}
+
       - |
         POST /index.php HTTP/1.1
         Host: {{Hostname}}
@@ -63,11 +61,12 @@ http:
         name: session
         part: header
         internal: true
-        group: 2
+        group: 1
         regex:
-          - "phpMyAdmin(_https)?=([0-9a-z]+)" # for HTTPS
-    stop-at-first-match: true
+          - "phpMyAdmin=([0-9a-z]+)"
 
+    req-condition: true
+    stop-at-first-match: true
     matchers-condition: and
     matchers:
       - type: dsl
@@ -76,4 +75,5 @@ http:
           - status_code_2 == 302
           - contains(header_2, 'index.php?collation_connection=utf8mb4_unicode_ci') || contains(header_2, '/index.php?route=/&route=%2F')
         condition: and
-# digest: 4b0a00483046022100d02c59dfe090e128568200bc929b6e51c6db84a5a2594cc440792096ad8402d3022100d2eeda885e43d9493f1d81ddc8ea77f7b6ced9abb4c3347bbf61f14ac2649858:922c64590222798bb761d5b6d8e72950
+
+# Enhanced by md on 2023/01/09

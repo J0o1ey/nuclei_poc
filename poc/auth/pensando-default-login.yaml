@@ -12,7 +12,7 @@ info:
   metadata:
     verified: true
     fofa-query: icon_hash="1907840597"
-  tags: pensando,default-login,vuln
+  tags: pensando,default-login
 
 variables:
   username: 'admin'

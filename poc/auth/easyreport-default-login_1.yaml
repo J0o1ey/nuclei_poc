@@ -10,7 +10,7 @@ info:
     verified: true
     max-request: 1
     fofa-query: body="EasyReport-A Sample and Easy to Use Web Reporting System"
-  tags: easyreport,default-login,vuln
+  tags: easyreport,default-login
 
 http:
   - raw:

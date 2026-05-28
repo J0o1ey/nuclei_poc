@@ -9,7 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-  tags: cpanel,config,exposure,discovery
+  tags: cpanel,config,exposure
 
 http:
   - method: GET

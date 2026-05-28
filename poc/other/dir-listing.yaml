@@ -2,10 +2,10 @@ id: dir-listing
 
 info:
   name: Directory Listing
-  author: h0tak88r
-  severity: info
+  author: notnotnotveg
+  severity: informative
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/logs/"
