@@ -1,24 +1,20 @@
 id: Authorization
-
 info:
-  name: Authorization
   author: lu3ky-13
+  name: Authorization
   severity: critical
-
 requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 401
-
-      - type: word
-        words:
-          - "Www-Authenticate:"
-          - "Authorization:"
-          - "Authorization: Basic"
-        part: header
+- matchers:
+  - status:
+    - 401
+    type: status
+  - part: header
+    type: word
+    words:
+    - 'Www-Authenticate:'
+    - 'Authorization:'
+    - 'Authorization: Basic'
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'

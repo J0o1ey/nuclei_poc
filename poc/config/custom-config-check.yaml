@@ -1,20 +1,19 @@
 id: custom-config-check
-
 info:
-  name: Config File Check
   author: SirBugs
-  severity: high
-
+  description: Check for common database configuration keys.
+  name: DataBase Configuration Check
+  severity: Critical
 requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}/config/const.DB.php.bak"
-    
-    matchers:
-      - type: word
-        condition: or
-        words:
-          - "DBHOST"
-          - "DBUSER"
-          - "DBPASS"
-          - "DBNAME"
+- matchers:
+  - part: body
+    type: word
+    words:
+    - database_driver
+    - database_host
+    - database_port
+    - database_name
+    - database_password
+  method: GET
+  path:
+  - '{{BaseURL}}/config/parameters.yml'

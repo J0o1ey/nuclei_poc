@@ -1,59 +1,60 @@
 id: apache-superset-default-login
-
 info:
-  name: Apache Superset Default Login
   author: dhiyaneshDK
-  severity: high
+  name: Apache Superset Default Login
   reference: https://github.com/detectify/ugly-duckling/blob/master/modules/crowdsourced/apache-superset-default-credentials.json
+  severity: high
   tags: apache, default-login
-
 requests:
-  - raw:
-      - |
-        GET /login/ HTTP/1.1
-        Host: {{Hostname}}
-        Origin: {{BaseURL}}
+- attack: pitchfork
+  extractors:
+  - group: 1
+    internal: true
+    name: csrf_token
+    part: body
+    regex:
+    - value="(.*?)">
+    type: regex
+  matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - <title>Redirecting...</title>
+    - <h1>Redirecting...</h1
+    - <a href="/">
+  - part: header
+    type: word
+    words:
+    - session
+  - status:
+    - 302
+    type: status
+  matchers-condition: and
+  payloads:
+    password:
+    - admin
+    username:
+    - admin
+  raw:
+  - 'GET /login/ HTTP/1.1
 
-      - |
-        POST /login/ HTTP/1.1
-        Host: {{Hostname}}
-        Origin: {{BaseURL}}
-        Content-Type: application/x-www-form-urlencoded
-        Referer: {{BaseURL}}/admin/airflow/login
+    Host: {{Hostname}}
 
-        csrf_token={{csrf_token}}&username={{username}}&password={{password}}
+    Origin: {{BaseURL}}
 
-    attack: pitchfork
-    payloads:
-      username:
-        - admin
-      password:
-        - admin
+    '
+  - 'POST /login/ HTTP/1.1
 
-    extractors:
-      - type: regex
-        name: csrf_token
-        group: 1
-        part: body
-        internal: true
-        regex:
-          - 'value="(.*?)">'
+    Host: {{Hostname}}
 
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        condition: and
-        words:
-          - '<title>Redirecting...</title>'
-          - '<h1>Redirecting...</h1'
-          - '<a href="/">'
+    Origin: {{BaseURL}}
 
-      - type: word
-        part: header
-        words:
-          - 'session'
+    Content-Type: application/x-www-form-urlencoded
 
-      - type: status
-        status:
-          - 302
+    Referer: {{BaseURL}}/admin/airflow/login
+
+
+    csrf_token={{csrf_token}}&username={{username}}&password={{password}}
+
+    '

