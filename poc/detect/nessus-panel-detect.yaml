@@ -1,23 +1,23 @@
 id: nessus-panel-detect
 info:
-  name: Nessus Panel detector
   author: joanbono
+  name: Nessus Panel detector
   severity: info
   tags: panel
 requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}/server/status"
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '{"code":200,"progress":null,"status":"ready"}'
-        part: body
-      - type: word
-        words:
-          - 'NessusWWW'
-        part: header
-      - type: status
-        status:
-          - 200
+- matchers:
+  - part: body
+    type: word
+    words:
+    - '{"code":200,"progress":null,"status":"ready"}'
+  - part: header
+    type: word
+    words:
+    - NessusWWW
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/server/status'

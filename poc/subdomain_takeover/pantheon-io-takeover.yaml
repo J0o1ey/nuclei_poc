@@ -1,15 +1,13 @@
 id: pantheon-io-takeover
-
 info:
-  name: Find Pantheon.io subdomain takeover
   author: pxmme1337
+  name: Find Pantheon.io subdomain takeover
   severity: high
-
 requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}/"
-    matchers:
-      - type: word
-        words:
-          - "The gods are wise, but do not know of the site which you seek."
+- matchers:
+  - type: word
+    words:
+    - The gods are wise, but do not know of the site which you seek.
+  method: GET
+  path:
+  - '{{BaseURL}}/'

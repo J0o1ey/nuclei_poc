@@ -1,16 +1,14 @@
 id: open-redis-web
-
 info:
-  name: Open Redis Instance on Web
   author: CyberCavalcante
+  name: Open Redis Instance on Web
   severity: medium
-
 requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}/redis/"
-    matchers:
-      - type: word
-        words:
-          - "redis_version:"
-        part: body
+- matchers:
+  - part: body
+    type: word
+    words:
+    - 'redis_version:'
+  method: GET
+  path:
+  - '{{BaseURL}}/redis/'

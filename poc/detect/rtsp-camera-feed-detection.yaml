@@ -1,29 +1,29 @@
 id: rtsp-camera-feed-detection
 info:
-  name: RTSP Camera Feed Detection
   author: z0ds3c
-  severity: info
-  description: |
-    Detects RTSP camera feeds.
+  description: 'Detects RTSP camera feeds.
 
+    '
+  name: RTSP Camera Feed Detection
+  severity: info
 requests:
-  - method: GET
-    path:
-      - "/video.cgi"
-      - "/live/ch0"
-      - "/media/streamingChannels/101"
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-      - type: words
-        words:
-          - "RTSP"
-          - "Real Time Streaming Protocol"
-          - "camera"
-          - "stream"
-          - "video"
-          - "media"
-          - "H.264"
-          - "H.265"
+- matchers:
+  - status:
+    - 200
+    type: status
+  - type: words
+    words:
+    - RTSP
+    - Real Time Streaming Protocol
+    - camera
+    - stream
+    - video
+    - media
+    - H.264
+    - H.265
+  matchers-condition: and
+  method: GET
+  path:
+  - /video.cgi
+  - /live/ch0
+  - /media/streamingChannels/101

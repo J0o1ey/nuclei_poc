@@ -1,22 +1,19 @@
+http:
+- matchers:
+  - type: word
+    words:
+    - <title>Total Web Solutions</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}'
 id: total-web-login
-
 info:
-  name: Total Web Solution
   author: dhiyaneshDK
-  severity: info
+  name: Total Web Solution
   reference: https://www.exploit-db.com/ghdb/6811
+  severity: info
   tags: panel
-
-requests:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - '<title>Total Web Solutions</title>'
-      - type: status
-        status:
-          - 200

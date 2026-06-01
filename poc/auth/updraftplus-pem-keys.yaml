@@ -1,23 +1,26 @@
+http:
+- matchers:
+  - condition: and
+    part: body
+    type: word
+    words:
+    - Index of /
+    - .pem
+    - updraftplus
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/updraftplus/includes/'
 id: updraftplus-pem-keys
 info:
-  name: UpdraftPlus Plugin Pem Key
   author: dhiyaneshDk
+  metadata:
+    max-request: 1
+  name: UpdraftPlus Plugin Pem Key
+  reference:
+  - https://www.exploit-db.com/ghdb/6437
   severity: info
-  reference: https://www.exploit-db.com/ghdb/6437
-  tags: wordpress,wp-plugin
-requests:
-  - method: GET
-    path:
-      - '{{BaseURL}}/wp-content/plugins/updraftplus/includes/'
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "Index of /"
-          - ".pem"
-          - "updraftplus"
-        condition: and
-        part: body
-      - type: status
-        status:
-          - 200
+  tags: wp-plugin,edb,wordpress

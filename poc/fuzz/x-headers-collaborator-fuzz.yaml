@@ -1,27 +1,24 @@
 id: x-headers-collaborator-fuzz
-
 info:
-  name: X-Headers Fuzzing
   author: pikpikcu
+  name: X-Headers Fuzzing
   severity: medium
   tags: headers,fuzz
-
 requests:
+- matchers:
+  - part: interactsh_protocol
+    type: word
+    words:
+    - http
+    - dns
+  matchers-condition: and
+  payloads:
+    header: helpers/wordlists/x-headers.txt
+  raw:
+  - 'GET / HTTP/1.1
 
-  - raw:
-      - |
-        GET / HTTP/1.1
-        Host {{Hostname}}
-        {{header}}: {{interactsh-url}}
+    Host {{Hostname}}
 
-    payloads:
-      header: helpers/wordlists/x-headers.txt
+    {{header}}: {{interactsh-url}}
 
-    matchers-condition: and
-    matchers:
-
-      - type: word
-        part: interactsh_protocol # Confirms the DNS Interaction
-        words:
-          - "http"
-          - "dns"
+    '

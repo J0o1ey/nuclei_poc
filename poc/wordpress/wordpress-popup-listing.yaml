@@ -1,25 +1,23 @@
+http:
+- matchers:
+  - status:
+    - 200
+    type: status
+  - condition: and
+    type: word
+    words:
+    - Index of
+    - /wp-content/plugins/wordpress-popup/views/admin
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/wp-content/plugins/wordpress-popup/views/admin/'
 id: wordpress-popup-listing
-
 info:
-  name: WordPress Popup Plugin Directory Listing
   author: aashiq
-  severity: info
   description: Searches for sensitive directories present in the wordpress-popup plugin.
- 
-
-requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}/wp-content/plugins/wordpress-popup/views/admin/"
-
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "Index of"
-          - "/wp-content/plugins/wordpress-popup/views/admin"
-        condition: and
+  metadata:
+    max-request: 1
+  name: WordPress Popup Plugin Directory Listing
+  severity: info
+  tags: wordpress,listing,plugin

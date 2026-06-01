@@ -1,14 +1,14 @@
 id: supervpn-detect
 info:
-  name: SuperVPN panel detect
   author: organiccrap
-  severity: info
+  name: SuperVPN panel detect
+  severity: low
 requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}/admin/login.html"
-    matchers:
-      - type: word
-        words:
-          - "<title>Sign In-SuperVPN</title>"
-        part: body
+- matchers:
+  - part: body
+    type: word
+    words:
+    - <title>Sign In-SuperVPN</title>
+  method: GET
+  path:
+  - '{{BaseURL}}/admin/login.html'
