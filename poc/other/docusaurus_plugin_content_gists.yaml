@@ -20,4 +20,3 @@ http:
   - type: word
     words:
     - docusaurus
-    case-insensitive: true

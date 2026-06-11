@@ -1,40 +1,39 @@
-id: exposed-alps-spring 3
+id: exposed-alps-spring
+
 info:
-  author: dwisiswant0
   name: Exposed Spring Data REST Application-Level Profile Semantics (ALPS)
-  reference: https://niemand.com.ar/2021/01/08/exploiting-application-level-profile-semantics-apls-from-spring-data-rest/
+  author: dwisiswant0
   severity: medium
-  tags: exposure
-requests:
-- attack: sniper
-  matchers:
-  - condition: and
-    part: body
-    type: word
-    words:
-    - _links
-    - /alps/
-    - profile
-  - part: header
-    type: word
-    words:
-    - application/hal+json
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /alps/profile HTTP/1.1
+  description: Exposed Spring Data profile semantics is exposed.
+  reference:
+    - https://niemand.com.ar/2021/01/08/exploiting-application-level-profile-semantics-apls-from-spring-data-rest/
+  metadata:
+    max-request: 3
+  tags: exposure,spring,files
 
-    Host: {{Subdomains}}
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/profile"
+      - "{{BaseURL}}/api/profile"
+      - "{{BaseURL}}/alps/profile"
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "_links"
+          - "/alps/"
+          - "profile"
+        condition: and
+        part: body
 
-    Accept-Encoding: gzip, deflate
+      - type: word
+        words:
+          - "application/hal+json"
+        part: header
 
-    Accept: */*
-
-    '
-  threads: 100
+      - type: status
+        status:
+          - 200
+# digest: 490a004630440220080a78ab13967b0704525f6ad806f5202aa4aa0bdfe106eee4705f48ea8f34c802200588d3fd127e57b57cbaaac91aff32e17871c58f54d228aec429713b299bfcf2:922c64590222798bb761d5b6d8e72950

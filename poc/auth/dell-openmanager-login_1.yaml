@@ -1,34 +1,26 @@
-id: dell-openmanager-login 1
+id: dell-openmanager-login
+
 info:
-  author: dhiyaneshDK
   name: Dell OpenManage Switch Administrator
-  reference: https://www.shodan.io/search?query=html%3A%22Dell+OpenManage+Switch+Administrator%22
+  author: dhiyaneshDK
   severity: info
+  reference: https://www.shodan.io/search?query=html%3A%22Dell+OpenManage+Switch+Administrator%22
   tags: panel,dell
+
 requests:
-- attack: sniper
-  matchers:
-  - type: word
-    words:
-    - <title>Dell OpenManage Switch Administrator</title>
-  - condition: and
-    type: word
-    words:
-    - <TITLE>Log In</TITLE>
-    - device/logOff_up_menu1.htm
-  matchers-condition: or
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET / HTTP/1.1
+  - method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/config/authentication_page.htm'
 
-    Host: {{Subdomains}}
+    matchers-condition: or
+    matchers:
+      - type: word
+        words:
+          - '<title>Dell OpenManage Switch Administrator</title>'
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
-
-    Accept-Encoding: gzip, deflate
-
-    Accept: */*
-
-    '
-  threads: 100
+      - type: word
+        words:
+          - '<TITLE>Log In</TITLE>'
+          - 'device/logOff_up_menu1.htm'
+        condition: and

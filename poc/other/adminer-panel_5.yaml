@@ -1,32 +1,51 @@
-id: adminer-panel 5
+id: adminer-panel
+
 info:
-  author: random_robbie,meme-lord
-  name: Adminer Login panel
-  reference: https://blog.sorcery.ie/posts/adminer/
+  name: Adminer Login Panel
+  author: random_robbie,meme-lord,ritikchaddha
   severity: info
-  tags: panel
-requests:
-- attack: sniper
-  extractors:
-  - group: 1
-    part: body
-    regex:
-    - <span class="version">([0-9.]+)
-    type: regex
-  matchers:
-  - type: word
-    words:
-    - Login - Adminer
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /mysql.php HTTP/1.1
+  description: An Adminer login panel was detected.
+  reference:
+    - https://blog.sorcery.ie/posts/adminer/
+  classification:
+    cwe-id: CWE-200
+  metadata:
+    max-request: 8
+    verified: true
+    shodan-query: title:"Login - Adminer"
+  tags: panel,adminer
 
-    Host: {{Subdomains}}
+http:
+  - method: GET
+    path:
+      - '{{BaseURL}}/adminer.php'
+      - '{{BaseURL}}/_adminer.php'
+      - '{{BaseURL}}/adminer/'
+      - '{{BaseURL}}/editor.php'
+      - '{{BaseURL}}/mysql.php'
+      - '{{BaseURL}}/sql.php'
+      - '{{BaseURL}}/wp-content/plugins/adminer/adminer.php'
+      - '{{BaseURL}}/admin.php'
 
-    '
-  threads: 100
+    headers:
+      Accept-Language: en-US,en;q=0.5
+
+    stop-at-first-match: true
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "Login - Adminer"
+
+      - type: status
+        status:
+          - 200
+
+    extractors:
+      - type: regex
+        part: body
+        group: 1
+        regex:
+          - '<span class="version">([0-9.]+)'
+
+# Enhanced by mp on 2022/03/20

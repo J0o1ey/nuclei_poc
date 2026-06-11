@@ -1,36 +1,28 @@
-id: wp-plugin-1-flashgallery-listing 2
+id: wp-plugin-1-flashgallery-listing
+
 info:
-  author: pussycat0x
-  description: Searches for sensitive directories present in the wordpress-plugins
-    plugin.
   name: WordPress 1 flash gallery listing
-  reference: https://www.exploit-db.com/ghdb/6978
+  author: pussycat0x
   severity: info
-  tags: wordpress,listing
+  description: Searches for sensitive directories present in the wordpress-plugins plugin.
+  reference: https://www.exploit-db.com/ghdb/6978
+ 
+
 requests:
-- attack: sniper
-  matchers:
-  - condition: and
-    type: word
-    words:
-    - Index of
-    - /wp-content/plugins/1-flash-gallery
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /blog/wp-content/plugins/1-flash-gallery/ HTTP/1.1
+  - method: GET
+    path:
+      - "{{BaseURL}}/wp-content/plugins/1-flash-gallery/"
+      - "{{BaseURL}}/blog/wp-content/plugins/1-flash-gallery/"
 
-    Host: {{Subdomains}}
+    stop-at-first-match: true
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "Index of"
+          - "/wp-content/plugins/1-flash-gallery"
+        condition: and
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
-
-    Accept-Encoding: gzip, deflate
-
-    Accept: */*
-
-    '
-  threads: 100
+      - type: status
+        status:
+          - 200

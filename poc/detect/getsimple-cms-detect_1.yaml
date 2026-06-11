@@ -1,35 +1,32 @@
-id: getsimple-cms-detect 1
+id: getsimple-cms-detect
+
 info:
-  author: pikpikcu,philippedelteil
-  description: Template to detect a running GetSimple CMS instance
   name: GetSimple CMS Detection
+  author: pikpikcu,philippedelteil
   severity: info
-  tags: tech,getsimple
-requests:
-- attack: sniper
-  matchers:
-  - status:
-    - 200
-    type: status
-  - condition: or
-    part: body
-    type: word
-    words:
-    - Powered by  GetSimple
-    - GetSimple CMS is a flatfile CMS
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /readme.txt HTTP/1.1
+  description: Template to detect a running GetSimple CMS instance
+  metadata:
+    max-request: 2
+  tags: tech,getsimple,discovery
 
-    Host: {{Subdomains}}
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+      - "{{BaseURL}}/readme.txt"
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
+    stop-at-first-match: true
 
-    Accept-Encoding: gzip, deflate
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
 
-    Accept: */*
-
-    '
-  threads: 100
+      - type: word
+        words:
+          - "Powered by  GetSimple"
+          - 'GetSimple CMS is a flatfile CMS'
+        part: body
+        condition: or
+# digest: 4b0a00483046022100ea43c20a2ef5fa35c215674ce9b4859df02da2bd107f0f0e0051604cc3744b2c02210097d16aa8e5a58c0bb79f6a8a169d16e90ce079c8d91032feda8a168a518cbe9e:922c64590222798bb761d5b6d8e72950

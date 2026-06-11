@@ -20,4 +20,3 @@ http:
   - type: word
     words:
     - eyesofnetwork
-    case-insensitive: true

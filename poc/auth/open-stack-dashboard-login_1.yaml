@@ -1,29 +1,24 @@
-id: open-stack-dashboard-login 1
+id: open-stack-dashboard-login
+
 info:
-  author: dhiyaneshDK,hackergautam
   name: OpenStack Dashboard
-  reference: https://www.exploit-db.com/ghdb/6464
+  author: dhiyaneshDK,hackergautam
   severity: info
+  reference: https://www.exploit-db.com/ghdb/6464
   tags: panel,openstack
+
 requests:
-- attack: sniper
-  matchers:
-  - type: word
-    words:
-    - <title>Login - OpenStack Dashboard</title>
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /dashboard/auth/login/ HTTP/1.1
+  - method: GET
+    path:
+      - '{{BaseURL}}/dashboard/auth/login/'
+      - '{{BaseURL}}/horizon/auth/login/?next=/horizon/'
 
-    Host: {{Subdomains}}
-
-    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36
-    (KHTML, like Gecko)
-
-    '
-  threads: 100
+    redirects: true
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "<title>Login - OpenStack Dashboard</title>"
+      - type: status
+        status:
+          - 200

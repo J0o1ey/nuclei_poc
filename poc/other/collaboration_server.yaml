@@ -18,4 +18,3 @@ http:
   - type: word
     words:
     - zimbra collaboration suite web client
-    case-insensitive: true

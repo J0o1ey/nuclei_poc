@@ -1,43 +1,55 @@
-id: javascript-env 3
+id: javascript-env
+
 info:
-  author: pdp
-  description: Detects common JavaScript environment configuration files.
-  name: JavaScript Environment Config
+  name: JavaScript Environment Configuration - Detect
+  author: pdp,geeknik
   severity: low
+  description: Multiple common JavaScript environment configuration files were detected.
+  metadata:
+    max-request: 6
   tags: javascript,config,exposure
-requests:
-- attack: sniper
-  matchers:
-  - status:
-    - 200
-    type: status
-  - dsl:
-    - 'contains(tolower(all_headers), ''content-type: application/javascript'')'
-    part: header
-    type: dsl
-  - condition: or
-    part: body
-    type: word
-    words:
-    - module.exports
-    - const audience
-    - const domain
-    - NODE_ENV
-    - LOG_LEVEL
-    - TOKEN
-    - KEY
-    - PASSWORD
-    - VERSION
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /env.production.js HTTP/1.1
 
-    Host: {{Subdomains}}
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/env.js"
+      - "{{BaseURL}}/env.development.js"
+      - "{{BaseURL}}/env.production.js"
+      - "{{BaseURL}}/env.test.js"
+      - "{{BaseURL}}/env.dev.js"
+      - "{{BaseURL}}/env.prod.js"
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101
-    Firefox/55
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
 
-    '
-  threads: 100
+      - type: dsl
+        dsl:
+          - "contains(tolower(header), 'content-type: application/javascript')"
+
+      - type: word
+        part: body
+        words:
+          - "module.exports"
+          - "const audience"
+          - "const domain"
+          - "NODE_ENV"
+          - "LOG_LEVEL"
+          - "TOKEN"
+          - "KEY"
+          - "PASSWORD"
+          - "VERSION"
+        condition: or
+
+      - type: word
+        part: body
+        words:
+          - "Bootstrap"
+          - "jQuery"
+          - "CSS TRANSITION SUPPORT"
+        condition: or
+        negative: true
+
+# digest: 4b0a00483046022100c66e0d26c9f5dacb3a779ea553725976bba992bb71b7a968aac70caa10290088022100b458316aee6b28e8e5f559a2c068007e9bff6ac925a5c7375d677ed449bdb4a7:922c64590222798bb761d5b6d8e72950

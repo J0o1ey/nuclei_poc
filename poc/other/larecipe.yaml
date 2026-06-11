@@ -18,4 +18,3 @@ http:
   - type: word
     words:
     - /binarytorch/larecipe/
-    case-insensitive: true

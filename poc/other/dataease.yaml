@@ -6,11 +6,11 @@ info:
   severity: info
   metadata:
     fofa-query:
-    - app="fit2cloud-dataease"
+    - body="dataease"
     product: dataease
     shodan-query:
     - http.html:"dataease"
-    vendor: fit2cloud
+    vendor: dataease
     verified: true
 http:
 - method: GET
@@ -20,3 +20,4 @@ http:
   - type: word
     words:
     - dataease
+    case-insensitive: true

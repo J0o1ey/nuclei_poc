@@ -1,22 +1,22 @@
-id: roundcube-webmail
+id: webmail
 info:
-  name: roundcube-webmail
+  name: webmail
   author: cn-kali-team
-  tags: detect,tech,roundcube-webmail
+  tags: detect,tech,webmail
   severity: info
   metadata:
-    product: roundcube-webmail
-    vendor: 00_unknown
-    verified: false
+    fofa-query:
+    - title="axigen"
+    product: webmail
+    shodan-query:
+    - title:"axigen"
+    vendor: axigen
+    verified: true
 http:
 - method: GET
   path:
   - '{{BaseURL}}/'
   matchers:
-  - type: favicon
-    hash:
-    - ef9c0362bf20a086bb7c2e8ea346b9f0
-  - type: word
-    words:
-    - <title>roundcube
-    case-insensitive: true
+  - type: regex
+    regex:
+    - (?mi)<title[^>]*>axigen.*?</title>

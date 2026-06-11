@@ -1,25 +1,29 @@
-id: calendarix-panel 1
+id: calendarix-panel
+
 info:
+  name: Calendarix Admin Login Panel - Detect
   author: r3dg33k
-  name: Calendarix login detect
   severity: info
-  tags: panel,calendarix
+  description: Calendarix admin login panel was detected.
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0.0
+    cwe-id: CWE-200
+  tags: panel,calendarix,login
+
 requests:
-- attack: sniper
-  matchers:
-  - status:
-    - 200
-    type: status
-  - type: word
-    words:
-    - Calendarix Admin Login
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /calendarix/admin/cal_login.php HTTP/1.1
+  - method: GET
+    path:
+      - '{{BaseURL}}/calendarix/admin/cal_login.php'
+      - '{{BaseURL}}/calendar/admin/cal_login.php'
 
-    Host: {{Subdomains}}
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+      - type: word
+        words:
+          - 'Calendarix Admin Login'
 
-    '
-  threads: 100
+# Enhanced by md on 2022/11/02

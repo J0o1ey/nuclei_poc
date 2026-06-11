@@ -1,28 +1,27 @@
-id: wp-altair-listing 4
+id: wp-altair-listing
 info:
-  author: pussycat0x
-  description: Searches for directories listing in the altair theme.
   name: Altair WordPress theme v4.8 - Directory Listing
+  author: pussycat0x
   severity: info
+  description: Searches for directories listing in the altair theme.
   tags: wordpress,listing,wp-theme
+
 requests:
-- attack: sniper
-  matchers:
-  - condition: and
-    type: word
-    words:
-    - Index of
-    - wp-content/themes/altair
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /wp-content/themes/altair/images/ HTTP/1.1
+  - method: GET
+    path:
+      - "{{BaseURL}}/wp-content/themes/altair/modules/"
+      - "{{BaseURL}}/wp-content/themes/altair/functions/"
+      - "{{BaseURL}}/wp-content/themes/altair/images/flip/"
+      - "{{BaseURL}}/wp-content/themes/altair/images/"
 
-    Host: {{Subdomains}}
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "Index of"
+          - "wp-content/themes/altair"
+        condition: and
 
-    '
-  threads: 100
+      - type: status
+        status:
+          - 200

@@ -1,39 +1,40 @@
-id: openapi 1
+id: openapi
+
 info:
-  author: pdteam
-  name: OpenAPI
+  name: OpenAPI - Detect
+  author: pdteam,ynnirc
   severity: info
+  description: OpenAPI was detected.
+  reference:
+    - https://www.openapis.org/
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0.0
+    cwe-id: CWE-200
   tags: exposure,api
+
 requests:
-- attack: sniper
-  matchers:
-  - condition: or
-    part: header
-    type: word
-    words:
-    - application/openapi+json
-    - application/json
-  - condition: and
-    type: word
-    words:
-    - servers
-    - paths
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /openapi.json HTTP/1.1
+  - method: GET
+    path:
+      - "{{BaseURL}}/openapi.json"
 
-    Host: {{Subdomains}}
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - openapi
+          - paths
+        condition: and
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
+      - type: word
+        part: header
+        words:
+          - application/openapi+json
+          - application/json
+        condition: or
 
-    Accept-Encoding: gzip, deflate
+      - type: status
+        status:
+          - 200
 
-    Accept: */*
-
-    '
-  threads: 100
+# Enhanced by mp on 2023/02/05

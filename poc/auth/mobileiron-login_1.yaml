@@ -1,31 +1,32 @@
-id: mobileiron-login 1
+id: mobileiron-login
+
 info:
+  name: MobileIron Login Panel - Detect
   author: dhiyaneshDK,dwisiswant0
-  name: MobileIron Login
   severity: info
-  tags: panel
+  description: MobileIron login panel was detected.
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0.0
+    cwe-id: CWE-200
+  tags: panel,mobileiron
+
 requests:
-- attack: sniper
-  matchers:
-  - type: word
-    words:
-    - MobileIron Admin Portal
-    - MobileIron User Portal
-    - MobileIron Registration
-    - Mobilizing enterprise applications
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /mifs/login.jsp HTTP/1.1
+  - method: GET
+    path:
+      - "{{BaseURL}}/mifs/login.jsp"
+      - "{{BaseURL}}/mifs/user/login.jsp"
+      - "{{BaseURL}}/mifs/c/d/android.html"
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "MobileIron Admin Portal"
+          - "MobileIron User Portal"
+          - "MobileIron Registration"
+          - "Mobilizing enterprise applications"
+      - type: status
+        status:
+          - 200
 
-    Host: {{Subdomains}}
-
-    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36
-    (KHTML, like Gecko)
-
-    '
-  threads: 100
+# Enhanced by md on 2022/11/29

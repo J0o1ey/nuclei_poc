@@ -18,4 +18,3 @@ http:
   - type: word
     words:
     - webp
-    case-insensitive: true

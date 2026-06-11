@@ -1,17 +1,21 @@
 id: ngnix-status
+
 info:
-  author: dhiyaneshDK
   name: Ngnix Status Page
+  author: dhiyaneshDK
   severity: low
+
 requests:
-- matchers:
-  - type: word
-    words:
-    - 'Active connections:'
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  method: GET
-  path:
-  - '{{BaseURL}}/nginx_status'
+  - method: GET
+    path:
+      - "{{BaseURL}}/nginx_status"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - 'Active connections:'
+
+      - type: status
+        status:
+          - 200

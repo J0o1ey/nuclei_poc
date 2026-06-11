@@ -1,36 +1,48 @@
-id: hongdian-default-login 1
+id: hongdian-default-login
+
 info:
-  author: gy741
   name: Hongdian Default Login
+  author: gy741
   severity: high
   tags: hongdian,default-login
+
 requests:
-- attack: sniper
-  matchers:
-  - part: header
-    type: word
-    words:
-    - text/html
-  - part: body
-    type: word
-    words:
-    - status_main.cgi
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /api/proxy/tcp HTTP/1.1
+  - raw:
+      - |
+        GET / HTTP/1.1
+        Host: {{Hostname}}
+        Authorization: Basic {{base64(username + ':' + password)}}
+        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+        Accept-Encoding: gzip, deflate
 
-    Host: {{Subdomains}}
+      - |
+        GET / HTTP/1.1
+        Host: {{Hostname}}
+        Authorization: Basic {{base64(username + ':' + password)}}
+        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+        Accept-Encoding: gzip, deflate
 
-    Authorization: Basic Z3Vlc3Q6Z3Vlc3Q=
+    payloads:
+      username:
+        - guest
+        - admin
+      password:
+        - guest
+        - admin
+    attack: pitchfork
 
-    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "text/html"
+        part: header
 
-    Accept-Encoding: gzip, deflate
+      - type: word
+        words:
+          - "status_main.cgi"
+        part: body
 
-    '
-  threads: 100
+      - type: status
+        status:
+          - 200

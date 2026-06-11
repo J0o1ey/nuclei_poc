@@ -1,15 +1,15 @@
-id: coschool-d06c1378f9f449b3815d3a090803a1d2
+id: coschool
 
 info:
   name: >
-    CoSchool LMS <= 1.4.3 - Unauthenticated PHP Object Injection
+    CoSchool LMS <= 1.2 - Missing Authorization to Privilege Escalation
   author: topscoder
-  severity: critical
+  severity: high
   description: >
     
   reference:
     - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/ef9ad6b4-40f0-40ce-9f17-37077cb1a5ca?source=api-scan
+    - https://www.wordfence.com/threat-intel/vulnerabilities/id/1ef13f92-ae45-411a-b7b4-cdaf299afc8a?source=api-scan
   classification:
     cvss-metrics: 
     cvss-score: 
@@ -18,7 +18,7 @@ info:
     fofa-query: "wp-content/plugins/coschool/"
     google-query: inurl:"/wp-content/plugins/coschool/"
     shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,coschool,critical
+  tags: cve,wordpress,wp-plugin,coschool,high
 
 http:
   - method: GET
@@ -56,4 +56,4 @@ http:
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 1.4.3')
+          - compare_versions(version, '<= 1.2')

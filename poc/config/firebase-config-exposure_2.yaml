@@ -1,36 +1,40 @@
-id: firebase-config-exposure 2
+id: firebase-config-exposure
+
 info:
+  name: Firebase Configuration File - Detect
   author: geeknik
-  name: Firebase Config Exposure
-  reference: https://github.com/firebase/firebaseui-web/blob/master/demo/public/sample-config.js
-  severity: high
+  severity: medium
+  description: Firebase configuration file was detected.
+  reference:
+    - https://github.com/firebase/firebaseui-web/blob/master/demo/public/sample-config.js
+  classification:
+    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
+    cvss-score: 5.3
+    cwe-id: CWE-200
   tags: firebase,exposure,config
-requests:
-- attack: sniper
-  matchers:
-  - condition: and
-    type: word
-    words:
-    - 'apiKey:'
-    - 'authDomain:'
-    - 'databaseURL:'
-    - 'storageBucket:'
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /config.js HTTP/1.1
+  metadata:
+    max-request: 3
 
-    Host: {{Subdomains}}
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+      - "{{BaseURL}}/public/config.js"
+      - "{{BaseURL}}/config.js"
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
+    matchers-condition: and
+    matchers:
 
-    Accept-Encoding: gzip, deflate
+      - type: word
+        words:
+          - "apiKey:"
+          - "authDomain:"
+          - "databaseURL:"
+          - "storageBucket:"
+        condition: and
 
-    Accept: */*
+      - type: status
+        status:
+          - 200
 
-    '
-  threads: 100
+# Enhanced by cs on 2023/02/13

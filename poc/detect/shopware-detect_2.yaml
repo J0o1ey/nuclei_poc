@@ -1,36 +1,32 @@
-id: shopware-detect 2
+id: shopware-detect
+
 info:
-  author: cyllective
-  description: Detects Shopware CMS
   name: Shopware CMS detect
-  reference:
-  - https://github.com/shopware/shopware
-  - https://github.com/shopware/platform
+  author: cyllective
   severity: info
+  description: Detects Shopware CMS
+  reference:
+    - https://github.com/shopware/shopware
+    - https://github.com/shopware/platform
   tags: tech,shopware,cms
+
 requests:
-- attack: sniper
-  matchers:
-  - condition: or
-    part: body
-    type: word
-    words:
-    - Realisiert mit Shopware
-    - Realised with Shopware
-    - Shopware Administration (c) shopware AG
-    - <title>Shopware 5 - Backend (c) shopware AG</title>
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /backend HTTP/1.1
+  - method: GET
+    path:
+      - "{{BaseURL}}/admin"
+      - "{{BaseURL}}/backend"
 
-    Host: {{Subdomains}}
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - 'Realisiert mit Shopware'
+          - 'Realised with Shopware'
+          - 'Shopware Administration (c) shopware AG'
+          - '<title>Shopware 5 - Backend (c) shopware AG</title>'
+        condition: or
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
-
-    Accept-Encoding: gzip, deflate
-
-    Accept: */*
-
-    '
-  threads: 100
+      - type: status
+        status:
+          - 200

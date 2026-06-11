@@ -18,4 +18,3 @@ http:
   - type: word
     words:
     - /viewer/viewer.html
-    case-insensitive: true

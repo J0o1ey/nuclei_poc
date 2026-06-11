@@ -6,15 +6,19 @@ info:
   severity: info
   metadata:
     fofa-query:
-    - icon_hash="-356182173"
+    - title="login | control webpanel"
+    google-query:
+    - intitle:"login | control webpanel"
     product: webpanel
-    vendor: control_webpanel
+    shodan-query:
+    - http.title:"login | control webpanel"
+    vendor: control-webpanel
     verified: true
 http:
 - method: GET
   path:
   - '{{BaseURL}}/'
   matchers:
-  - type: favicon
-    hash:
-    - '-356182173'
+  - type: regex
+    regex:
+    - (?mi)<title[^>]*>login .*?</title>

@@ -1,32 +1,33 @@
-id: exposed-sqlite-manager 2
+id: exposed-sqlite-manager
+
 info:
+  name: SQLiteManager - Text Display
   author: dhiyaneshDK
-  name: SQLiteManager
-  reference: https://www.exploit-db.com/ghdb/5003
   severity: medium
-  tags: sqlite
-requests:
-- attack: sniper
-  matchers:
-  - type: word
-    words:
-    - <title>SQLiteManager</title>
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /sqlitemanager/ HTTP/1.1
+  description: SQLiteManager panel contains inconsistent text display in title and text.
+  reference:
+    - https://www.exploit-db.com/ghdb/5003
+  metadata:
+    max-request: 3
+  tags: misconfig,sqlite,edb
 
-    Host: {{Subdomains}}
+http:
+  - method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/sqlite/'
+      - '{{BaseURL}}/sqlitemanager/'
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
+    stop-at-first-match: true
 
-    Accept-Encoding: gzip, deflate
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - '<title>SQLiteManager</title>'
 
-    Accept: */*
+      - type: status
+        status:
+          - 200
 
-    '
-  threads: 100
+# digest: 490a0046304402200971e84886bd97d90742232ba5924e3f25abf0e1ea5433c78f5c5c7b754dd68c02207d79889270d54f66adc84415e54238e5e74d2aa61f7fd9868dfe016aeffb3a72:922c64590222798bb761d5b6d8e72950

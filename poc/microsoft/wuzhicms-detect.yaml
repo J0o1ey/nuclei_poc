@@ -11,8 +11,10 @@ info:
     cwe-id: CWE-200
   remediation: Ensure you are using the latest version and that all security patches have been applied.
   tags: tech,wuzhicms
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

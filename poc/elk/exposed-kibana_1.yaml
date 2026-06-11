@@ -1,34 +1,27 @@
-id: exposed-kibana 1
+id: exposed-kibana
+
 info:
-  author: Shine
   name: Exposed Kibana
+  author: Shine
   severity: medium
-  tags: kibana,unauth
-requests:
-- attack: sniper
-  matchers:
-  - type: word
-    words:
-    - kibanaWelcomeView
-    - cluster_uuid
-    - kibanaWelcomeLogo
-    - kibanaWelcomeTitle
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /app/kibana/ HTTP/1.1
+  tags: kibana,unauth,misconfig
+  metadata:
+    max-request: 2
 
-    Host: {{Subdomains}}
+http:
+  - method: GET
+    path:
+      - '{{BaseURL}}'
+      - '{{BaseURL}}/app/kibana/'
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
-
-    Accept-Encoding: gzip, deflate
-
-    Accept: */*
-
-    '
-  threads: 100
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - 'kibanaWelcomeView'
+          - 'cluster_uuid'
+          - 'kibanaWelcomeLogo'
+          - 'kibanaWelcomeTitle'
+      - type: status
+        status:
+          - 200

@@ -1,48 +1,45 @@
 id: pigeonhole-sieve-detect
+
 info:
-  author: pussycat0x
-  description: "Pigeonhole Sieve is Dovecot\u2019s plugin that implements the Sieve\
-    \ mail filtering language, allowing server-side email filtering at delivery. It\
-    \ adds extensions and ManageSieve support for user-friendly rule management. \
-    \ metadata:\n"
-  metadata:
-    shodan-query: product:"Dovecot Pigeonhole sieve"
-    verified: true
   name: Pigeonhole Sieve Service - Detect
+  author: pussycat0x
   severity: info
-  tags: sieve,network,js,tcp,detect,discovery
+  description: |
+      Pigeonhole Sieve is Dovecot’s plugin that implements the Sieve mail filtering language, allowing server-side email filtering at delivery. It adds extensions and ManageSieve support for user-friendly rule management.  metadata:
+  metadata:
+    verified: true
+    shodan-query: product:"Dovecot Pigeonhole sieve"
+  tags: sieve,network,js,tcp,detect
+
 javascript:
-- args:
-    Host: '{{Host}}'
-    Port: 4190
-  code: 'let packet = bytes.NewBuffer();
 
-    const c = require("nuclei/net");
+  - pre-condition: |
+      isPortOpen(Host,Port);
 
-    const cmd = "00000000"
+    code: |
+      let packet = bytes.NewBuffer();
+      const c = require("nuclei/net");
+      const cmd = "00000000"
+      packet.WriteString(cmd)
+      let conn = c.Open('tcp', `${Host}:${Port}`);
+      conn.SendHex(packet.Hex());
+      const result = conn.RecvString();
+      Export(result);
 
-    packet.WriteString(cmd)
+    args:
+      Host: "{{Host}}"
+      Port: 4190
 
-    let conn = c.Open(''tcp'', `${Host}:${Port}`);
+    matchers:
+      - type: dsl
+        dsl:
+          - "success == true"
+          - contains_all(response, "SIEVE","IMPLEMENTATION")
+        condition: and
 
-    conn.SendHex(packet.Hex());
-
-    const result = conn.RecvString();
-
-    Export(result);
-
-    '
-  extractors:
-  - name: version
-    regex:
-    - VERSION([ "0-9.]+)
-    type: regex
-  matchers:
-  - condition: and
-    dsl:
-    - success == true
-    - contains_all(response, "SIEVE","IMPLEMENTATION")
-    type: dsl
-  pre-condition: 'isPortOpen(Host,Port);
-
-    '
+    extractors:
+      - type: regex
+        name: version
+        regex:
+          - 'VERSION([ "0-9.]+)'
+# digest: 4b0a00483046022100803903c4fd3878c2ad8e1834a06aa2340f38295a1c8e3d09ce208cc80839db3d022100b7bb2e56d5d86e57010f4b981f7b4febb9fb0e6f0b4ce783d8bb0548dcc55f1c:922c64590222798bb761d5b6d8e72950

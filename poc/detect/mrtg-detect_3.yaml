@@ -1,34 +1,32 @@
-id: mrtg-detect 3
+id: mrtg-detect
+
 info:
-  author: geeknik
-  description: The Multi Router Traffic Grapher -- https://oss.oetiker.ch/mrtg/
   name: Detect MRTG
+  author: geeknik
   severity: info
-requests:
-- attack: sniper
-  matchers:
-  - status:
-    - 200
-    type: status
-  - condition: and
-    part: body
-    type: word
-    words:
-    - MRTG Index Page
-    - Multi Router Traffic Grapher
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /MRTG/ HTTP/1.1
+  description: The Multi Router Traffic Grapher
+  reference:
+    - https://oss.oetiker.ch/mrtg/
+  tags: tech,mrtg
+  metadata:
+    max-request: 3
 
-    Host: {{Subdomains}}
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+      - "{{BaseURL}}/mrtg/"
+      - "{{BaseURL}}/MRTG/"
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
-
-    Accept-Encoding: gzip, deflate
-
-    Accept: */*
-
-    '
-  threads: 100
+    stop-at-first-match: true
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+      - type: word
+        part: body
+        words:
+          - "MRTG Index Page"
+          - "Multi Router Traffic Grapher"
+        condition: and

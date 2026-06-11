@@ -1,26 +1,31 @@
-id: adobe-component-login 1
+id: adobe-coldfusion-login
+
 info:
+  name: Adobe ColdFusion Component Browser Login Panel
   author: dhiyaneshDK
-  name: Adobe Component Brower Login
-  reference: https://www.exploit-db.com/ghdb/6846
   severity: info
-  tags: panel
+  description: An Adobe ColdFusion Component Browser login panel was detected.
+  reference:
+    - https://www.exploit-db.com/ghdb/6846
+  classification:
+    cwe-id: CWE-200
+  metadata:
+    shodan-query: http.component:"Adobe ColdFusion"
+  tags: panel,adobe,coldfusion,edb
+
 requests:
-- attack: sniper
-  matchers:
-  - type: word
-    words:
-    - <title>Component Browser Login</title>
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /cfide/componentutils/login.cfm HTTP/1.1
+  - method: GET
+    path:
+      - '{{BaseURL}}/CFIDE/componentutils/login.cfm'
+      - '{{BaseURL}}/cfide/componentutils/login.cfm'
 
-    Host: {{Subdomains}}
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - '<title>Component Browser Login</title>'
+      - type: status
+        status:
+          - 200
 
-    '
-  threads: 100
+# Enhanced by mp on 2022/03/20
