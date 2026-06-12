@@ -4,14 +4,14 @@ info:
   name: Apache Tomcat Manager Default Login
   author: pdteam,sinKettu,nybble04
   severity: high
-  description: Apache Tomcat Manager default login credentials were discovered.
+  description: Apache Tomcat Manager default login credentials were discovered. This template checks for multiple variations.
   reference:
     - https://www.rapid7.com/db/vulnerabilities/apache-tomcat-default-ovwebusr-password/
     - https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
   classification:
     cpe: cpe:2.3:a:apache:tomcat:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 25
+    max-request: 405
     vendor: apache
     product: tomcat
     shodan-query: title:"Apache Tomcat"
@@ -26,72 +26,75 @@ http:
 
     payloads:
       username:
-        - tomcat
-        - admin
-        - admin
-        - admin
-        - admin
-        - admin
-        - manager
-        - role1
-        - role1
-        - root
-        - root
-        - both
         - ADMIN
-        - ovwebusr
-        - j2deployer
-        - cxsdk
         - QCC
-        - xampp
+        - admin
+        - both
+        - cxsdk
         - demo
-        - server_admin
+        - j2deployer
+        - manager
+        - ovwebusr
         - role
-        - tomcat
-        - tomcat
-        - tomcat
-        - vagrant
-        - admin
-        - admin
-        - admin
-      password:
-        - tomcat
-        - admin
-        - manager
-        - s3cret
-        - changethis
-        - tomcat
-        - manager
         - role1
-        - tomcat
         - root
-        - r00t
+        - server_admin
         - tomcat
+        - xampp
+      password:
         - ADMIN
         - OvW*busr1
+        - Password1
+        - QLogic66
+        - admanager
+        - admin
+        - adrole1
+        - adroot
+        - ads3cret
+        - adtomcat
+        - advagrant
+        - changethis
+        - demo
         - j2deployer
         - kdsxc
-        - QLogic66
-        - xampp
-        - demo
+        - manager
         - owaspbwa
-        - changethis
-        - s3cret
-        - changethis
-        - Password1
-        - vagrant
         - password
-        - Password1
-        - admin123
-    attack: pitchfork
-    stop-at-first-match: true
+        - password1
+        - r00t
+        - role1
+        - root
+        - s3cret
+        - tomcat
+        - toor
+        - vagrant
+        - xampp
+    attack: clusterbomb # Available options: sniper, pitchfork and clusterbomb
     threads: 30
 
+    matchers-condition: and
     matchers:
-      - type: dsl
-        dsl:
-          - status_code == 200
-          - contains_all(body, "Apache Tomcat", "Server Information")
-          - contains_any(body, "Tomcat Version", "JVM Version", "JVM Vendor", "OS Name", "OS Version", "OS Architecture", "Hostname", "IP Address")
+      - type: word
+        part: body
+        words:
+          - "Apache Tomcat"
+          - "Server Information"
         condition: and
-# digest: 4a0a004730450221008a6ab244b09ee1e28170127512a9b09d826ac9ddccaea178849890752bcc634f022026fcfe47cddb090c3c1252869c544218e742e7b75bd75008f847994211cb13e0:922c64590222798bb761d5b6d8e72950
+
+      - type: word
+        part: body
+        words:
+          - "Tomcat Version"
+          - "JVM Version"
+          - "JVM Vendor"
+          - "OS Name"
+          - "OS Version"
+          - "OS Architecture"
+          - "Hostname"
+          - "IP Address"
+        condition: or
+
+      - type: status
+        status:
+          - 200
+# digest: 4a0a0047304502210087a2cf9ba1b91098afb27b6a048e3e5302a7ee589f41026d56747e61c9904ffb02203b940e873f079479c30415912b91edf8850fa5454a970874b92cb9e62e2cb7a6:922c64590222798bb761d5b6d8e72950

@@ -14,8 +14,6 @@ info:
     cvss-score: 7.2
     cwe-id: CWE-404
   tags: dns,takeover,azure
-  metadata:
-    max-request: 1
 
 dns:
   - name: "{{FQDN}}"
@@ -42,7 +40,6 @@ dns:
           - "redis.cache.windows.net"
           - "search.windows.net"
           - "servicebus.windows.net"
-          - "trafficmanager.net"
           - "visualstudio.com"
 
       - type: word

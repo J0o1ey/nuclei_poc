@@ -1,40 +1,28 @@
-id: docker-compose-config
-
+id: docker-compose-config 2
 info:
-  name: Docker Compose - Detect
   author: meme-lord,blckraven,geeknik
+  name: docker-compose.yml exposure
   severity: medium
-  description: Multiple Docker Compose configuration files were detected. The configuration allows deploy, combine and configure operations on multiple containers at the same time. The default is to outsource each process to its own container, which is then publicly accessible.
-  classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
-    cvss-score: 5.3
-    cwe-id: CWE-200
   tags: config,exposure,devops
-  metadata:
-    max-request: 7
+requests:
+- attack: sniper
+  matchers:
+  - dsl:
+    - 'regex("^version: ", body) && contains(body, "services:")'
+    type: dsl
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'GET /docker-compose.prod.yml HTTP/1.1
 
-http:
-  - method: GET
-    host-redirects: true
-    max-redirects: 3
-    path:
-      - "{{BaseURL}}/docker-compose.yml"
-      - "{{BaseURL}}/docker-compose.prod.yml"
-      - "{{BaseURL}}/docker-compose.production.yml"
-      - "{{BaseURL}}/docker-compose.staging.yml"
-      - "{{BaseURL}}/docker-compose.dev.yml"
-      - "{{BaseURL}}/docker-compose-dev.yml"
-      - "{{BaseURL}}/docker-compose.override.yml"
+    Host: {{Subdomains}}
 
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: dsl
-        dsl:
-          - 'regex("^version: ", body) && contains(body, "services:")'
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:55.0) Gecko/20100101
+    Firefox/55
 
-      - type: status
-        status:
-          - 200
-
-# Enhanced by md on 2023/02/09
+    '
+  threads: 100

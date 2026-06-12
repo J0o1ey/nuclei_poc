@@ -1,56 +1,33 @@
-id: roundcube-log-disclosure
-
+id: roundcube-log-disclosure 2
 info:
+  author: dhiyaneshDk
   name: Roundcube Log Disclosure
-  author: dhiyaneshDk,kazet
-  severity: medium
-  reference:
-    - https://github.com/detectify/ugly-duckling/blob/master/modules/crowdsourced/roundcube-log-disclosure.json
-  metadata:
-    max-request: 12
+  reference: https://github.com/detectify/ugly-duckling/blob/master/modules/crowdsourced/roundcube-log-disclosure.json
+  severity: low
   tags: exposure,logs
+requests:
+- attack: sniper
+  matchers:
+  - part: body
+    type: word
+    words:
+    - 'IMAP Error:'
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'GET /roundcube/logs/errors.log HTTP/1.1
 
-http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/{{roundcube_path}}"
+    Host: {{Subdomains}}
 
-    payloads:
-      roundcube_path:
-        - roundcube/logs/sendmail
-        - roundcube/logs/errors.log
-        - roundcube/logs/errors
-        - webmail/logs/sendmail
-        - webmail/logs/errors.log
-        - webmail/logs/errors
-        - mail/logs/sendmail
-        - mail/logs/errors.log
-        - mail/logs/errors
-        - logs/sendmail
-        - logs/errors.log
-        - logs/errors
-    max-size: 1000
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
 
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - "IMAP Error:"
-          - "Message for"
-          - "DB Error:"
-          - "IMAP Error:"
-          - "PHP Error:"
-          - "PHP Warning:"
-        condition: or
+    Accept-Encoding: gzip, deflate
 
-      - type: status
-        status:
-          - 200
+    Accept: */*
 
-    extractors:
-      - type: dsl
-        dsl:
-          - content_length
-
-# digest: 4a0a00473045022073f1ccc9de6404bd1a79a1ad936150ff16e09fb3ec06d522a33c8a62df33177e02210086e3e0a838041441c4803e08f7dbc5ea591c848a79f9469dbb5e0835b691a094:922c64590222798bb761d5b6d8e72950
+    '
+  threads: 100

@@ -1,31 +1,36 @@
-id: firebase-config-exposure
-
+id: firebase-config-exposure 1
 info:
-  name: Firebase Config Exposure
   author: geeknik
-  severity: low
-  reference:
-    - https://github.com/firebase/firebaseui-web/blob/master/demo/public/sample-config.js
+  name: Firebase Config Exposure
+  reference: https://github.com/firebase/firebaseui-web/blob/master/demo/public/sample-config.js
+  severity: high
   tags: firebase,exposure,config
-
 requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/public/config.js"
-      - "{{BaseURL}}/config.js"
+- attack: sniper
+  matchers:
+  - condition: and
+    type: word
+    words:
+    - 'apiKey:'
+    - 'authDomain:'
+    - 'databaseURL:'
+    - 'storageBucket:'
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'GET /public/config.js HTTP/1.1
 
-    matchers-condition: and
-    matchers:
+    Host: {{Subdomains}}
 
-      - type: word
-        words:
-          - "apiKey:"
-          - "authDomain:"
-          - "databaseURL:"
-          - "storageBucket:"
-        condition: and
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
 
-      - type: status
-        status:
-          - 200
+    Accept-Encoding: gzip, deflate
+
+    Accept: */*
+
+    '
+  threads: 100

@@ -1,42 +1,38 @@
-id: apache-axis-detect
-
+id: apache-axis-detect 2
 info:
-  name: apache-axis-detect
   author: dogasantos
-  severity: info
   description: Axis and Axis2 detection
-  classification:
-    cpe: cpe:2.3:a:apache:axis:*:*:*:*:*:*:*:*
-  metadata:
-    verified: true
-    max-request: 3
-    vendor: apache
-    product: axis
-    shodan-query: http.html:"Apache Axis"
+  name: apache-axis-detect
+  severity: info
   tags: tech,axis2,middleware,apache
+requests:
+- attack: sniper
+  matchers:
+  - condition: and
+    type: word
+    words:
+    - Validate
+    - Welcome
+    - Axis
+    - deployed
+    - installation
+    - Admin
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'GET /axis2/ HTTP/1.1
 
-http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/axis2/"
-      - "{{BaseURL}}/axis/"
+    Host: {{Subdomains}}
 
-    stop-at-first-match: true
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
 
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "Validate"
-          - "Welcome"
-          - "Axis"
-          - "deployed"
-          - "installation"
-          - "Admin"
-        condition: and
+    Accept-Encoding: gzip, deflate
 
-      - type: status
-        status:
-          - 200
-# digest: 490a004630440220471614fc2ace271931c89d77387ced25b9ac7d85d4d99d87017b1840f160a372022021af8ae1ea6de8c241bbcb111e62e2bdc23b910585e25386ba20a706bb2d5091:922c64590222798bb761d5b6d8e72950
+    Accept: */*
+
+    '
+  threads: 100

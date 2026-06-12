@@ -1,27 +1,34 @@
-id: gilacms-detect
-
+id: gilacms-detect 1
 info:
-  name: GilaCMS Detect
   author: pikpikcu
+  name: GilaCMS Detect
   severity: info
   tags: tech,gilacms
-
 requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-      - "{{BaseURL}}/user"
+- attack: sniper
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - Homepage | Gila CMS
+    - <meta name="generator" content="Gila CMS">
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'GET /user HTTP/1.1
 
-    stop-at-first-match: true
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Homepage | Gila CMS'
-          - '<meta name="generator" content="Gila CMS">'
-        condition: or
+    Host: {{Subdomains}}
 
-      - type: status
-        status:
-          - 200
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
+
+    Accept-Encoding: gzip, deflate
+
+    Accept: */*
+
+    '
+  threads: 100
