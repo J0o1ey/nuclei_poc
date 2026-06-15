@@ -1,41 +1,39 @@
 id: avocent-dsview-detect
-
 info:
-  name: Avocent DSView Detection
   author: milo2012
+  name: Avocent DSView Detection
   severity: info
   tags: tech,avocent,dsview
+http:
+- extractors:
+  - group: 1
+    part: body
+    regex:
+    - <parameter id="product" structure="ROtext" visible="false"><value label="(.*?)">
+    type: regex
+  matchers:
+  - status:
+    - 200
+    type: status
+  - condition: or
+    part: body
+    type: word
+    words:
+    - <avtrans>
+    - payload
+  - part: header
+    type: word
+    words:
+    - text/xml
+  matchers-condition: and
+  raw:
+  - 'POST /appliance/avtrans HTTP/1.1
 
-requests:
-  - raw:
-      - |
-        POST /appliance/avtrans HTTP/1.1
-        Host: {{Hostname}}
-        Content-Type: application/x-www-form-urlencoded
+    Host: {{Hostname}}
 
-        <avtrans><sid></sid><action>get</action><agents><src>wmi</src><dest>controller</dest></agents><paths><path>login</path></paths></avtrans>
+    Content-Type: application/x-www-form-urlencoded
 
-    matchers-condition: and
-    matchers:
-      - type: status
-        status:
-          - 200
 
-      - type: word
-        part: body
-        words:
-          - '<avtrans>'
-          - 'payload'
-        condition: or
+    <avtrans><sid></sid><action>get</action><agents><src>wmi</src><dest>controller</dest></agents><paths><path>login</path></paths></avtrans>
 
-      - type: word
-        part: header
-        words:
-          - "text/xml"
-
-    extractors:
-      - type: regex
-        part: body
-        group: 1
-        regex:
-          - '<parameter id="product" structure="ROtext" visible="false"><value label="(.*?)">'
+    '

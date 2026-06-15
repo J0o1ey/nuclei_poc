@@ -1,13 +1,26 @@
 id: syfmony-profiler
 
-name: SymfonyProfiler information leakage
-severity: medium
-  
-requests:
-  - method: GET
-    paths:
-      - "HOSTNAME/_profiler/phpinfo.php"
-      - "HOSTNAME/_profiler/phpinfo"
+info:
+  name: SymfonyProfiler information leakage
+  author: wabafet
+  severity: medium
+  tags: config,exposure
 
-    patterns:
-      - \$_SERVER\['SERVER_NAME'\]|\$_ENV\['APP_SECRET'\]|\$_ENV\['SYMFONY_DOTENV_VARS'\]
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/_profiler/phpinfo.php"
+      - "{{BaseURL}}/_profiler/phpinfo"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "$_SERVER['SERVER_NAME']"
+          - "$_ENV['APP_SECRET']"
+          - "$_ENV['SYMFONY_DOTENV_VARS']"
+        condition: or
+
+      - type: status
+        status:
+          - 200
