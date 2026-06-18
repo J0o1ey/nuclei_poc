@@ -11,8 +11,8 @@ info:
   metadata:
     shodan-query: title:"Applications Manager Login Screen"
     verified: true
-    max-request: 1
-  tags: default-login,manageengine,zoho
+    max-request: 3
+  tags: default-login,manageengine,zoho,vuln
 
 variables:
   username: "admin"
@@ -42,10 +42,23 @@ http:
 
     matchers-condition: and
     matchers:
+      - type: status
+        status:
+          - 200
+
       - type: word
         part: body
         words:
           - "Super Administrator"
           - "Add Application"
         condition: and
-# digest: 4b0a00483046022100dbbba72fef683ecf1b201589665d52b6db4dba0ee74ebde6e73a185f3f20b60c022100ebc65e5a6b5cd981b77bdd3c81b44150477969bb489a61326378f5140fc23f38:922c64590222798bb761d5b6d8e72950
+
+      - type: word
+        part: body
+        words:
+          - "j_username"
+          - "j_password"
+          - "clienttype=html"
+        condition: or
+        negative: true
+# digest: 4b0a00483046022100aae678531e4d89bf0f59789e2e6cd8e2b65bba7979fec88a5c0fc5162ba05fe3022100a87a37ff4ad76dae2f87c566cf110c59d747b90dfb15ecb8c792f2b1e1e23ec7:922c64590222798bb761d5b6d8e72950
