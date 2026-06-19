@@ -14,11 +14,11 @@ info:
   metadata:
     verified: true
     max-request: 1
-    product: oqtane
     vendor: oqtane
+    product: oqtane
     shodan-query: http.title:'Home - Default Site'
     fofa-query: title="Home - Default Site"
-  tags: detect,tech,api,cms
+  tags: detect,tech,api,cms,discovery
 
 http:
   - method: GET
@@ -26,6 +26,7 @@ http:
       - "{{BaseURL}}/api/database"
 
     redirects: true
+
     matchers-condition: and
     matchers:
       - type: word
@@ -51,4 +52,4 @@ http:
         part: body
         json:
           - '.[] | select(.isDefault == true) | .name'
-# digest: 490a0046304402202013b72f5173f547317332e91929b12cfe2852f229bd851752e04d208779663702206f7e9628642b5c634d1a5192297d08a9f7a3e3c14d11f9326a41197b57df605a:922c64590222798bb761d5b6d8e72950
+
