@@ -6,8 +6,10 @@ info:
   severity: info
   description: Extract Firebase Database
   tags: firebase,misc
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

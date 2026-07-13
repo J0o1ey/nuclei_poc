@@ -5,16 +5,17 @@ info:
   author: ritikchaddha
   severity: info
   metadata:
+    max-request: 1
     verified: true
     shodan-query: title:"dedecms" || http.html:"power by dedecms"
   tags: dedecms,tech
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"
 
-    redirects: true
+    host-redirects: true
     max-redirects: 2
     matchers-condition: and
     matchers:

