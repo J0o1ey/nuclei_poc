@@ -16,4 +16,4 @@ tcp:
   - name: guildwars2-heartbeat
     type: regex
     regex:
-    - ^\x17\0\0\0\0\t\0\0\0Heartbeat \0\0\0\x046\0\0\0\0\n\0\0\0Compressed \0\0\0\x04\x1a
+    - ^\x17\x00\x00\x00\x00\t\x00\x00\x00Heartbeat \x00\x00\x00\x046\x00\x00\x00\x00\n\x00\x00\x00Compressed \x00\x00\x00\x04\x1a

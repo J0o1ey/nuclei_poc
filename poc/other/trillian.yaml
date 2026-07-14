@@ -22,4 +22,4 @@ tcp:
   - name: trillian
     type: regex
     regex:
-    - (?i)^.\0\x01.....\0([^\0]+)\0
+    - (?i)^.\x00\x01.....\x00([^\x00]+)\x00

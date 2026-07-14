@@ -18,4 +18,4 @@ tcp:
   - name: parallels-server
     type: regex
     regex:
-    - ^PRLT\x06\0.\0([\w._-]+) \((\w\w\w, \d\d \w\w\w \d\d\d\d \d\d:\d\d:\d\d)\)\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0*$
+    - ^PRLT\x06\x00.\x00([\w._-]+) \((\w\w\w, \d\d \w\w\w \d\d\d\d \d\d:\d\d:\d\d)\)\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00*$

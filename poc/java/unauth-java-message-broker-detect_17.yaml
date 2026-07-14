@@ -16,7 +16,8 @@ tcp:
       - data: "\n"
 
     host:
-      - "{{Host}}:7676"
+      - "{{Hostname}}"
+    port: 7676
 
     matchers:
       - type: word
@@ -29,4 +30,4 @@ tcp:
       - type: regex
         regex:
           - "imqbroker ([0-9.]+)"
-# digest: 490a00463044022020740e01b54372151117cb66634b869f47455a14d436e07430d5b98a0beeef3802205249c2c07771268442dcb74612dc3cc447595f7c0b34f7cf4dfa09de68556b70:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402207332869204b4c6bdf224579fb4e8ee28c9e6a146fb7b4a41b03acd84333eb1a202200df25756e63e3c0a84f18fb2768284013fbbdfb53aa9e59a2f5f23b78a3bec3e:922c64590222798bb761d5b6d8e72950

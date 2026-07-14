@@ -16,4 +16,4 @@ tcp:
   - name: scalix-ual
     type: regex
     regex:
-    - ^\x02\x1c50\x1c\x03\0\0\0\0$
+    - ^\x02\x1c50\x1c\x03\x00\x00\x00\x00$

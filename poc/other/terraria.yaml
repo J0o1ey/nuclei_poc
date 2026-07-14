@@ -17,4 +17,4 @@ tcp:
   - name: terraria
     type: regex
     regex:
-    - ^0\0\0\0\x02Client sent invalid network message \(168626705\)
+    - ^0\x00\x00\x00\x02Client sent invalid network message \(168626705\)

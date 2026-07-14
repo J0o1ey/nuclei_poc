@@ -14,9 +14,9 @@ tcp:
   - data: OPTIONS / RTSP/1.0\r\n\r\n
   host:
   - '{{Hostname}}'
-  port: 80,554,3052,3372,5000,7070,8080,10000
+  port: 80,554,3052,3372,5000,7000,7070,8080,10000
   extractors:
   - name: sonicmq
     type: regex
     regex:
-    - ^\x1a\xff\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\x08\xff\xff\xff\xf1\0\0\0O$
+    - ^\x1a\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x08\xff\xff\xff\xf1\x00\x00\x00O$

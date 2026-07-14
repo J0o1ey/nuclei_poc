@@ -3,8 +3,7 @@ id: LFI-Detector
 info:
   name: Local File Inclusion Detector
   author: Reksy
-  severity: High
-
+  severity: high
 requests:
   - method: GET
     path:
