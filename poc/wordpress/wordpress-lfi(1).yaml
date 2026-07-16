@@ -2,7 +2,7 @@ id: wordpress-LFI
 info:
   name: wordpress-LFI
   author: 0x240x23elu
-  severity: High
+  severity: high
 requests:
   - method: GET
     path:

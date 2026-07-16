@@ -3,7 +3,7 @@ info:
   author: Excis3
   description: websphere SSRF https://blog.assetnote.io/2021/12/25/advisory-websphere-portal/
   name: Websphere SSRF
-  severity: High
+  severity: high
   tags: SSRF
 requests:
 - matchers:

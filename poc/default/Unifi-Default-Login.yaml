@@ -3,7 +3,7 @@ info:
   author: YashVardhanTripathi
   description: Unifi Default Credential Access Extraction
   name: Unifi Default Login
-  severity: High
+  severity: high
   tags:
   - tech
   - Unifi

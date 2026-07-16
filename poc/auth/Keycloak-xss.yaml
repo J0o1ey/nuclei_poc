@@ -3,7 +3,7 @@ id: Keycloak-XSS
 info:
   name: Keycloak xss 
   author: Excis3
-  severity: Medium
+  severity: medium
   description: XSS Keycloak, possible 0-day
   tags: XSS
 

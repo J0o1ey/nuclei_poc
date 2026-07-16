@@ -12,7 +12,7 @@ info:
   metadata:
     verified: true
     shodan-query: title:"vManage"
-  tags: log4j,cisco,tenable,cve,cve2021,rce,jndi
+  tags: cve,cve2021,rce,jndi,log4j,cisco
 
 requests:
   - raw:

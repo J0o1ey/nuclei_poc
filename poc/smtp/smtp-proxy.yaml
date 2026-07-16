@@ -1,12 +1,14 @@
 id: smtp-proxy
 info:
-  name: NoSpamToday! smtp proxy
+  name: IronMail SMTP proxy
   author: nmap,cn-kali-team
   tags: detect,tech,smtp-proxy,service
   severity: info
   metadata:
-    hostname: $1
+    product: ironmail
     rarity: 3
+    vendor: ciphertrust
+    verified: true
 tcp:
 - name: help
   inputs:
@@ -18,4 +20,4 @@ tcp:
   - name: smtp-proxy
     type: regex
     regex:
-    - '^220 ([-\w_.]+) ESMTP Ready\r\n211 Help:->Supported Commands: HELO,EHLO,QUIT,HELP,RCPT,MAIL,DATA,RSET,NOOP\r\n'
+    - ^220 SMTP SDC Ready\r\n250 \+OK entry follows, ends in \.\r\n

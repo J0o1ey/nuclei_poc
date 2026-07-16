@@ -2,8 +2,8 @@ id: Serverlet XSS
 info:
   author: pikpikcu
   name: WebLogic Servlet/2.5 JSP/2.1 XSS
-  severity: Medium
-http:
+  severity: medium
+requests:
 - matchers:
   - status:
     - 200
