@@ -3,7 +3,7 @@ id: Grafana_Auth
 info:
   name: Grafana basic auth
   author: excis3
-  severity: critical
+  severity: Critical
   description: Grafana default credentials
   tags: Grafana
 

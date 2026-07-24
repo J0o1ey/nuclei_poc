@@ -3,7 +3,8 @@ id: SQLInjection_ERROR
 info:
   name: SQLINJECTION Detection
   author: mrco24
-  severity: high
+  severity: High
+
 requests:
   - method: GET
 

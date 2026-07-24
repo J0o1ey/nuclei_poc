@@ -3,7 +3,7 @@ info:
   author: SirBugs
   description: Check for common database configuration keys.
   name: DataBase Configuration Check
-  severity: critical
+  severity: Critical
 requests:
 - matchers:
   - part: body

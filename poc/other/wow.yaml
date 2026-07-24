@@ -17,4 +17,4 @@ tcp:
   - name: wow
     type: regex
     regex:
-    - ^\x00\x00\t.{32}\x01..{32}
+    - ^\0\0\t.{32}\x01..{32}

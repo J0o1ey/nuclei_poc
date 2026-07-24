@@ -3,7 +3,7 @@ id: config-parameters-yml
 info:
   name: DataBase Configuration Check
   author: SirBugs
-  severity: critical
+  severity: Critical
   description: Check for common database configuration keys.
 
 http:

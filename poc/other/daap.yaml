@@ -1,6 +1,6 @@
 id: daap
 info:
-  name: Amarok music player DAAP
+  name: mt-daapd DAAP
   author: nmap,cn-kali-team
   tags: detect,tech,daap,service
   severity: info
@@ -17,4 +17,4 @@ tcp:
   - name: daap
     type: regex
     regex:
-    - '^HTTP/1\.1 404 Not Found\r\nConnection: close\r\nDate: .*\r\nContent-Length: 24\r\n\r\nCommand not implemented\.$'
+    - '^HTTP/1\.0 404 Not Found\r\nDate: .*\r\nContent-Length: 0\r\n\r\n$'
