@@ -7,7 +7,7 @@ info:
   severity: low
   tags: glpi,misconfig
 
-http:
+requests:
   - raw:
       - |
         GET {{expose_data}} HTTP/1.1

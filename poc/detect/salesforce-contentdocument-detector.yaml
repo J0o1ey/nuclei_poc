@@ -3,7 +3,7 @@ id: salesforce-contentdocument-detector
 info:
   name: Salesforce ContentDocument Detector
   author: TedJackson
-  severity: Medium
+  severity: medium
   description: A Salesforce Lightning aura API allows unathenticated users to fetch files.
   tags: aura,unauth,salesforce,exposure,misconfig
 

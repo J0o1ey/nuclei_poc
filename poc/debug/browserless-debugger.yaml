@@ -10,7 +10,7 @@ info:
     shodan-query: 'http.title:"browserless debugger"'
   tags: browserless,unauth,debug
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}"

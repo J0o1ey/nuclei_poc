@@ -7,7 +7,7 @@ info:
   tags: wordpress
   reference: https://wordpress.org/support/article/resetting-your-password/#using-the-emergency-password-reset-script
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/emergency.php"

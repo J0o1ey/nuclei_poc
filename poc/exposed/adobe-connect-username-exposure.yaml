@@ -7,7 +7,7 @@ info:
   severity: low
   tags: adobe,disclosure
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/system/help/support"

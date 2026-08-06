@@ -8,7 +8,7 @@ info:
   tags: misconfig,oast,oauth,ssrf
   reference: https://portswigger.net/research/hidden-oauth-attack-vectors
 
-http:
+requests:
   - raw:
       - |
         POST /connect/register HTTP/1.1

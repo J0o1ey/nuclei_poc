@@ -7,7 +7,7 @@ info:
   severity: info
   tags: openvpn,hostheader-injection
 
-http:
+requests:
   - raw:
       - |
         GET / HTTP/1.1

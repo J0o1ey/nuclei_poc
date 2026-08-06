@@ -10,7 +10,7 @@ info:
     - https://www.fatpipeinc.com/support/advisories.php
   tags: fatpipe,auth-bypass,router
 
-http:
+requests:
   - raw:
       - |
         GET /fpui/jsp/index.jsp HTTP/1.1

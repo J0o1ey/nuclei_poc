@@ -5,22 +5,24 @@ info:
   tags: detect,tech,docker,service
   severity: info
   metadata:
-    info: API $1; KernelVersion $2
-    operating_system: $3
+    fallback:
+    - get-request
+    info: API $1
+    operating_system: $2
     product: docker
-    rarity: 8
+    rarity: 4
     vendor: docker
     verified: true
-    version: $4
+    version: $3
 tcp:
-- name: docker
+- name: httpoptions
   inputs:
-  - data: GET /version HTTP/1.1\r\n\r\n
+  - data: OPTIONS / HTTP/1.0\r\n\r\n
   host:
   - '{{Hostname}}'
-  port: 2375,2379,2380
+  port: 2301,631,641,3128,5232,6000,8080,8888,9999,10000,10031,37435,49400,80-85
   extractors:
   - name: docker
     type: regex
     regex:
-    - '^HTTP/1\.1 200 OK\r\nContent-Type: application/json\r\nJob-Name: version\r\nDate: .*\r\nContent-Length: \d+\r\n\r\n{.*\"ApiVersion\":\"([^"]+)\",.*\"KernelVersion\":\"([^"]+)\",.*\"Os\":\"([^"]+)\",.*\"Version\":\"([^"]+)\"'
+    - '^HTTP/1\.0 200 OK\r\nApi-Version: ([\d.]+)\r\nDocker-Experimental: false\r\nOstype: (.+)\r\nServer: Docker/(\d[\w.-]*) \(.*\)\r\nDate: .*\r\nContent-Length: 0\r\n\r\n'

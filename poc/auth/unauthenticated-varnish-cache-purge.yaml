@@ -9,7 +9,7 @@ info:
     - https://hackerone.com/reports/154278
   tags: varnish,misconfig,cache
 
-http:
+requests:
   - method: PURGE
     path:
       - "{{BaseURL}}"

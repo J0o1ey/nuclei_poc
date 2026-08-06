@@ -1,13 +1,12 @@
 id: yarn-manager-exposure
 
 info:
-  name: Apache YARN ResourceManager Panel - Detect
+  name: Apache Yarn ResourceManager Exposure / Unauthenticated Access
   author: pdteam
   severity: low
-  description: Apache YARN ResourceManager panel was detected.
   tags: panel,apache,yarn,exposure
 
-http:
+requests:
   - method: GET
     path:
       - '{{BaseURL}}/cluster/cluster'
@@ -18,5 +17,3 @@ http:
           - 'resourcemanager'
           - 'logged in as: dr.who'
         condition: and
-
-# Enhanced by md on 2023/01/26

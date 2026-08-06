@@ -8,7 +8,7 @@ info:
   metadata:
     shodan-query: 'html:"git web interface version"'
 
-http:
+requests:
   - method: GET
     path:
       - '{{BaseURL}}'

@@ -6,7 +6,7 @@ info:
   severity: low
   tags: config,service,apcu
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/apc/apc.php"

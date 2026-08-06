@@ -7,7 +7,7 @@ info:
   reference: https://www.exploit-db.com/ghdb/752
   tags: logs,status
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/cgi-bin/apcupsd/multimon.cgi"

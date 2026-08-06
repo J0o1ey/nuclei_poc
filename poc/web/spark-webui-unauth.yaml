@@ -6,7 +6,7 @@ info:
   reference: https://github.com/vulhub/vulhub/tree/master/spark/unacc
   tags: spark,unauth
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}"

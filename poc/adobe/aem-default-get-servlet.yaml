@@ -7,7 +7,7 @@ info:
   tags: aem
 
 
-http:
+requests:
   - method: GET
     path:
       - '{{BaseURL}}/.json'

@@ -8,7 +8,7 @@ info:
   tags: redirect,sap
 
 
-http:
+requests:
   - method: GET
 
     path:
