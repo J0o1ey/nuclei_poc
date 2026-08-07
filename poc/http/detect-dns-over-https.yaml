@@ -21,13 +21,11 @@ requests:
       - type: status
         status:
           - 200
-
       - type: word
-        part: header
         words:
           - "application/dns-message"
-
-      - type: regex
         part: header
-        regex:
-          - "(C|c)ontent-(L|l)ength: 49"
+      # DNS wire-format responses are typically 29–512 bytes; exact size varies by query/answer
+      - type: dsl
+        dsl:
+          - 'content_length > 0 && content_length < 1024'

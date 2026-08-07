@@ -1,12 +1,10 @@
-id: wordpress-detect
+id: tech-detect
 
 info:
-  name: WordPress Detection
-  author: pdteam
+  name: Wappalyzer Technology Detection
+  author: nagli
   severity: info
-  tags: tech,wordpress
-  metadata:
-    shodan-query: http.component:"WordPress"
+  tags: tech
 
 requests:
   - method: GET
@@ -19,22 +17,9 @@ requests:
     matchers:
 
       - type: regex
+        name: wordpress
         regex:
-          - '<link[^>]+s\d+\.wp\.com'
-          - '<!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([\d.]+) -'
-          - '<!--[^>]+WP-Super-Cache'
+          - <link rel=["']stylesheet["'] [^>]+/wp-(?:content|includes)/
+          - <link[^>]+s\d+\.wp\.com
         condition: or
-
-      - type: word
-        words:
-          - '/wp-content/themes/'
-          - '/wp-includes/'
-          - 'name="generator" content="wordpress'
-          - '<!-- performance optimized by w3 total cache. learn more: http://www.w3-edge.com/wordpress-plugins/'
-        condition: or
-
-    extractors:
-      - type: regex
-        group: 1
-        regex:
-          - 'content="WordPress ([0-9.]+)"'
+        part: body

@@ -3,7 +3,7 @@ id: jupyter-notebooks-exposed
 info:
   name: Jupyter notebooks exposed to reading and writing
   author: johnk3r
-  severity: high
+  severity: High
   reference:
     - https://blog.aquasec.com/python-ransomware-jupyter-notebook
   metadata:
