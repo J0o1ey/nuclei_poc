@@ -11,7 +11,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-  tags: wordpress,wp,wp-plugin,xss,adivaha,travel,vuln
+  tags: wordpress,wp,wp-plugin,xss,adivaha,travel
 
 http:
   - method: GET

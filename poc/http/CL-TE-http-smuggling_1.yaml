@@ -4,7 +4,7 @@ info:
   name: HTTP request smuggling, basic CL.TE vulnerability
   author: pdteam, akincibor
   severity: low
-requests:
+http:
   - raw:
     - |+
       POST / HTTP/1.1

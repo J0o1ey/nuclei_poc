@@ -1,13 +1,12 @@
 id: kshell
 info:
-  name: AIX kerberised rsh
+  name: AIX (kerberized?) rshd
   author: nmap,cn-kali-team
   tags: detect,tech,kshell,service
   severity: info
   metadata:
     fallback:
     - dnsversion-bind-req
-    info: French
     operating_system: AIX
     rarity: 3
 tcp:
@@ -21,4 +20,4 @@ tcp:
   - name: kshell
     type: regex
     regex:
-    - '^\x01krshd: Echec de l''authentification Kerberos\.\r\n\0'
+    - '^\x01rshd: [-\d]+ The remote user login is not correct\.\n'

@@ -10,7 +10,8 @@ info:
     - https://www.jenkins.io/doc/book/security/csrf-protection/
   metadata:
     verified: true
-  tags: file,keys,jenkins,crumb,token
+  tags: jenkins,crumb,token,file
+
 file:
   - extensions:
       - all
@@ -20,4 +21,3 @@ file:
         part: body
         regex:
           - '(?i)jenkins.{0,10}(?:crumb)?.{0,10}\b([0-9a-f]{32,36})\b'
-# digest: 4a0a00473045022100c67b01954ecff8cd54d394d6273b3d201489f645599c67319ca3bad7b35006e802206c6b95815ed630474c3c7fdd55ce1e2024610af905f7eb4588a8cefe08d6d527:922c64590222798bb761d5b6d8e72950

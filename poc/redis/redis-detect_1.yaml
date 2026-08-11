@@ -9,18 +9,30 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    max-request: 1
-    shodan-query: product:"redis"
     verified: true
-  tags: network,redis,detect
-
+    max-request: 2
+    shodan-query:
+      - product:"redis"
+      - http.title:"airflow - dags" || http.html:"apache airflow"
+      - http.title:"sign in - airflow"
+    product: airflow
+    vendor: apache
+    fofa-query:
+      - apache airflow
+      - title="airflow - dags" || http.html:"apache airflow"
+      - title="sign in - airflow"
+    google-query:
+      - intitle:"airflow - dags" || http.html:"apache airflow"
+      - intitle:"sign in - airflow"
+  tags: network,redis,detect,detection,tcp
 tcp:
   - inputs:
       - data: "*1\r\n$4\r\ninfo\r\n"
 
     host:
-      - "tls://{{Host}}"
-    port: 6380
+      - "{{Hostname}}"
+      - "tls://{{Hostname}}"
+    port: 6379,6380
     read-size: 1024
 
     matchers:
@@ -30,4 +42,4 @@ tcp:
           - "CONFIG REWRITE"
           - "NOAUTH Authentication"
         condition: or
-# digest: 4b0a00483046022100ff0c9e1b31b570aebffb88efc242fee5e45db9bbee7a90035fa5382e28bba1b4022100ee2807ec727add20da8012d95569ed340459a2f244ee671764274ad0b7ba5b33:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022041988d67fbd7bd746b969741e302ee170f681f2be21eb8232c6f107019178560022100d2eefadac073efb45dff8aa6fb90a120b919ae9d7834df77865c9e4fef444434:922c64590222798bb761d5b6d8e72950

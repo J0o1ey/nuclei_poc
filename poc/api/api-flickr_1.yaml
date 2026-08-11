@@ -7,9 +7,11 @@ info:
   reference:
     - https://www.flickr.com/services/developer/api/
   tags: token-spray,flickr
+  metadata:
+    max-request: 1
 
 self-contained: true
-requests:
+http:
   - method: GET
     path:
       - "https://www.flickr.com/services/rest/?method=flickr.tags.getHotList&api_key={{token}}"

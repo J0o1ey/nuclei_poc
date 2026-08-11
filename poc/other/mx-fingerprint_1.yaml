@@ -19,13 +19,14 @@ dns:
     type: MX
 
     matchers:
-      - type: regex
-        part: answer
-        regex:
-          - "IN\tMX\\t(.+)$"
+      - type: word
+        words:
+          - "IN\tMX"
 
     extractors:
       - type: regex
         group: 1
         regex:
           - "IN\tMX\t(.+)"
+
+# Enhanced by mp on 2022/03/14

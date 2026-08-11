@@ -6,8 +6,10 @@ info:
   severity: info
   reference: https://www.exploit-db.com/ghdb/7013
   tags: webftp,tech,ftp
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/cgi-bin/upload/web-ftp.cgi"

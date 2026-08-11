@@ -7,8 +7,10 @@ info:
   reference:
     - https://www.cvedetails.com/vulnerability-list/vendor_id-9609/Sitecore.html
   tags: sitecore,tech
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/sitecore/shell/sitecore.version.xml"

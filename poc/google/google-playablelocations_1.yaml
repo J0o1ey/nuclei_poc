@@ -5,9 +5,11 @@ info:
   author: zzeitlin
   severity: info
   tags: token-spray,google,playable,locations
+  metadata:
+    max-request: 1
 
 self-contained: true
-requests:
+http:
   - method: GET
     path:
       - "https://playablelocations.googleapis.com/v3:samplePlayableLocations?key={{token}}"

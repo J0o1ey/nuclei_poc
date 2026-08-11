@@ -5,10 +5,11 @@ info:
   author: ffffffff0x
   severity: info
   metadata:
+    max-request: 1
     fofa-query: app="一米OA"
   tags: ymhome,tech
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

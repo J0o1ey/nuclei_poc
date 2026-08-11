@@ -7,9 +7,11 @@ info:
   reference:
     - https://openweathermap.org/current
   tags: token-spray,weather,openweather
+  metadata:
+    max-request: 1
 
 self-contained: true
-requests:
+http:
   - method: GET
     path:
       - "https://api.openweathermap.org/data/2.5/weather?q=Chicago&appid={{token}}"

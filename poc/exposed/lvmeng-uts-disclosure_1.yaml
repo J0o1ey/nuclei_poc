@@ -1,11 +1,15 @@
 id: lvmeng-uts-disclosure
 
 info:
-  name: Lvmeng UTS Disclosure
+  name: Lvmeng - UTS Disclosure
   author: pikpikcu
   severity: high
+  description: Lvmeng UTS was discovered.
+  tags: config,exposure
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/webapi/v1/system/accountmanage/account"
@@ -29,3 +33,5 @@ requests:
           - "MANAGER_IP"
         condition: and
         part: body
+
+# Enhanced by mp on 2022/07/15

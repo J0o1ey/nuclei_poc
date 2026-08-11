@@ -5,17 +5,16 @@ info:
   author: DhiyaneshDK
   severity: info
   description: PHPStan configuration page was detected.
-  reference:
-    - https://phpstan.org/
+  reference: https://phpstan.org/
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0
+    cvss-score: 0.0
     cwe-id: CWE-200
   metadata:
-    verified: true
     max-request: 1
+    verified: true
     shodan-query: html:"phpstan.neon"
-  tags: devops,exposure,vuln
+  tags: devops,exposure
 
 http:
   - method: GET
@@ -38,4 +37,5 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100d550dd786b4f77d81084637ef837af5095554e8195b21f6e25507516b4b15a9302202fa492414b08cf21f25b1aaae52a83d48c6488687306ba9c80c912495dda8fb4:922c64590222798bb761d5b6d8e72950
+
+# Enhanced by md on 2023/02/22

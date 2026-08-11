@@ -8,13 +8,15 @@ info:
   reference: https://opengear.com/
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0.0
     cwe-id: CWE-200
+    cpe: cpe:2.3:a:opengear:opengear:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 1
     verified: true
+    max-request: 1
     fofa-query: app="opengear-Management-Console"
     google-query: intitle:"Opengear Management Console"
+    product: opengear
+    vendor: opengear
   tags: panel,opengear
 
 http:
@@ -34,5 +36,4 @@ http:
       - type: status
         status:
           - 200
-
-# Enhanced by cs 2023/01/09
+# digest: 490a00463044022057c0c4b24265415a4832c798915e820813aa77537793dd06e25036976d9aa154022055d3d7a8558e47496ebb5ed0bb6cf0fd70b28a7172690184721387cec79fe45e:922c64590222798bb761d5b6d8e72950

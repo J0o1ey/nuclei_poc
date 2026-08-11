@@ -4,6 +4,7 @@ info:
   name: frontify takeover detection
   author: pdteam
   severity: high
+  description: frontify takeover was detected.
   reference:
     - https://github.com/EdOverflow/can-i-take-over-xyz/issues/170
   metadata:
@@ -26,4 +27,9 @@ http:
           - 404 - Page Not Found
           - Oops… looks like you got lost
         condition: and
-# digest: 4a0a0047304502207b7980c1553915287f0a03202000945918e11e8842c6feb4ee4ef488b8d25dce022100aef3a8f789fc28a6b0e98a2f1a5b1c5ab0a270f21e5a32b6a1b32f9435f909a6:922c64590222798bb761d5b6d8e72950
+
+    extractors:
+      - type: dsl
+        dsl:
+          - cname
+# digest: 490a00463044022073257d87b3c8f7bac57f11010374f90ebc1ad0ed82fa373cb8bc52f060a59a9f02207f2df96e3872cb18f759d103ee1eafa6100f1e1cb4d752047366abcd71da4c79:922c64590222798bb761d5b6d8e72950

@@ -4,13 +4,16 @@ info:
   name: CoinAPI API Test
   author: daffainfo
   severity: info
+  description: All Currency Exchanges integrate under a single api
   reference:
     - https://docs.coinapi.io/
-    - https://github.com/daffainfo/all-about-apikey/blob/main/Cryptocurrency/CoinAPI.md
+    - https://github.com/daffainfo/all-about-apikey/tree/main/coinapi
   tags: token-spray,coinapi
+  metadata:
+    max-request: 1
 
 self-contained: true
-requests:
+http:
   - raw:
       - |
         GET https://rest.coinapi.io/v1/exchanges HTTP/1.1

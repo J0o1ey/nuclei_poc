@@ -5,9 +5,11 @@ info:
   author: zzeitlin
   severity: info
   tags: token-spray,google,geolocation
+  metadata:
+    max-request: 1
 
 self-contained: true
-requests:
+http:
   - method: GET
     path:
       - "https://www.googleapis.com/geolocation/v1/geolocate?key={{token}}"

@@ -9,9 +9,11 @@ info:
     - https://docs.sentry.io
     - https://docs.sentry.io/api/auth
   tags: sentry,tracing,tracking,monitoring,token-spray
+  metadata:
+    max-request: 1
 
 self-contained: true
-requests:
+http:
   - method: GET
     path:
       - "https://sentry.io/api/0/projects/"

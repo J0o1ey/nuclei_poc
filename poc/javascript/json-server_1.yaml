@@ -6,11 +6,12 @@ info:
   severity: low
   reference: https://www.exploit-db.com/ghdb/4550
   metadata:
+    max-request: 1
     verified: true
     shodan-query: title:"JSON Server"
   tags: exposure,devops,tech
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"

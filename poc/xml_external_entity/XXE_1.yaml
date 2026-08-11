@@ -3,7 +3,7 @@ id: CVE_2021_2400
 info:
   name: CVE-2021–2400
   author: Excis3
-  severity: Critical
+  severity: critical
   description: Discover services to Executes an XXE attack
   
 requests:

@@ -4,6 +4,7 @@ info:
   name: tumblr takeover detection
   author: pdteam,philippedelteil
   severity: high
+  description: tumblr takeover was detected.
   reference:
     - https://github.com/EdOverflow/can-i-take-over-xyz/issues/240
   metadata:
@@ -33,4 +34,9 @@ http:
           - '!contains(host,"txmblr.com")'
           - '!contains(host,"umblr.com")'
         condition: and
-# digest: 4a0a0047304502202f553a5421f026e5d8103944fe83899731734a7389b1ed1dbfe7bf31b47cf2b9022100ac5e2916e9a7da00c4f498d7fb2d5cf00f1af8dbb0ab26deac59e8bd3e34d0cd:922c64590222798bb761d5b6d8e72950
+
+    extractors:
+      - type: dsl
+        dsl:
+          - cname
+# digest: 490a0046304402205bfd35bccfbce87fe94c3e445b7d7fb88d1cfe9ba54ac2535c70f365ae12765602205c5b189af200e1e55544c04801588ea3c32d46f45fe6cad5dba55caf86409bb1:922c64590222798bb761d5b6d8e72950

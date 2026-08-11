@@ -14,8 +14,10 @@ info:
     cvss-score: 7.2
     cwe-id: CWE-79
   tags: xss,postmessage
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - '{{BaseURL}}'
