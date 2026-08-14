@@ -13,11 +13,11 @@ info:
     cvss-score: 8.8
     cve-id: CVE-2022-28080
   metadata:
-    version: 1
+    version: 1.0
     tested-on: Windows 10 Pro + PHP 8.0.11, Apache 2.4.51
   tags: cve,cve2022,sqli,royal-event,authenticated
 
-requests:
+http:
   - method: POST
     path:
       - "{{BaseURL}}/royal_event/btndates_report.php#?="

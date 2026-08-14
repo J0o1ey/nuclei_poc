@@ -7,7 +7,6 @@ info:
   metadata:
     fallback:
     - get-request
-    - httpoptions
     product: openmobility_manager
     rarity: 5
     vendor: mitel

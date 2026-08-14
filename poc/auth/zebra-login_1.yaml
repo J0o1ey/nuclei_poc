@@ -3,7 +3,7 @@ id: zebra-login
 info:
   name: Zebra
   author: Nate
-  severity: High
+  severity: high
   description: Detect Zebra Printers Default Login
   metadata:
     max-request: 1

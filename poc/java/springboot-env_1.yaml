@@ -1,48 +1,49 @@
-id: springboot-env 1
+id: springboot-env
+
 info:
-  author: that_juan_,dwisiswant0,wdahlenb
-  description: Sensitive environment variables may not be masked
-  name: Detect Springboot Env Actuator
+  name: Springboot Env Actuator - Detect
+  author: that_juan_,dwisiswant0,wdahlenb,philippedelteil,stupidfish
   severity: low
-  tags: springboot,disclosure
-requests:
-- attack: sniper
-  matchers:
-  - condition: or
-    part: body
-    type: word
-    words:
-    - applicationConfig
-    - activeProfiles
-  - condition: or
-    part: body
-    type: word
-    words:
-    - server.port
-    - local.server.port
-  - status:
-    - 200
-    type: status
-  - condition: or
-    part: header
-    type: word
-    words:
-    - application/json
-    - application/vnd.spring-boot.actuator
-    - application/vnd.spring-boot.actuator.v1+json
-  matchers-condition: and
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /env HTTP/1.1
+  description: Sensitive environment variables may not be masked
+  tags: misconfig,springboot,env,exposure
+  metadata:
+    max-request: 4
 
-    Host: {{Subdomains}}
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/env"
+      - "{{BaseURL}}/actuator/env"
+      - "{{BaseURL}}/actuator;/env;"
+      - "{{BaseURL}}/message-api/actuator/env"
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
+    stop-at-first-match: true
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "applicationConfig"
+          - "activeProfiles"
+        condition: or
 
-    Accept-Encoding: gzip, deflate
+      - type: word
+        part: body
+        words:
+          - "server.port"
+          - "local.server.port"
+        condition: or
 
-    Accept: */*
+      - type: word
+        part: header
+        words:
+          - "application/json"
+          - "application/vnd.spring-boot.actuator"
+          - "application/vnd.spring-boot.actuator.v1+json"
+          - "application/vnd.spring-boot.actuator.v2+json"
+          - "application/vnd.spring-boot.actuator.v3+json"
+        condition: or
 
-    '
-  threads: 100
+      - type: status
+        status:
+          - 200

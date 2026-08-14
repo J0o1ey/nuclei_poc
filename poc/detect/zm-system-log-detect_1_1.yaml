@@ -1,30 +1,32 @@
-id: zm-system-log-detect
-
+id: zm-system-log-detect 1
 info:
-  name: zm-system-log-detect
   author: pussycat0x
-  severity: low
-  description: Zm system log file exposed.
+  name: zm-system-log-detect
   reference: https://www.exploit-db.com/ghdb/6926
-  metadata:
-    max-request: 2
+  severity: low
   tags: logs,zm,exposure
+requests:
+- attack: sniper
+  matchers:
+  - type: word
+    words:
+    - <title>ZM - System Log</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'GET /?view=log HTTP/1.1
 
-http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/?view=log"
-      - "{{BaseURL}}/zm/?view=log"
+    Host: {{Subdomains}}
 
-    stop-at-first-match: true
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
 
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - "<title>ZM - System Log</title>"
+    Accept-Encoding: gzip, deflate
 
-      - type: status
-        status:
-          - 200
-# digest: 490a0046304402200cb604ef1d104b1aa2f0728fd2166f03b57972b7a219f36719c21b1f5388866102202645610023ea6f07eec9a679e74cc0f68eb1e9776daa87f8a5fff39554bb9b12:922c64590222798bb761d5b6d8e72950
+    Accept: */*
+
+    '
+  threads: 100

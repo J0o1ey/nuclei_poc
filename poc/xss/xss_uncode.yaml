@@ -1,22 +1,26 @@
 id: xss_uncode
+
 info:
-  author: anonymous
   name: Uncode XSS - Response Validation
-  reference: No Reference
+  author: anonymous
   severity: medium
+  reference: No Reference
   tags: request, GET
-requests:
-- headers:
-    User-Agent: UncodeXSS/1.0 (Simulates Chrome/Firefox/Safari)
-  matchers:
-  - part: false
-    type: word
-    words:
-    - '-1'
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  method: GET
-  path:
-  - '{{BaseURL}}/wp-content/themes/uncode/core/inc/uncode-ajax.php'
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/wp-content/themes/uncode/core/inc/uncode-ajax.php"
+    headers:
+      User-Agent: UncodeXSS/1.0 (Simulates Chrome/Firefox/Safari)
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - "-1"
+        part: false
+      - type: status
+        status:
+          - 200
+

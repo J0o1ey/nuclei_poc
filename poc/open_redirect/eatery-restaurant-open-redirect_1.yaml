@@ -13,8 +13,10 @@ info:
     cvss-score: 6.1
     cwe-id: CWE-601
   tags: wordpress,wp-theme,redirect,wp
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/wp-content/themes/eatery/nav.php?-Menu-=https://interact.sh/"

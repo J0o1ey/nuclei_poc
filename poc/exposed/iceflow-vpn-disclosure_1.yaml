@@ -1,42 +1,46 @@
-id: iceflow-vpn-disclosure 1
+id: iceflow-vpn-disclosure
+
 info:
-  author: pikpikcu
   name: ICEFlow VPN Disclosure
+  author: pikpikcu
   severity: low
+  description: ICEFlow VPN internal log file is exposed.
+  metadata:
+    max-request: 8
   tags: exposure,files,iceflow,logs
-requests:
-- attack: sniper
-  matchers:
-  - condition: or
-    part: body
-    type: word
-    words:
-    - 'ICEFLOW VPN:'
-    - ICEFLOW SYSTEM
-    - ICEFLOW
-  - status:
-    - 200
-    type: status
-  - condition: and
-    part: header
-    type: word
-    words:
-    - text/plain
-    - ICEFLOW
-  matchers-condition: and
-  max-size: 2048
-  payloads:
-    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
-  raw:
-  - 'GET /log/system.log HTTP/1.1
 
-    Host: {{Subdomains}}
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/log/system.log"
+      - "{{BaseURL}}/log/vpn.log"
+      - "{{BaseURL}}/log/access.log"
+      - "{{BaseURL}}/log/warn.log"
+      - "{{BaseURL}}/log/error.log"
+      - "{{BaseURL}}/log/debug.log"
+      - "{{BaseURL}}/log/mobile.log"
+      - "{{BaseURL}}/log/firewall.log"
 
-    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
+    max-size: 2048
 
-    Accept-Encoding: gzip, deflate
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - 'ICEFLOW VPN:'
+          - 'ICEFLOW SYSTEM'
+          - 'ICEFLOW'
+        part: body
+        condition: or
 
-    Accept: */*
+      - type: status
+        status:
+          - 200
 
-    '
-  threads: 100
+      - type: word
+        words:
+          - "text/plain"
+          - 'ICEFLOW'
+        part: header
+        condition: and
+# digest: 4a0a0047304502204297774915e086ea03633fd78820b7168482eacd771a233f3605f998529c9944022100acfb5f26b357027fefda273200e36b5a042a23b1f3c1427c6cfe6d4e3ea004a9:922c64590222798bb761d5b6d8e72950

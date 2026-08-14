@@ -1,14 +1,14 @@
 id: easyredir-takeover
 info:
-  author: harish
   name: easyredir Takeover Detection
+  author: harish
   severity: high
   tags: takeover
 requests:
-- matchers:
-  - type: word
-    words:
-    - This IP or CNAME is part of EasyRedir's URL redirection edge network.
-  method: GET
-  path:
-  - '{{BaseURL}}'
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+    matchers:
+      - type: word
+        words:
+          - "This IP or CNAME is part of EasyRedir's URL redirection edge network."

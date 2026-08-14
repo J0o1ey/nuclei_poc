@@ -1,19 +1,54 @@
-http:
-- host-redirects: true
-  matchers:
-  - part: header
-    type: word
-    words:
-    - 'Set-Cookie: Redmine='
-  method: GET
-  path:
-  - '{{BaseURL}}/login'
 id: RedMine-detect
+
 info:
+  name: RedMine Detection
   author: YashVardhanTripathi
-  description: RedMine Detection
+  severity: info
+  description: RedMine Default Login Extraction
   metadata:
     max-request: 1
-  name: RedMine Detection
-  severity: info
   tags: tech, RedMine
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/login"
+    extractors:
+      - type: regex
+        name: Coocoo
+        group: 1
+        part: header
+        regex:
+          - "Redmine=([a-zA-Z0-9]+);"
+      - type: regex
+        name: authtok
+        group: 1
+        part: body
+        regex:
+          - '<meta name="csrf-token" content="([^"]+)"'
+
+  - method: POST
+    path:
+      - "{{BaseURL}}/login.php"
+    body:
+      authenticity_token={{authtok}}&username={{username}}&password={{password}}
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+      Origin: "{{BaseURL}}"
+      Cookie: Redmine={{Coocoo}}
+    attack: pitchfork
+    payloads:
+      username:
+        - user
+      password:
+        - bitnami
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "Issues assigned to me"
+      - type: status
+        status:
+          - 200

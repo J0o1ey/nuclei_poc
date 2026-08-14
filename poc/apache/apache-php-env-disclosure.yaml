@@ -8,13 +8,13 @@ info:
   reference: https://blog.orange.tw/2024/08/confusion-attacks-en.html
   tags: apache,php
 
-http:
+requests:
 http:
   - method: GET
     path:
       - "{{BaseURL}}/usr/share/doc/websocketd/examples/php/dump-env.php%3f"
       - "{{BaseURL}}/html/usr/share/doc/websocketd/examples/php/dump-env.php%3f"
-
+      
     matchers-condition: and
     matchers:
       - type: status

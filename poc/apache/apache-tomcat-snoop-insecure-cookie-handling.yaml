@@ -1,19 +1,23 @@
 id: apache-tomcat-snoop-insecure-cookie-handling
+
 info:
-  author: wasp76b
   name: Apache Tomcat example - snoop - Insecure Cookie Handling
-  reference: https://www.rapid7.com/db/vulnerabilities/apache-tomcat-example-leaks
+  author: wasp76b
   severity: low
+  reference: https://www.rapid7.com/db/vulnerabilities/apache-tomcat-example-leaks
   tags: apache,misconfig,tomcat,disclosure
-requests:
-- matchers:
-  - type: word
-    words:
-    - Cookies Example
-  - status:
-    - 200
-    type: status
-  matchers-condition: and
-  method: GET
-  path:
-  - '{{BaseURL}}/examples/servlets/servlet/CookieExample'
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/examples/servlets/servlet/CookieExample"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        words:
+          - 'Cookies Example'
+
+      - type: status
+        status:
+          - 200

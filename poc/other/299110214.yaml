@@ -7,7 +7,6 @@ info:
   metadata:
     fallback:
     - get-request
-    - httpoptions
     info: Linux i386
     operating_system: Linux
     rarity: 5

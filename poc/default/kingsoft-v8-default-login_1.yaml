@@ -12,8 +12,10 @@ info:
     cvss-score: 8.3
     cwe-id: CWE-522
   tags: kingsoft,default-login
+  metadata:
+    max-request: 1
 
-requests:
+http:
   - raw:
       - |
         POST /inter/ajax.php?cmd=get_user_login_cmd HTTP/1.1
