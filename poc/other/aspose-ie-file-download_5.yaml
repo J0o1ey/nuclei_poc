@@ -8,9 +8,11 @@ info:
   reference:
     - https://packetstormsecurity.com/files/131162/
     - https://wordpress.org/plugins/aspose-importer-exporter
+  classification:
+    cwe-id: CWE-23,CWE-73
   metadata:
     max-request: 1
-  tags: aspose,packetstorm,wordpress,wp-plugin,lfi
+  tags: aspose,packetstorm,wordpress,wp-plugin,lfi,vuln
 
 http:
   - method: GET
@@ -29,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100b618d4fd9ea45df21c563f25ad9287113c475c74187505d6c87aa46f75db6b65022100c487194dafe4c5dc48e50c6897adc983fdd9db9ed894412c3ecc8303ff202df7:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022059550147960a5a51c12b1808bf800ba0f407f48c979561f1da7930de3fd0bc8102206f28099a35e4688769ffaf90bee717bbd75c73324c453f6039f1dfb19f48efea:922c64590222798bb761d5b6d8e72950

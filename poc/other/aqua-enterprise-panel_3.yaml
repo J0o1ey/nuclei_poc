@@ -16,7 +16,7 @@ info:
     max-request: 1
     shodan-query: http.title:"Aqua Enterprise" || http.title:"Aqua Cloud Native Security Platform"
     google-query: intitle:"Aqua Cloud Native Security Platform"
-  tags: panel,aqua,aquasec
+  tags: panel,aqua,aquasec,discovery
 
 http:
   - method: GET
@@ -35,4 +35,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a0046304402203f291e03e7e08d9da1a5b9058b14126dfaf36b5c35f5b745b54b493048aba3d602203592e4106630a3fd3491c153baf0475cfb6a5851b5c34f0e4e3c99a6b2dd94ad:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402200a224259529ac7baa0ab94fe9815b588fd3ae2835d40aec3f5bb48b2b76fd6a702205fa546f7e6fb53646f75e39c7d6d9d080dc8b9b60e2d8297b03905fb77995896:922c64590222798bb761d5b6d8e72950

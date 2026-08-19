@@ -7,9 +7,11 @@ info:
   description: Blind XXE / SSRF exists in JAMF which is a company that provides enterprise-level software solutions for managing and securing Apple devices in organizations.
   reference:
     - https://www.synack.com/blog/a-deep-dive-into-xxe-injection/
+  classification:
+    cwe-id: CWE-611,CWE-918
   metadata:
     max-request: 1
-  tags: xxe,ssrf,jamf
+  tags: xxe,ssrf,jamf,vuln
 
 http:
   - raw:
@@ -52,4 +54,4 @@ http:
       - type: word
         words:
           - "com.jamfsoftware.jss"
-# digest: 490a00463044022049a8d6cc1e5794645affa802a26d23812e1080133ccaa70b8c57b64a5e286ee0022053e8f6e4b4f15642babb1f2628870dec9a7b876568e6baadc0e3e4905362db93:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402200a9d5d3229ff747af4bd70081008e1b607407f9023acc973ea74809433097ac10220613234f137875f1fbe03fde1565d638c78872d19c6c5d607170d033d4dec8623:922c64590222798bb761d5b6d8e72950

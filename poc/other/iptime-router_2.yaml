@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel,login,iptime,router
+  tags: panel,login,iptime,router,discovery
 
 http:
   - method: GET
@@ -35,4 +35,4 @@ http:
         group: 1
         regex:
           - <TITLE>ipTIME ([A-Z0-9_-]+)<\/TITLE>
-# digest: 4a0a00473045022100b2beb8c8b06e9c82a235e1b99e3f957ba21f3f2caf09381a9113cf1f1b1260080220534f01513d4418334cf512c8f7ea0a1619e264fc9f4c12668e2a2c148a4f0302:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100d2a4de2d27b35b7ed3562bb7e96ec5d42af32103862d0ec4f92227bee5ce94420221009671e76f6e43abf3877d5932c3cc067e6c5c6bf6f9f7f91eb7842c6165693f8d:922c64590222798bb761d5b6d8e72950

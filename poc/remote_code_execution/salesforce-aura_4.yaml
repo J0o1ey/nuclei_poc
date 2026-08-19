@@ -10,11 +10,11 @@ info:
     - https://github.com/Ph33rr/cirrusgo (test endpoint)
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0.0
+    cvss-score: 0
     cwe-id: CWE-200
-  tags: aura,unauth,salesforce,exposure
   metadata:
     max-request: 5
+  tags: aura,unauth,salesforce,exposure,misconfig,vuln
 
 http:
   - method: POST
@@ -26,11 +26,9 @@ http:
       - "{{BaseURL}}/s/fact"
 
     body: "{}"
-
     matchers:
       - type: word
         part: body
         words:
           - 'aura:invalidSession'
-
-# Enhanced by md on 2022/10/04
+# digest: 490a004630440220267ff592949e78bc420ad7444edc9a2a1bf45b321184b3f25908b67573437d3f022028e66e377ba9125e621f1efdab9dafa2dab3a37c0f55f5d9b6fb138e9f5816e2:922c64590222798bb761d5b6d8e72950

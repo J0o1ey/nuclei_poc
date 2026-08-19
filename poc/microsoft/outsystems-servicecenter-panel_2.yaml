@@ -15,8 +15,8 @@ info:
     max-request: 2
     vendor: outsystems
     product: platform_server
-    shodan-query: "http.html:\"outsystems\""
-  tags: panel,outsystems,login,detect
+    shodan-query: http.html:"outsystems"
+  tags: panel,outsystems,login,detect,discovery
 
 http:
   - method: GET
@@ -26,7 +26,9 @@ http:
 
     host-redirects: true
     max-redirects: 2
+
     stop-at-first-match: true
+
     matchers:
       - type: dsl
         dsl:
@@ -34,10 +36,17 @@ http:
           - 'contains(body, "Enter your OutSystems credentials")'
         condition: and
 
+      - type: word
+        part: set_cookie
+        words:
+          - "osVisitor="
+          - "osVisit="
+        condition: or
+
     extractors:
       - type: regex
         part: body
         group: 1
         regex:
           - 'environmentName:.?([a-z0-9A-Z\s]+).?'
-# digest: 4a0a0047304502201c5fa28c84501b356ceb67465379c705b85f762548d4f7ce97bd8ebe416e4832022100f9f331448706782e1d3d43e80922391485f8f30995674152c842ca17f40f85df:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402201c62a144a9e449e5230c4430527af17d687c230b0cf2f0db47e456f1bc369d2c022061cd536efda992a1626fcd95e239da32874db417e10b0972633c4baea4cf18ae:922c64590222798bb761d5b6d8e72950

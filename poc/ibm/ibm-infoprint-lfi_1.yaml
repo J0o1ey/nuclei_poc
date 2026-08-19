@@ -10,10 +10,10 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-23
   metadata:
     max-request: 1
-  tags: matrix,printer,edb,ibm,lfi
+  tags: matrix,printer,edb,ibm,lfi,vuln
 
 http:
   - method: GET
@@ -30,5 +30,4 @@ http:
         regex:
           - "root:.*:0:0:"
         part: body
-
-# digest: 490a0046304402203b183a1ad6d716baf32efa3082e6196507d7ba10be579ea9c2d4d3fb79a3208c0220148abe272004e5444792cf59e6be2882cbf7cf8b531b1f57d118a64d810370cd:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100d5df67ee9419c44a43290d0dbf4d1a3a45a4d9023fd03bc749369e52a1479197022100dc545002920d886ba62b62ab23b96642f33c328a9d16aca9b4bcac0d16c4954a:922c64590222798bb761d5b6d8e72950

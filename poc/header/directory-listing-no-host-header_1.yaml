@@ -9,7 +9,7 @@ info:
   metadata:
     verified: true
     max-request: 1
-  tags: misconfig,listing
+  tags: misconfig,listing,vuln
 
 flow: http(1) && http(2)
 
@@ -41,4 +41,4 @@ http:
           - 'contains_any(body,"<title>Index of","<title>Directory listing of")'
           - 'status_code == 200'
         condition: and
-# digest: 490a0046304402205cb25ea9ba3bfdb6efa631e6feca1881841d7ae851ecb142a63fe097ba1c670e02207812eb9f66fc51907c8265ad556bc01926156a7d655880e93921a39d3a89b47d:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402201235a7cbb230295e8ddabb0a2545a4b8bf08b6a136f5411327488db589034719022007ae48ead5b65f7ad1cb27e450e2511625a3fe5b1fac509da984c73e975108b8:922c64590222798bb761d5b6d8e72950

@@ -10,7 +10,7 @@ info:
   metadata:
     verified: true
     max-request: 2
-  tags: firebase,google,misconfig,intrusive
+  tags: firebase,google,misconfig,intrusive,vuln
 
 http:
   - raw:
@@ -23,8 +23,6 @@ http:
       - |
         GET /{{randstr}}.json HTTP/1.1
         Host: {{Hostname}}
-
-    req-condition: true
 
     matchers-condition: and
     matchers:
@@ -41,5 +39,4 @@ http:
       - type: status
         status:
           - 200
-
-# digest: 4a0a00473045022021c3430eb08001deac0eb146df5123a5f469cff8c9ac6b5306503a5f9bc7c703022100cd7f96d493b9afa576c74c42cde7d76f740e5457d4d79f2727e4026e2955dedc:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100d5bde23dfa0675773730f2d04d376a36dcf0566b9d18b4b9313ac86986b120ca022008dc50d3790557a1d7c4b28f3ada87bfd183c34ff92aff20dedfd3a49793549a:922c64590222798bb761d5b6d8e72950

@@ -11,7 +11,7 @@ info:
     vendor: payara
     product: payara
     shodan-query: http.title:"Payara Server - Server Running"
-  tags: tech,payara
+  tags: tech,payara,discovery
 
 http:
   - method: GET
@@ -23,4 +23,4 @@ http:
         words:
           - "<title>Payara Server - Server Running</title>"
         part: body
-# digest: 4a0a004730450220205068606c3e2ab1590f4cddbd24dd9dd588083b02a4dff66cc59ef66728dc74022100c1cf2ed2a6c6abcc75f1b762203f48df0a96a1d3756c9aa0f52a45206fc5f95c:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220023f4c0235a6afdf710eea66e422230a752805d86381f2c8ad20b38c6bf3530d02206063f34ad736b53b0c5b83e806030d9b2bc4d41f2b31c6496794a654756cf02a:922c64590222798bb761d5b6d8e72950

@@ -8,10 +8,13 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
+    cpe: cpe:2.3:o:raspberrymatic:raspberrymatic:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
     shodan-query: http.favicon.hash:-578216669
-  tags: panel,raspberrymatic,iot
+    product: raspberrymatic
+    vendor: raspberrymatic
+  tags: panel,raspberrymatic,iot,discovery
 
 http:
   - method: GET
@@ -31,4 +34,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022065778ede8a3a0a8a1fd9a3dd010d40ad46f6dbe9690d94e91644ae79b56f3b200221008705e99c94969d6edfee6e55534b3ad02aa433f327929710a846556cab660828:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502202798dff481d6db142e4a49b39f24c265c796e4c57173b6113e68e801add982ba02210091339179e2cfbf330534074eb83c16bd611049e2346154bb14c341230625deaa:922c64590222798bb761d5b6d8e72950

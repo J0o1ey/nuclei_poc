@@ -10,7 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"Teradek Cube Administrative Console"
-  tags: panel,login,teradek
+  tags: panel,login,teradek,discovery
 
 http:
   - method: GET
@@ -29,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a0047304502204c55df1ab0a7f0244069b388d67129530c37a552a21edf692a8726c9fd42d513022100e458c32671557d30fc640fba700cf821e7ae80eeb913fee62b15371c5c6d5ac0:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402201866651fef56b8d27c61e229cbb455391d6b515a09c8f8cd82f0e1f11511cc99022035005ed8a610a56d222cffb4c970ca8f79bf99f58252abfaf48c8aa5ebc4f842:922c64590222798bb761d5b6d8e72950

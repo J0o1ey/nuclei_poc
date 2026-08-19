@@ -4,11 +4,12 @@ info:
   name: Pingdom Takeover Detection
   author: pdteam
   severity: high
+  description: Pingdom takeover was detected.
   reference:
     - https://github.com/EdOverflow/can-i-take-over-xyz/issues/144
   metadata:
     max-request: 1
-  tags: takeover,pingdom
+  tags: takeover,pingdom,vuln
 
 http:
   - method: GET
@@ -25,4 +26,9 @@ http:
         words:
           - Public Report Not Activated
           - This public report page has not been activated by the user
-# digest: 490a0046304402204ab6fd93f2582faaaa202da04a9eed829fa1930e688f04908276b48e1133a68902205950a49fc685132f6783462755eb65eefc2fb67098f57c62dfa36dc75c07890c:922c64590222798bb761d5b6d8e72950
+
+    extractors:
+      - type: dsl
+        dsl:
+          - cname
+# digest: 4a0a004730450220379cc3e162eaebaf71dcfc62841319aeb42037fa91db4b89bcaa2caeb5af56f40221008e48f38b2360bf3a03e238bcc738419adcab0d79aa04acd1958f6e6a4b661124:922c64590222798bb761d5b6d8e72950

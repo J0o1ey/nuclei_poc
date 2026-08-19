@@ -7,13 +7,16 @@ info:
   description: Some Microsoft IIS servers have the version on the response header. Useful when you need to find specific CVEs on your targets.
   metadata:
     max-request: 1
-  tags: tech,microsoft,iis
+  tags: tech,microsoft,iis,discovery
+
 
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
 
+    host-redirects: true
+    max-redirects: 4
     matchers-condition: and
     matchers:
       - type: word
@@ -21,14 +24,9 @@ http:
         words:
           - "IIS"
 
-      - type: status
-        status:
-          - 200
-
     extractors:
       - type: kval
         part: header
         kval:
           - Server
-
-# digest: 490a0046304402204aec8d1c4678a40a8ca831d952b351c4ca885fb845222a559099426e6a27ba9602204f9487670472a494fcecc37f1ebc08e68f6c3007de6fae438c5f5b7210e66a87:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502201e14c3fb026b5b1cebe7ec4a373f867e137e439170982ef87e4a89e7d73d5134022100fda62ce42a61c0d07abb45b6774ed558605cc660fd20a305ef2ad25ac2711d61:922c64590222798bb761d5b6d8e72950

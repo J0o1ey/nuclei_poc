@@ -7,12 +7,11 @@ info:
   description: Okta login panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0.0
     cwe-id: CWE-200
   metadata:
     max-request: 1
     shodan-query: http.title:"okta"
-  tags: panel,okta,login
+  tags: panel,okta,login,discovery
 
 http:
   - method: GET
@@ -21,6 +20,7 @@ http:
 
     host-redirects: true
     max-redirects: 2
+
     matchers-condition: and
     matchers:
       - type: word
@@ -30,5 +30,4 @@ http:
       - type: status
         status:
           - 200
-
-# Enhanced by md on 2022/12/01
+# digest: 4a0a004730450220264b424ff87c33f1c3818b59b7b2a845bae150fc497ef5418932a029ee640b27022100b3db228a88821deeaefb88114ce878f5a337763cc305cbf153e47410fbce62d0:922c64590222798bb761d5b6d8e72950

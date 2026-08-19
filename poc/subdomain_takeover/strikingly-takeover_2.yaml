@@ -10,7 +10,7 @@ info:
     - https://github.com/EdOverflow/can-i-take-over-xyz/issues/58
   metadata:
     max-request: 1
-  tags: takeover,strikingly
+  tags: takeover,strikingly,vuln
 
 http:
   - method: GET
@@ -28,4 +28,9 @@ http:
           - "But if you're looking to build your own website"
           - "you've come to the right place."
         condition: and
-# digest: 4b0a00483046022100fd7a1661a98893ad578e0b9827ec85416a438c34c8af9f9eca4811cbc742efc3022100e4d9c870f2d602476dcabc0e533cd958e0c2fb5483e81beba34316d149563602:922c64590222798bb761d5b6d8e72950
+
+    extractors:
+      - type: dsl
+        dsl:
+          - cname
+# digest: 490a00463044022011b1efda71930a3cbd29d577063450a3c9972a58b6928af3f7244b04ee065aaa022012aba216273ba2024ee1457c0724214b8ccaa4264b9174fcdbab0465eb254af8:922c64590222798bb761d5b6d8e72950

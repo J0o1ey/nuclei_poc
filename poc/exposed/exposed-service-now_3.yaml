@@ -10,7 +10,7 @@ info:
     - https://github.com/leo-hildegarde/SnowDownKB/
   metadata:
     max-request: 1
-  tags: servicenow
+  tags: misconfig,servicenow,vuln
 
 http:
   - method: GET
@@ -27,5 +27,4 @@ http:
       - type: status
         status:
           - 200
-
-# digest: 4a0a00473045022071e2c79fc674db04e4997c9e64c692aa25dcd19ff0b92e9bd7f94c323c7ef891022100ef80e0c497a818002d5c45e12e62cae60aa99c77b15060a2d0292aea49bf8281:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100db262c96e35d6595868ff0ba0e9263d5d3ace55466df99c69f6be516ccf577ec022100f99bc42511dbf8b5df156778244626f588267c1bddaf4924ef52404ddd7bf9b2:922c64590222798bb761d5b6d8e72950

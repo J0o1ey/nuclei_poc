@@ -8,10 +8,13 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
+    cpe: cpe:2.3:o:emerson:dixell_xweb-500_firmware:*:*:*:*:*:*:*:*
   metadata:
-    google-query: inurl:"xweb500.cgi"
     max-request: 1
-  tags: panel,xweb500
+    google-query: inurl:"xweb500.cgi"
+    product: dixell_xweb-500_firmware
+    vendor: emerson
+  tags: panel,xweb500,discovery
 
 http:
   - method: GET
@@ -28,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100ca9244eb73367f49e69d47fdc6e53ee55616ac6d2780ed774bd1f03cea6cc7e2022100b8e31f94cf4abd197b9115c43c7b83d885efce63edf519c7a7d07e58afc2d87b:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022004af06982476101f342b461355c0c25e31adc46f4f23bc28d459b4aeb4da1b61022100cc606993f6bb0300cdf3db6664fbdbcd2778a1de5cead0be4fc53d554b7fe5fa:922c64590222798bb761d5b6d8e72950

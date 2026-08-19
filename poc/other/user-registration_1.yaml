@@ -1,59 +1,48 @@
 id: user-registration
 
 info:
-  name: >
-    User Registration – Custom Registration Form, Login Form, and User Profile WordPress Plugin <= 3.2.0.1 - Missing Authorization to Privilege Escalation
-  author: topscoder
-  severity: high
-  description: >
-    
+  name: WordPress User Registration & Membership Plugin Detection
+  author: omarkurt
+  severity: info
+  description: |
+    Detected WordPress User Registration & Membership plugin and its version information.
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/710574a8-a6e2-4ee6-9ea7-03a34994fec7?source=api-scan
-  classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    - https://wordpress.org/plugins/user-registration/
   metadata:
-    fofa-query: "wp-content/plugins/user-registration/"
-    google-query: inurl:"/wp-content/plugins/user-registration/"
-    shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,user-registration,high
+    max-request: 1
+    verified: true
+    shodan-query: "/wp-content/plugins/user-registration/"
+  tags: wordpress,wp-plugin,user-registration,tech,wp
 
 http:
   - method: GET
-    redirects: true
-    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/user-registration/readme.txt"
 
-    extractors:
-      - type: regex
-        name: version
-        part: body
-        group: 1
-        internal: true
-        regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
-
-      - type: regex
-        name: version
-        part: body
-        group: 1
-        regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
-
     matchers-condition: and
     matchers:
+      - type: word
+        words:
+          - "User Registration"
+        part: body
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable tag:\s*[\d.]+'
+
       - type: status
         status:
           - 200
 
-      - type: word
-        words:
-          - "user-registration"
-        part: body
+    extractors:
+      - type: regex
+        name: version
+        group: 1
+        regex:
+          - '(?i)Stable tag:\s*([\d.]+)'
 
       - type: dsl
         dsl:
-          - compare_versions(version, '<= 3.2.0.1')
+          - '"[User Registration] detected on " + host + " (version: " + version + ")"'
+# digest: 4a0a00473045022010476814bc9d15af92d7922e505f6a73181f56caf2da8aef8904fbb5de0bcfc9022100831fa63d909b336975982ac1544c44ccc47c547d670793b647be5fd429032f04:922c64590222798bb761d5b6d8e72950

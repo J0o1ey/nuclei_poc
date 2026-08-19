@@ -8,7 +8,7 @@ info:
     - http://ghostlulz.com/google-exposed-firebase-database/
   metadata:
     max-request: 1
-  tags: tech,firebase
+  tags: tech,firebase,discovery
 
 http:
   - method: GET
@@ -20,5 +20,4 @@ http:
         words:
           - "Could not parse auth token"
         part: body
-
-# digest: 4a0a00473045022100c2dec8c69638efcc2d55ad6cfde5419057614ea3c62e2c49ec01a2af86b8041f0220371d8d74d6d140046f47dae8f42a3a73541c770487702efa4e72fdfaa38857e2:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100e0a0b61688cdab634e9acc62019f0bfdc06a5bf092111f5c6b75058f8073209302203bf1a39538383ebf47001ee7176aa2559db04f70fb2d95536da33344fd1409fb:922c64590222798bb761d5b6d8e72950

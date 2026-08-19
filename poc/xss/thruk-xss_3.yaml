@@ -20,7 +20,7 @@ info:
     shodan-query: http.html:"Thruk"
     product: thruk
     vendor: thruk
-  tags: thruk,xss
+  tags: thruk,xss,vuln
 
 http:
   - raw:
@@ -45,4 +45,4 @@ http:
       - type: status
         status:
           - 500
-# digest: 4b0a00483046022100c1caf558cc3fa1450bc66ec9adc87ed06bd4eab7d0647c292ee0c6666239e9ae0221009abe3802b41435aac40697000393fc5e315ac6a63357b22394c3662d105d346a:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100f47880f91ad61fab4ebda92a02f76185c9547bd5fb9ba9f92457768c947f12950220243c8305ae18aba9bc88ef9c1c091f0bb44302a1711a0135f4b431ca84023e64:922c64590222798bb761d5b6d8e72950

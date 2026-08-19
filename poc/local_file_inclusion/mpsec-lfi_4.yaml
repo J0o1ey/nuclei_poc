@@ -11,9 +11,9 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
     cwe-id: CWE-22
-  tags: mpsec,lfi
   metadata:
     max-request: 2
+  tags: mpsec,lfi,vuln
 
 http:
   - method: GET
@@ -38,5 +38,4 @@ http:
         words:
           - "text/plain"
         part: header
-
-# Enhanced by mp on 2022/07/27
+# digest: 490a00463044022003dbf8db5337e355413bdf0d2cfa28d5ca98807e962cecb7090099ca24f7b011022064d6c6a58f8f26231b735d56435a09c76afaed207ab8cfbd88a15ab1999d7643:922c64590222798bb761d5b6d8e72950

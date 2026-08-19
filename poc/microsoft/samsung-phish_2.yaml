@@ -10,7 +10,7 @@ info:
     - https://samsung.com
   metadata:
     max-request: 1
-  tags: phishing,samsung,osint
+  tags: phishing,samsung,osint,discovery
 http:
   - method: GET
     path:
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"samsung.com")'
-# digest: 4b0a00483046022100bdba04d00e25065a460612160c0e88f95fa4db0975159e2b86963654176b69d4022100b49ca27b135a75936bfa64d4a4b16de150b107663dc2f3ac943919b5504fd915:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100c7da6d74dbfb5f83de90616394f0a908feb4e818fb27a8b58af0feee538a2be602210099487ef5e15efba73d6a41b96ad62cda04a03a8d4e5bf4ad8cea7afea8c3befc:922c64590222798bb761d5b6d8e72950

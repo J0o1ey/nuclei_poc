@@ -13,9 +13,9 @@ info:
     cpe: cpe:2.3:a:ibm:mq:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    product: mq
     vendor: ibm
-  tags: panel,ibm
+    product: mq
+  tags: panel,ibm,discovery
 
 http:
   - method: GET
@@ -31,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a0047304502206f4c3e775137aedc60a57dfb0d92ab3667723989560ca5b081e5e3a35eac4b6b0221009cde93fc925cdd8750a3bfa26f0ec129af9c126ad2b7bb202b92d88b0a67741f:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100d70311e8b399e7880b7673add3d23f33b45dbe1b72312704e600dbb08dd56e4c0221009b1dff950a2fc5a45f7d2d819d507a3d70b6c6da7628c40b989bf0646b88d915:922c64590222798bb761d5b6d8e72950

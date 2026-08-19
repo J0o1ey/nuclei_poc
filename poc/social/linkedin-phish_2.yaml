@@ -10,7 +10,7 @@ info:
     - https://linkedin.com
   metadata:
     max-request: 1
-  tags: phishing,linkedin,osint
+  tags: phishing,linkedin,osint,discovery
 http:
   - method: GET
     path:
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"linkedin.com")'
-# digest: 4a0a0047304502210096e0ca2668332ec196e6cfed99b6727d9922d9b8a0c65fd4cdccda1c4d451d2702203edfd8c1e140d91c8ac6df53c8568f7d573ba45493b15f9f5547d17d33bb34fc:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100a51703937e4f1044b345e1deafaccaebebca06609be191bdb6168c2f1c7cb73202205cd0e38ceb7183e289ec14b94bd9280fa2835ee62b4c1a1da5c1cd00aa1468a4:922c64590222798bb761d5b6d8e72950

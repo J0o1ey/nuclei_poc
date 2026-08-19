@@ -9,6 +9,8 @@ info:
   remediation: Upgrade to the latest version to mitigate this vulnerability.
   reference:
     - https://github.com/9001/copyparty/security/advisories/GHSA-cw7j-v52w-fp5r
+  classification:
+    cwe-id: CWE-80
   metadata:
     verified: true
     max-request: 1
@@ -37,4 +39,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a0048304602210095cfecfa21221b6ddb85dd91d4f7931f5a0624cd9f1db01ccf59a6f99fc3a736022100e2be9b7eae118af9fdfcb7a97b38258b93836c614e010201b16f3fb8c79f69d2:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502206d364b892f6efdf14378c29ec6f1f563f3dd359c71cb2879752b4ad1e6fbf9890221008b060dd185d7cb6dd85203acb2bc45402f876f2f1ba8b24d5696c541e3863676:922c64590222798bb761d5b6d8e72950

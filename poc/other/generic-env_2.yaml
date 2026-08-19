@@ -9,10 +9,10 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
-    cwe-id: CWE-522
+    cwe-id: CWE-552
   metadata:
     max-request: 22
-  tags: config,exposure,env
+  tags: config,exposure,env,vuln
 
 http:
   - method: GET
@@ -30,7 +30,6 @@ http:
         - "/.env.production"
         - "/.env.production.local"
         - "/.env.local"
-        - "/.env.example"
         - "/.env.stage"
         - "/.env.live"
         - "/.env.backup"
@@ -55,4 +54,4 @@ http:
         negative: true
         words:
           - "<html"
-# digest: 4a0a0047304502204d1add810e4b539b3df6b320042b468fb9d72ea7271cd3b7e9cd75ac9a798c4d022100ded93c12baa01c498e75bf403bf0c74d6afd2e0b051ba5803d9306d3fad90bb6:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022051b734acbb32375ed4c37fd2a32ae75d6f7d9665e5c2e40bdc496ec1dcde80dc022100e78885ff5ba53aca7acd8ce095f6aedd065fa7c62eb823d8b2adae36b28746fe:922c64590222798bb761d5b6d8e72950

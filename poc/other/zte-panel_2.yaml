@@ -11,11 +11,14 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
+    cpe: cpe:2.3:h:zte:nr8120a:*:*:*:*:*:*:*:*
   metadata:
+    verified: true
     max-request: 1
     shodan-query: http.html:"ZTE Corporation"
-    verified: true
-  tags: panel,zte
+    product: nr8120a
+    vendor: zte
+  tags: panel,zte,discovery
 
 http:
   - method: GET
@@ -41,4 +44,4 @@ http:
         group: 1
         regex:
           - '<div class="type"><font id="">(.+)<\/font><\/div>'
-# digest: 4a0a0047304502200cfcecdaec663e2e3bfeb735a73d94a7031b61de0df016d9581e446191b69e18022100c55119c5be6011461e1fadc84da37b3d26e978743fe8bac0d665c576cbb89b4b:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100917418e575ff9e0c04b0f2ff5ab6dae2aa8e355374361cc35fdbd0abe617538f02204f3bc5f10fa205dbb29c4a216f6644ca80ef650dcba8500a5ca20849cbcc4df9:922c64590222798bb761d5b6d8e72950

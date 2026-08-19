@@ -11,10 +11,10 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
-  tags: xss,chamilo
+    cwe-id: CWE-79,CWE-83
   metadata:
     max-request: 1
+  tags: xss,chamilo,vuln
 
 http:
   - method: GET
@@ -27,12 +27,13 @@ http:
         part: body
         words:
           - 'agenda_js.php?type=xss" onmouseover=alert(document.domain)'
+
       - type: status
         status:
           - 200
+
       - type: word
         part: header
         words:
           - "text/html"
-
-# Enhanced by mp on 2022/04/08
+# digest: 4b0a004830460221009359242eec3b69343e9f4d93474cf53fa5e4094ec9239fe501cf6d144a6cf370022100d125ca7b8fe6000967b74e0fce4a1dd728dbaac09529a55ac78a969f8084264e:922c64590222798bb761d5b6d8e72950

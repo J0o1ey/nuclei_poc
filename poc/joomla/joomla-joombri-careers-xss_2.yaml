@@ -10,6 +10,8 @@ info:
     - https://packetstormsecurity.com/files/168641/Joomla-JoomBri-Careers-3.3.0-Cross-Site-Scripting.html
     - https://cxsecurity.com/issue/WLB-2022100024
     - https://extensions.joomla.org/
+  classification:
+    cwe-id: CWE-79
   metadata:
     verified: true
     max-request: 1
@@ -27,4 +29,4 @@ http:
           - 'contains(content_type, "text/html")'
           - 'status_code == 200'
         condition: and
-# digest: 490a0046304402207ab6926e5d29bfa3ab6d1bac149ec5de8682704fcfba2fd7c58345b3e9cdfe6d0220212e0e9d08ab11ce0392ea7d4646aceb3de8028aaba72e1f163c95b44900e8e3:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502202ec7331459416fb7af4c7c8a121dba3fa3eeb3cb4940640d6355857532d5a230022100f4d9ce5142de4cd051a5c078f4fbf82edbdbccf0aea4ad079ffab7e39a24434b:922c64590222798bb761d5b6d8e72950

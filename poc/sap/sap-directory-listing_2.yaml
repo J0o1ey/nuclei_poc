@@ -7,7 +7,7 @@ info:
   description: SAP Directory Listing is enabled.
   metadata:
     max-request: 1
-  tags: sap,listing,misconfig
+  tags: sap,listing,misconfig,vuln
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
         words:
           - "text/html"
         part: header
-# digest: 4a0a00473045022100afb3bea78ce6ab9a967598bd09cdc3ca2f6d9feea5c99097bb9fe5e0373537d9022066bf670edfdcf82a38d4c60c2addce3762d219dcf8b119c8b3b32175ff6ff101:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100b7b95acb3eaa10b6b2a21856b4b4f5e25b3496c8cfad5a122c764868fde4bd8f0220386176fbb2a3f064a60cdf53a0dd3024317f5be4b705fd27bd34251d9389aaf9:922c64590222798bb761d5b6d8e72950

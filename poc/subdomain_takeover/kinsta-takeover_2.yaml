@@ -4,11 +4,12 @@ info:
   name: kinsta takeover detection
   author: pdteam
   severity: high
+  description: kinsta takeover was detected.
   reference:
     - https://github.com/EdOverflow/can-i-take-over-xyz
   metadata:
     max-request: 1
-  tags: takeover
+  tags: takeover,vuln
 
 http:
   - method: GET
@@ -24,4 +25,9 @@ http:
       - type: word
         words:
           - No Site For Domain
-# digest: 4a0a00473045022100850800770b643d08a823b938b549291cf191f816a0db28191b0ca6719a56cea402204adc2a82fecfb93fc2c401a6b5baa396620835856530714bc6be0e070d41bcf8:922c64590222798bb761d5b6d8e72950
+
+    extractors:
+      - type: dsl
+        dsl:
+          - cname
+# digest: 490a0046304402200e2ae3e32087d0e77c545ba74a8768748bf989f7df17264b6e5c0941c1d45e00022063b62da8b426f39c8b8bc0464066aecf4dbf3b9fda7d9551a821ae0024efd61c:922c64590222798bb761d5b6d8e72950

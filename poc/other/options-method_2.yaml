@@ -6,7 +6,7 @@ info:
   severity: info
   metadata:
     max-request: 1
-  tags: miscellaneous,misc,generic
+  tags: miscellaneous,misc,generic,vuln
 
 http:
   - method: OPTIONS
@@ -19,4 +19,4 @@ http:
         group: 1
         regex:
           - "Allow: ([A-Z, ]+)"
-# digest: 4a0a004730450221008ab5804e041d3b4a7f6378eed43fdbec47eb9da15aaa9dc2c8078789de1fc558022064f6de197a5cea2d769089fd4ad30ae88aa3126931cf0f07618e2fa695e5e1ce:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100e440ce368f5a62fa7e62df661f9aef57c1c61c66987ccc6af3bfd0afbeaac059022100e017390245a18212415e09bf1435d1483bb404ee4102551af34e343658e1368f:922c64590222798bb761d5b6d8e72950

@@ -18,13 +18,15 @@ info:
     google-query: intitle:"Eclipse BIRT Home"
     product: business_intelligence_and_reporting_tools
     vendor: eclipse
-  tags: panel,eclipsebirt,detect
+  tags: panel,eclipsebirt,detect,discovery
 
 http:
   - method: GET
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/reportviewer/'
+      - '{{BaseURL}}/birt/'
+      - '{{BaseURL}}/birt-viewer/'
 
     host-redirects: true
     max-redirects: 2
@@ -49,4 +51,4 @@ http:
         group: 1
         regex:
           - 'Viewer Version : ([0-9.-]+)'
-# digest: 4a0a004730450221008c6958b6c76dcde1f6652c59232a9e28545eca99a778a3383233f198ea1cc67802202a7c472dae9375b88209dcbd8440a0ee630573c8ef0f1a5bbebf26ae59792001:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220413b1b34402469cdf2fe7f216951737847e1854c497d7bdbac7382e6d9165228022100935a4e9255f05f6ffbbcd53da4f3da1708f636820a781173f668beb9bae54ef4:922c64590222798bb761d5b6d8e72950

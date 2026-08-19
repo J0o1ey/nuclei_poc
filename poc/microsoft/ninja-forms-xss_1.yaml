@@ -15,7 +15,7 @@ info:
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
     cvss-score: 6.1
-    cwe-id: CWE-79
+    cwe-id: CWE-80
     cpe: cpe:2.3:a:ninjaforms:ninja_forms:*:*:*:*:*:wordpress:*:*
   metadata:
     max-request: 5
@@ -25,7 +25,7 @@ info:
     fofa-query: body="/wp-content/plugins/ninja-forms"
     publicwww-query: /wp-content/plugins/ninja-forms/
     shodan-query: http.html:"/wp-content/plugins/ninja-forms/"
-  tags: cve2021,wp,wordpress,wp-plugin,ninja-forms,xss,authenticated
+  tags: cve2021,wp,wordpress,wp-plugin,ninja-forms,xss,authenticated,vuln
 
 flow: http(1) && http(2) && http(3)
 
@@ -83,4 +83,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a0046304402204e9df48b3f695b6aaa1a74ae06688ecceb6366d09c128a4478ff5839d36fe8ff02207ee49d9c6e6310abb8a203dd553f9ba8cc392445cf86d7dbbb4dcb3583313e14:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220351752fafef8adba87432eceea58964d2ae0ee6245d0e5fd3705fa2c386928a8022100863c7207058e460b9f41193377c05422b3ef12f8321dce26b5af7f340ea5a20c:922c64590222798bb761d5b6d8e72950

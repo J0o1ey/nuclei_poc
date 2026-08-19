@@ -13,7 +13,7 @@ info:
   metadata:
     max-request: 1
     fofa-query: app="Panabit-智能网关"
-  tags: panabit,panel
+  tags: panabit,panel,discovery
 
 http:
   - method: GET
@@ -33,4 +33,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a0048304602210082c7e3d4877d5c4d007076da581fbe04f48cd0e4db11ad03229a0598e85b24a8022100aeecd6ea539e5a652df5b3e3130912073854ba29f29e1d29e2c7687a33ea87b9:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100fe5f205490740cda08b003c134e12c2752df0e70c4d0c6c9ba3bb1c5100b368802206650b5e7713b7d0e0f4e5b2ebacf2636221c7ea5455666d847be538523ac59bc:922c64590222798bb761d5b6d8e72950

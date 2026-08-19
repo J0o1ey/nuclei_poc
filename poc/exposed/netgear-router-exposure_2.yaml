@@ -12,9 +12,11 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
     cvss-score: 5.3
     cwe-id: CWE-200
-  tags: edb,netgear,exposure,iot,router
+  metadata:
+    max-request: 1
+  tags: edb,netgear,exposure,iot,router,vuln
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}/rootDesc.xml"
@@ -44,5 +46,4 @@ requests:
         group: 1
         regex:
           - "<serialNumber>([A-Z0-9]+)<\\/serialNumber>"
-
-# Enhanced by mp on 2022/05/30
+# digest: 4a0a0047304502201de4dfaed249dc3d32d9d806da2491b186a48fb7a5cc65082945f1349aa5fc36022100810c67e4717f80f5c95dc0fe331d487cbb9735d4241203b52096a597cb85882c:922c64590222798bb761d5b6d8e72950

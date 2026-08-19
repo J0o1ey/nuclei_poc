@@ -8,10 +8,13 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
+    cpe: cpe:2.3:a:shoutcast:dnas:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
     shodan-query: http.title:"SHOUTcast Server"
-  tags: panel
+    product: dnas
+    vendor: shoutcast
+  tags: panel,discovery
 
 http:
   - method: GET
@@ -28,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a0047304502205eaa3aa1a091838632544741393d5f1f604cad08966daf365bc82f98830f6e03022100f4eea021bfc7826dd075870dc0d0748451a5697b3cfcff9cf5eb5a826873c3f0:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220515aa228360cad590bbb37541e9ad256cfb95f665b39de9cd128a359f96477d0022100af4200e726813452ea8234522690730be020afb2c06021319ef951bc4f62654a:922c64590222798bb761d5b6d8e72950

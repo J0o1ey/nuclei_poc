@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: config,exposure,plesk
+  tags: config,exposure,plesk,vuln
 
 http:
   - method: GET
@@ -39,5 +39,4 @@ http:
           - 'webstat-ssl'
           - 'webstat'
         condition: or
-
-# digest: 4a0a004730450221009d0c702a377c5041bcf90bbca246a8753effe21d960dfc87ded62eb3d9d1a6710220081bd5a2083521a52fcab302621693e6edda51c1d6bd2198119b30d0a199e57a:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100855981d51744e1cd2d28e8fc45205d89391d5aae9ac1da728a96c66bfacf2ad5022047f5e530bd624492387c5b5d48b1d80ff3d83f615ab1a163344d939a616a204e:922c64590222798bb761d5b6d8e72950

@@ -9,7 +9,7 @@ info:
     - https://spidercontrol.net/spidercontrol-inside/
   metadata:
     max-request: 1
-  tags: spidercontrol,scada,exposure,misconfig
+  tags: spidercontrol,scada,exposure,misconfig,vuln
 
 http:
   - method: GET
@@ -34,5 +34,4 @@ http:
         part: header
         kval:
           - Server
-
-# digest: 4a0a0047304502206a7d84ca03133ba9da484f3891abf557beb9f9c3eeabd7c75fc5d9b21a570e81022100e4bbe768029fd8cb5657ef870d9c71451716eb94f2048de976bef952b15d96f1:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100ef06e0ec7f98865128429a8620e299e76c8206bec2549381c14fae8cc4c204460221008063e42051cca86cce55fc452424ab278ab5a656d8a9be377e918e3478545dab:922c64590222798bb761d5b6d8e72950

@@ -17,7 +17,6 @@ http:
     path:
       - '{{BaseURL}}'
       - '{{BaseURL}}/{{paths}}/'
-      - '{{paths}}.{{BaseURL}}/'
 
     payloads:
       paths:
@@ -41,4 +40,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a0046304402207c68911721cc756541049353994c50afeb2c9ab14f5f388aa562e93bfa4f9fb202202e9d9bc8affefcfed34cc43d91089dbb1102d3e32cb7967a6776912b50af9b2d:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100900599772a1de18659c0876ace1b91d811d02e47ff3aa822645deff6134a22ad022026bab969b4e137e81231a2e805ad5a10531f0eac9557f8870f4477ec796eee8c:922c64590222798bb761d5b6d8e72950

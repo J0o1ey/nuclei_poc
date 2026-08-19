@@ -1,59 +1,49 @@
-id: give
+id: wordpress-give
 
 info:
-  name: >
-    GiveWP – Donation Plugin and Fundraising Platform <= 3.18.0 - Reflected Cross-Site Scripting
-  author: topscoder
-  severity: medium
-  description: >
-    
+  name: Wordpress GiveWP Detection
+  author: mailler
+  severity: info
   reference:
-    - https://github.com/topscoder/nuclei-wordfence-cve
-    - https://www.wordfence.com/threat-intel/vulnerabilities/id/18c0f717-6825-4421-af53-68f1cf502f81?source=api-scan
-  classification:
-    cvss-metrics: 
-    cvss-score: 
-    cve-id: 
+    - https://wordpress.org/plugins/give/
   metadata:
-    fofa-query: "wp-content/plugins/give/"
-    google-query: inurl:"/wp-content/plugins/give/"
-    shodan-query: 'vuln:'
-  tags: cve,wordpress,wp-plugin,give,medium
+    plugin_namespace: give
+    wpscan: https://wpscan.com/plugin/give
+  tags: tech,wordpress,wp-plugin,top-200,discovery
 
 http:
   - method: GET
-    redirects: true
-    max-redirects: 3
     path:
       - "{{BaseURL}}/wp-content/plugins/give/readme.txt"
 
+    payloads:
+      last_version: helpers/wordpress/plugins/give.txt
+
     extractors:
       - type: regex
-        name: version
         part: body
-        group: 1
         internal: true
+        name: internal_detected_version
+        group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
       - type: regex
-        name: version
         part: body
+        name: detected_version
         group: 1
         regex:
-          - "(?mi)Stable tag: ([0-9.]+)"
+          - '(?i)Stable.tag:\s?([\w.]+)'
 
-    matchers-condition: and
+    matchers-condition: or
     matchers:
-      - type: status
-        status:
-          - 200
-
-      - type: word
-        words:
-          - "give"
-        part: body
-
       - type: dsl
+        name: "outdated_version"
         dsl:
-          - compare_versions(version, '<= 3.18.0')
+          - compare_versions(internal_detected_version, concat("< ", last_version))
+
+      - type: regex
+        part: body
+        regex:
+          - '(?i)Stable.tag:\s?([\w.]+)'
+# digest: 4a0a00473045022100fb57d9fe553749ed5016d59230eef31d29f88303065e84aa1e09b1ff0708347002203fbd30b5b3b5974b8accd2aafd257adf5b910f9ba7717bac021bcf047ad1372e:922c64590222798bb761d5b6d8e72950

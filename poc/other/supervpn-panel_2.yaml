@@ -10,7 +10,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel
+  tags: panel,discovery
 
 http:
   - method: GET
@@ -22,4 +22,4 @@ http:
         words:
           - "<title>Sign In-SuperVPN</title>"
         part: body
-# digest: 490a00463044022069ab5bf98b9081fa19ffc688dbe5cf0538731bada9db8d28bbec9ce4fce82f5802206e578ea0aa1546f5095113cfc5acd45415da317a4d2205a87b421d8e5d66866e:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210096db55a8ddc724b35daa06c7d8002a62a8f70ab323acfdf897ce48ddeae9b89302201d5d1a85a5707d831c12d6edbdf225c60679320d812fbb9a37c9d09c593651d1:922c64590222798bb761d5b6d8e72950

@@ -12,11 +12,14 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
+    cpe: cpe:2.3:h:supermicro:x11ssv-m4f:*:*:*:*:*:*:*:*
   metadata:
-    google-query: intitle:"Supermicro BMC Login"
     max-request: 1
     shodan-query: http.title:"Supermicro BMC Login"
-  tags: panel,supermicro,bmc
+    google-query: intitle:"Supermicro BMC Login"
+    product: x11ssv-m4f
+    vendor: supermicro
+  tags: panel,supermicro,bmc,discovery
 
 http:
   - method: GET
@@ -33,4 +36,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100a10692024628f4e8c9308e5e06f886ca0e8906ac404cc2435e92258664de0227022100d829f1a0727b3ed0587607d49a231da7f53540267fa3b3ad520c98af2967c959:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502205824d5a8e3b3d6f5e39835852368b9f8fa1a6163bbe863db626cf003608745a3022100b6e932a38f6303a0cfed443f46eb73c6b5d45137fde57daaf401e4745ce84690:922c64590222798bb761d5b6d8e72950

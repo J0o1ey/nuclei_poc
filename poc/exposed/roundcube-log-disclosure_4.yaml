@@ -4,11 +4,12 @@ info:
   name: Roundcube Log Disclosure
   author: dhiyaneshDk,kazet
   severity: medium
+  description: Roundcube Log file was disclosed.
   reference:
     - https://github.com/detectify/ugly-duckling/blob/master/modules/crowdsourced/roundcube-log-disclosure.json
-  tags: exposure,logs
   metadata:
-    max-request: 12
+    max-request: 16
+  tags: exposure,logs,vuln
 
 http:
   - method: GET
@@ -18,19 +19,23 @@ http:
     payloads:
       roundcube_path:
         - roundcube/logs/sendmail
+        - roundcube/logs/sendmail.log
         - roundcube/logs/errors.log
         - roundcube/logs/errors
         - webmail/logs/sendmail
+        - webmail/logs/sendmail.log
         - webmail/logs/errors.log
         - webmail/logs/errors
         - mail/logs/sendmail
+        - mail/logs/sendmail.log
         - mail/logs/errors.log
         - mail/logs/errors
         - logs/sendmail
+        - logs/sendmail.log
         - logs/errors.log
         - logs/errors
-
     max-size: 1000
+
     matchers-condition: and
     matchers:
       - type: word
@@ -39,7 +44,6 @@ http:
           - "IMAP Error:"
           - "Message for"
           - "DB Error:"
-          - "IMAP Error:"
           - "PHP Error:"
           - "PHP Warning:"
         condition: or
@@ -52,3 +56,4 @@ http:
       - type: dsl
         dsl:
           - content_length
+# digest: 4a0a00473045022037525d105aaadfd43620a0da12bd29546262e9c975978f21f988be7c4958a601022100a037e8a64ee8e09058b8fdcd3b8ca7ca581ed61fb57143fc1dca021834782959:922c64590222798bb761d5b6d8e72950

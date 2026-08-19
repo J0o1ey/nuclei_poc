@@ -10,13 +10,18 @@ info:
     - https://www.tenable.com/plugins/was/112421
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0
     cwe-id: CWE-200
+    cpe: cpe:2.3:a:oracle:weblogic_server:*:*:*:*:-:*:*:*
   metadata:
     max-request: 1
     vendor: oracle
     product: weblogic_server
-  tags: panel,oracle,weblogic,tenable
+    shodan-query:
+      - product:"oracle weblogic"
+      - http.title:"oracle peoplesoft sign-in"
+    fofa-query: title="oracle peoplesoft sign-in"
+    google-query: intitle:"oracle peoplesoft sign-in"
+  tags: panel,oracle,weblogic,tenable,discovery
 
 http:
   - method: GET
@@ -33,4 +38,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022012573fae3ad44d892b71d674484636bce4c1fb5170774d230169df9e957b3c3602210089a6f9e1abc599bb4e6a84fe6cb6eeeefa6e3922306fabec950a2a17d21f4876:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100a2aa91192722c603d3f2a274d95acbf360c7fe8118bb343dd5f5d3990fce4ee5022100a1de598a0ee17fde912055ff27dc08aba07cf4b82db175195c37e0bb007ee5e7:922c64590222798bb761d5b6d8e72950

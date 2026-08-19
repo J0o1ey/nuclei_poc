@@ -11,10 +11,14 @@ info:
     cpe: cpe:2.3:a:cisco:identity_services_engine:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    product: identity_services_engine
-    shodan-query: http.title:"Identity Services Engine"
     vendor: cisco
-  tags: panel,cisco
+    product: identity_services_engine
+    shodan-query:
+      - http.title:"Identity Services Engine"
+      - http.title:"identity services engine"
+    fofa-query: title="identity services engine"
+    google-query: intitle:"identity services engine"
+  tags: panel,cisco,discovery
 
 http:
   - method: GET
@@ -27,4 +31,4 @@ http:
       - type: word
         words:
           - '<title>Identity Services Engine</title>'
-# digest: 4b0a00483046022100b35e4e86b8da6ce32c9b775ea86b6705d929ec39fe8bb45409c1e5f6e1f58a5502210083b8079e96a21f99a4472bd10402798c388124f3a235c2ec4c5e40706e4eeaea:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502203d238396c0291d85f6419fcf30f2f675755be8363c044fa968acb2ce8f2f1a76022100b494366e0d038d4580a65779f2f62ae95485fa17a51727cb46301ba7d3d356da:922c64590222798bb761d5b6d8e72950

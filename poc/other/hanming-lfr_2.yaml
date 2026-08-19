@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-22
   metadata:
     max-request: 2
-  tags: lfr,hanming,lfi
+  tags: lfr,hanming,lfi,vuln
 
 http:
   - method: GET
@@ -36,5 +36,4 @@ http:
       - type: regex
         regex:
           - "root:[x*]:0:0:"
-
-# digest: 4a0a0047304502206d750498f3b968a34034d66ff85589dd13a742b5e6f76bd36e279f4e58d9ddb4022100825c38690aca378b424fd264cbc6597f13347ff5c890b4936cf5fe4b2875e636:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100efc2cf1e02e2b0a6303ce7eba2cabf7c9d23b4bbc46c6e98cd8ed5159b932178022100f42b19e2ed0ddb358908af83db738bc779fce414287c01bd3efa2c0d7c2f3230:922c64590222798bb761d5b6d8e72950

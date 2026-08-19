@@ -8,11 +8,13 @@ info:
   reference:
     - https://mp.weixin.qq.com/s/uRhVl2XC5fTNKO8eDFFebA
     - https://github.com/Vme18000yuan/FreePOC/blob/master/poc/pocsuite/dahua_zhyq_attachment_fileread.py
+  classification:
+    cwe-id: CWE-22,CWE-73
   metadata:
     verified: true
     max-request: 1
     fofa-query: body="src=\"/WPMS/asset/common/js/jsencrypt.min.js\""
-  tags: lfi,dahua,wpms
+  tags: lfi,dahua,wpms,vuln
 
 http:
   - method: GET
@@ -33,4 +35,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a004630440220067f1ef3e271492451c03a5f8b25ef3f56c5fa989ab6c8cce1f011a42fb9d4ed02200545eeaa3cc6155904d3287bd92a4c70325ae185e93780c3a13e06a3b98cb7c5:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100d6665e46e3d152c582f630ac6153425c2b860306a6d003fa1c7a38c6af188376022020454e89303e885c059aaaac828c90b287ea57c8daf56d021535323200ff6fbf:922c64590222798bb761d5b6d8e72950

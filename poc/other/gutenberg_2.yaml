@@ -9,7 +9,7 @@ info:
   metadata:
     plugin_namespace: gutenberg
     wpscan: https://wpscan.com/plugin/gutenberg
-  tags: tech,wordpress,wp-plugin,top-200
+  tags: tech,wordpress,wp-plugin,top-200,discovery
 
 http:
   - method: GET
@@ -46,4 +46,4 @@ http:
         part: body
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a00473045022100c3e183a54f1d7121a01d376f75b4982863e28ce408a59877009441417c28b74102203a99ef385e5ec18c57627e70a0d1fc8e3a340d0df186adc36613c7de9ec80572:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100d5d703add65691da7ae9673c75fbeb6e0a9c497116d67129ec1094ce8ddbc59c022100bc467e64e22a9ee6c5517638d66931e05539e5ba30dc00b3718aa1af80673413:922c64590222798bb761d5b6d8e72950

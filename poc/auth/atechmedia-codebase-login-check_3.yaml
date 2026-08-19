@@ -9,9 +9,14 @@ info:
     - https://owasp.org/www-community/attacks/Credential_stuffing
   metadata:
     max-request: 2
-  tags: login-check,atechmedia,codebase,creds-stuffing
+  tags: cloud,creds-stuffing,login-check,atechmedia,codebase,vuln
 
 self-contained: true
+
+flow: |
+  if (template["username"] && template["password"]) {
+    http();
+  }
 
 http:
   - raw:
@@ -27,8 +32,6 @@ http:
         Referer: https://identity.atechmedia.com/login
 
         utf8=%E2%9C%93&authenticity_token={{url_encode(authenticity_token)}}&username={{username}}&password={{password}}&commit=Login
-
-    cookie-reuse: true
 
     extractors:
       - type: xpath
@@ -54,5 +57,4 @@ http:
       - type: status
         status:
           - 302
-
-# digest: 4a0a00473045022100c384ce54425ceca912163457c51d59fd11e55cd372ccf0626bf0a692e53bf8430220545d1537be95d92f44950c18a3bdfe030f9346e657f2436e32a0b5bc8f77db06:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502207702c96f37a67711232fb16322a6bd349fb18eb8921ed348e999bfa96f863e25022100c218fe89b6dfa9fd182cd577dff65678584fdaae0b540ed816b7b93608f4a435:922c64590222798bb761d5b6d8e72950

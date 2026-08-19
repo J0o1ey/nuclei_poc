@@ -10,14 +10,22 @@ info:
     - https://docs.cpanel.net/cpanel/databases/phppgadmin/
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0.0
     cwe-id: CWE-200
+    cpe: cpe:2.3:a:phppgadmin_project:phppgadmin:*:*:*:*:*:*:*:*
   metadata:
     verified: true
-    shodan-query: http.title:phpPgAdmin
-  tags: panel,phppgadmin
+    max-request: 2
+    vendor: phppgadmin_project
+    product: phppgadmin
+    shodan-query:
+      - http.title:phpPgAdmin
+      - http.title:phppgadmin
+      - cpe:"cpe:2.3:a:phppgadmin_project:phppgadmin"
+    fofa-query: title=phppgadmin
+    google-query: intitle:phppgadmin
+  tags: panel,phppgadmin,phppgadmin_project,discovery
 
-requests:
+http:
   - method: GET
     path:
       - "{{BaseURL}}"
@@ -36,5 +44,4 @@ requests:
           - "status_code == 200"
           - "contains(body, '<title>phpPgAdmin')"
         condition: and
-
-# Enhanced by md on 2022/12/06
+# digest: 4a0a00473045022100caadf197a859fa72a971ed7fac517ab48e3b69291812d22f375d3919486fc9fd02207965d885c637008ff9dca8ed6f9a764100687cea6ca2cbd97f87dc7b9f2a1061:922c64590222798bb761d5b6d8e72950

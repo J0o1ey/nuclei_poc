@@ -18,7 +18,7 @@ info:
     product: operational_decision_manager
     shodan-query: http.title:"Decision Center | Business Console"
     fofa-query: title="Decision Center | Business Console"
-  tags: panel,ibm,login,detect,decision-center
+  tags: panel,ibm,login,detect,decision-center,discovery
 
 http:
   - method: GET
@@ -45,4 +45,4 @@ http:
         group: 1
         regex:
           - '(?i)"js/dist/([0-9.]+)/decisioncenter"'
-# digest: 4a0a00473045022059fa563e34f2a5f3b912c4d00432f2f1c91608bae28889a377083e868e46ff3102210097c54acba33b6204f3c288b1f13a97b7dfd89b5f23bd69fbf27acb1b6795bf6d:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402202150f20af8ef491f6ae13c76a8a621f8734c432f139cb7d5109ca3c904b63b9a0220603e04ebe4f777726819e3fa145e2929e13c3f6ceeeba72aed9fad47e44d461a:922c64590222798bb761d5b6d8e72950

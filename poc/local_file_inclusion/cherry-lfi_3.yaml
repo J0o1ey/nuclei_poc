@@ -11,10 +11,10 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N
     cvss-score: 8.6
-    cwe-id: CWE-22
+    cwe-id: CWE-23,CWE-73
   metadata:
     max-request: 1
-  tags: wpscan,wordpress,wp-plugin,lfi,wp
+  tags: wpscan,wordpress,wp-plugin,lfi,wp,vuln
 
 http:
   - method: GET
@@ -33,4 +33,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a004730450221009a01f09caa97e8614fbb81be866e028d3d4e94a040b6a778b55efa15106ad9530220134fc186daf028f709b5ae2657424bffabecf6dcdbeffa23e2f9174c231adc58:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022042df28ed2f30450a6081e23586cc03859a91a4d2303b3bcc7516adcccedb68a6022100bcd7a0938548db94ed29ab84213cdf5e9dfe1671f61e6b5a7a009bb3c83609ff:922c64590222798bb761d5b6d8e72950

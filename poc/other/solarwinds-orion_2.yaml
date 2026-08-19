@@ -13,7 +13,7 @@ info:
     max-request: 1
     vendor: solarwinds
     product: orion_platform
-  tags: panel,solarwinds
+  tags: panel,solarwinds,discovery
 
 http:
   - method: GET
@@ -25,4 +25,4 @@ http:
         words:
           - "SolarWinds Orion"
         part: body
-# digest: 4a0a00473045022100ac1c14fe7f1edec606347e91af5ac496646c04a6cabb49465ac452954254cdb6022027e3c3f6aa9008062a0c665431e2b9d19481a82f7356ef0b0d5059325d1cb2ee:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100eea9a7f6e8179786d1a5d23fe412721209f722b760c34b24a26e01ef35666b41022100b76143a42efeb456d9ee439d78a614b0fe7dd7c85b1cf18efc0294d008964f40:922c64590222798bb761d5b6d8e72950

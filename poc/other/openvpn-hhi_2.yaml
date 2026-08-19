@@ -7,13 +7,14 @@ info:
   description: A vulnerability in OpenVPN Access Server allows remote attackers to inject arbitrary redirection URLs by using the 'Host' HTTP header field.
   metadata:
     max-request: 1
-  tags: openvpn,hostheader-injection
+  tags: openvpn,hostheader-injection,vuln
 
 http:
-  - raw:
-      - |
-        GET / HTTP/1.1
-        Host: {{randstr}}.tld
+  - method: GET
+    path:
+      - "{{BaseURL}}/"
+    headers:
+      Host: "{{randstr}}.tld"
 
     matchers-condition: and
     matchers:
@@ -27,5 +28,4 @@ http:
       - type: status
         status:
           - 302
-
-# digest: 4b0a00483046022100f76b69e227958efb15a05cbf8c374bc71d7ebae0043b64e3b3b5f5edd1f0a2b8022100f45b19f31f955e4b92c297240c02aae6380c24585ab704edd092391657de9184:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221009d7317d0234c9e0fd44f0548b6f93434e6af263a036841390d97604e31a6bf22022100e13a369ec9336590f0101af718670c3b48fb677c8a200ccdca2bd536315b1019:922c64590222798bb761d5b6d8e72950

@@ -18,7 +18,7 @@ info:
     google-query: intext:Provided by ProjectSend
     product: projectsend
     vendor: projectsend
-  tags: tech,projectsend,edb
+  tags: tech,projectsend,edb,discovery
 
 http:
   - method: GET
@@ -42,4 +42,4 @@ http:
         group: 1
         regex:
           - "version (.*) - Free software"
-# digest: 4b0a00483046022100844c68839926a367b193bb4ac1b809a2b0fa20cd33a14f39706aaa96bec785c902210081d5dc11273e4f18fd0b2405546f90b18ed6abd458170aaed2387d5337d3c6dd:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402201e9045ee4f287f2ef5b24c80c23339de5ded51b7cc9759ff3661774b3ba8a273022034d772f7f34671295279f334613d4801ca39afe7783b085729e81ad5b9089f9a:922c64590222798bb761d5b6d8e72950

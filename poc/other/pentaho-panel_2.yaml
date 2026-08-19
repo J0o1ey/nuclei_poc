@@ -13,7 +13,7 @@ info:
     shodan-query: pentaho
     product: vantara_pentaho
     vendor: hitachi
-  tags: panel,pentaho
+  tags: panel,pentaho,discovery
 
 http:
   - method: GET
@@ -24,4 +24,4 @@ http:
       - type: word
         words:
           - '<title>Pentaho User Console - Login</title>'
-# digest: 4a0a004730450221008edd3f8c0bf3bccd4fc0c5c053935ab80c12e5e348a7bcf8b036bfa1203e308102202b29bab6efabbf19eb8d28f9bcea9f91a3646d029e9060054255bae30dd5d1fa:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220722ba1ccec5608116630a233e69273bc99c5b17343ee1e724c74a54a8485121502202fac7348b7d9f940432fae55208fa8989a37cc8cda20a028a52dcb088f3f584e:922c64590222798bb761d5b6d8e72950

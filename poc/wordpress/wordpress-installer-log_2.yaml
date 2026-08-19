@@ -7,7 +7,7 @@ info:
   description: This file is generated during the installation process of wordpress and is exposed.
   metadata:
     max-request: 1
-  tags: wordpress,log
+  tags: wordpress,log,vuln
 
 http:
   - method: GET
@@ -24,4 +24,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a004730450220025329cf38e01f291774a0f2c38d5108542e53958b61c7c9a50e073b96cb6b0a022100c0868b1a8b64af2f83e4b7da1fb0be80dd4ff766a04fc2b4e658175c0e9c3049:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402203bd3eab5da920ab0b724dc25f9613a51e72c5a48b6e8016dc3cb2f93a6148d8b022006ed83523a0adca5bbefb0947ceeb8f9cac7bf597ff50d4586b0c767c886733f:922c64590222798bb761d5b6d8e72950

@@ -4,11 +4,12 @@ info:
   name: WordPress Total Upkeep Database and Files Backup Download
   author: princechaddha
   severity: high
+  description: Exposed sensitive file in WordPress Total Upkeep wordpress plugin feature used.
   reference:
     - https://www.exploit-db.com/exploits/49252
   metadata:
     max-request: 1
-  tags: wordpress,wp-plugin,edb
+  tags: wordpress,wp-plugin,edb,vuln
 
 http:
   - method: GET
@@ -32,5 +33,4 @@ http:
       - type: status
         status:
           - 200
-
-# digest: 4a0a004730450220740af42e52a68f0d6689e8a42beeed0b3a97aae6409f3ada8410b0de03a612e5022100a5a7de364e6d563966439fb830a1e355ce145bd70d1b17e1704dd01f1911e9b0:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100f15ea999e89b16ba17edde86ecf9a4bb9c1f1245d783364603dce5f014451a37022100d2cfd9c370dedeee943c0644f40cbf1b873b41fb8825cac2106d3b5de8b2980e:922c64590222798bb761d5b6d8e72950

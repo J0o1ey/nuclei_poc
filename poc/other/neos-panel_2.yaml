@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel,neos,cms,login
+  tags: panel,neos,cms,login,discovery
 
 http:
   - method: GET
@@ -36,4 +36,4 @@ http:
       - type: kval
         kval:
           - 'x_flow_powered'
-# digest: 490a00463044022027d17f8035aeb31bbc72aab538f1ed60f55991ea28375f7ce6ae208f1dd7bd0d02202ff896c2d54d0b1ad54ec0a795713b0eb78426db0156411b4b1f902106799933:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220754c8d6b2414df7f665f044b2f9a2dde8f9f30dcd84e19a5456e5f71db78166002207999226b7612ffd0883173d3ceb99317ee08b595b41447da2ba483393ac65eb1:922c64590222798bb761d5b6d8e72950

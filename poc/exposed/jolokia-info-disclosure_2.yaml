@@ -10,27 +10,28 @@ info:
     - https://github.com/laluka/jolokia-exploitation-toolkit
   metadata:
     max-request: 16
-  tags: jolokia,springboot,mbean,tomcat,misconfig
+  tags: jolokia,springboot,mbean,misconfig,vuln
 
 http:
   - method: GET
     path:
-      - "{{BaseURL}}/actuator/jolokia/read/JMImplementation:type=MBeanServerDelegate/ImplementationName"
-      - "{{BaseURL}}/actuator/jolokia/read/JMImplementation:type=MBeanServerDelegate/ImplementationVendor"
-      - "{{BaseURL}}/actuator/jolokia/read/JMImplementation:type=MBeanServerDelegate/ImplementationVersion"
-      - "{{BaseURL}}/actuator/jolokia/read/JMImplementation:type=MBeanServerDelegate/MBeanServerId"
-      - "{{BaseURL}}/actuator/jolokia/read/JMImplementation:type=MBeanServerDelegate/SpecificationName"
-      - "{{BaseURL}}/actuator/jolokia/read/JMImplementation:type=MBeanServerDelegate/SpecificationVendor"
-      - "{{BaseURL}}/actuator/jolokia/read/JMImplementation:type=MBeanServerDelegate/SpecificationVersion"
-      - "{{BaseURL}}/actuator/jolokia/read/java.lang:type=Memory"
-      - "{{BaseURL}}/jolokia/read/java.lang:type=Memory"
-      - "{{BaseURL}}/jolokia/read/JMImplementation:type=MBeanServerDelegate/ImplementationName"
-      - "{{BaseURL}}/jolokia/read/JMImplementation:type=MBeanServerDelegate/ImplementationVendor"
-      - "{{BaseURL}}/jolokia/read/JMImplementation:type=MBeanServerDelegate/ImplementationVersion"
-      - "{{BaseURL}}/jolokia/read/JMImplementation:type=MBeanServerDelegate/MBeanServerId"
-      - "{{BaseURL}}/jolokia/read/JMImplementation:type=MBeanServerDelegate/SpecificationName"
-      - "{{BaseURL}}/jolokia/read/JMImplementation:type=MBeanServerDelegate/SpecificationVendor"
-      - "{{BaseURL}}/jolokia/read/JMImplementation:type=MBeanServerDelegate/SpecificationVersion"
+      - "{{BaseURL}}{{jolokia_paths}}{{mbean_paths}}"
+
+    attack: clusterbomb
+    payloads:
+      jolokia_paths:
+        - "/jolokia"
+        - "/actuator/jolokia"
+
+      mbean_paths:
+        - "/read/JMImplementation:type=MBeanServerDelegate/ImplementationName"
+        - "/read/JMImplementation:type=MBeanServerDelegate/ImplementationVendor"
+        - "/read/JMImplementation:type=MBeanServerDelegate/ImplementationVersion"
+        - "/read/JMImplementation:type=MBeanServerDelegate/MBeanServerId"
+        - "/read/JMImplementation:type=MBeanServerDelegate/SpecificationName"
+        - "/read/JMImplementation:type=MBeanServerDelegate/SpecificationVendor"
+        - "/read/JMImplementation:type=MBeanServerDelegate/SpecificationVersion"
+        - "/read/java.lang:type=Memory"
 
     matchers-condition: or
     matchers:
@@ -73,4 +74,4 @@ http:
         name: specification-version
         words:
           - '"attribute":"SpecificationVersion'
-# digest: 4a0a0047304502207984bf6600398a0c8338aa2a4956522136a6622c2a965d06c8d1aaf27b6b61b0022100a268e04e524bc184772b97a9486cdaea3d0284a2e621f37b339c5cd27a938723:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210081110e24d71c59e6138074d8fbe93f59b7e90cd38bd7181fbe93602525c424a002207af6c2d23b7d147a7df582a24b05267a4e6696ea2faeb67756bb56a96395025e:922c64590222798bb761d5b6d8e72950

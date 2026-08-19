@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel,flowci
+  tags: panel,flowci,discovery
 
 http:
   - method: GET
@@ -29,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100b2c4136326a1e0d67358111c6f1fd7515ff07b2c4dc02f7140fe6c9c7bdeb8360220747bfb3cee193b06cc43b7aa03e5582663525f9817dbad5a9b39c4ab0410a418:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502204d87a0f77beb0a64bc161d42a19d1e825d32094acfef6fe42ed1452f08c06590022100c9d1627be9a83036526acd2ef27d5272b2eaefa397f42b202253e11cad793866:922c64590222798bb761d5b6d8e72950

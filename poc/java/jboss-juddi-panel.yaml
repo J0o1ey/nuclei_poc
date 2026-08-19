@@ -22,7 +22,7 @@ info:
       - html:"JBoss WS"
       - http.html:"jboss ws"
     fofa-query: body="jboss ws"
-  tags: panel,jboss,juddi,redhat
+  tags: panel,jboss,juddi,redhat,discovery
 
 http:
   - method: GET
@@ -47,4 +47,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100e3a259d2b6ae96beb7f53961d6b2123574ff9a48ffe82ec3bce3e36f545831680220750e51dde852db291266eb501a067a9fe25585578bd3312d42c8f3bd46d064be:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502200f4e31c2a3cd82d66064c202bd3cb5aca5afc15a694b65259c8748aa9cb8d88a022100f2ef4cfa434401629ed306ea7067e268230e3493ada4491013f5609129db778e:922c64590222798bb761d5b6d8e72950

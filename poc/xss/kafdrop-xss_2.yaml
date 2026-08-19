@@ -11,10 +11,10 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-79
+    cwe-id: CWE-79,CWE-83
   metadata:
     max-request: 1
-  tags: kafdrop,xss
+  tags: kafdrop,xss,vuln
 
 http:
   - method: GET
@@ -33,5 +33,4 @@ http:
       - type: status
         status:
           - 500
-
-# digest: 4a0a00473045022100da4d1cf37774814984f2f08e352138e196c05a6bd4b9d080b49bff0a8fcd719502203e959ae3502e1d9afe1c7c9d20866ac7ab6e8d016330d633b10caa59e23f3873:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100cf275052c6088548a8b25a8e6ed21b8ae2fe9f66195de559959d49fe35ee6ca3022044a41396e86fdda4840583e53a8182acaf99a75974ce57c4a34458d7e5fc6236:922c64590222798bb761d5b6d8e72950

@@ -12,9 +12,9 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
     cwe-id: CWE-522
-  tags: qihang,exposure
   metadata:
     max-request: 1
+  tags: qihang,exposure,vuln
 
 http:
   - method: GET
@@ -30,5 +30,4 @@ http:
           - "account="
           - "password="
         condition: and
-
-# Enhanced by mp on 2022/05/30
+# digest: 490a004630440220767d0f94c683e784f48000ea9a84469aac11c0ad5eb119801017814071a6ec7e02203967dc9a00abf2690a9d452bc6d431f911d989779489c6a389d8a9167d0a40e3:922c64590222798bb761d5b6d8e72950

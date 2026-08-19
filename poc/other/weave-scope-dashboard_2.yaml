@@ -10,7 +10,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel
+  tags: panel,discovery
 
 http:
   - method: GET
@@ -25,4 +25,4 @@ http:
           - "__CSRF_TOKEN_PLACEHOLDER__"
         condition: and
         part: body
-# digest: 4b0a0048304602210083038da01d8aad3920135e5519ac78ad800a7a9aaa82698f426b073ada054c28022100a79957349a936e47797ac6dd577ed008cae17e0f3ef03b76e5663a887875939d:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220726bfdc704dd15ad7b357de018361f989e3ddb35893639611c949c51b8ae07a4022074246ab98c0f87d6aa477a0251f5bdcae02239757200e940b9a0a5dc198e010d:922c64590222798bb761d5b6d8e72950

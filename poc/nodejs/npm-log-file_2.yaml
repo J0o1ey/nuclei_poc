@@ -15,7 +15,7 @@ info:
     vendor: npmjs
     product: npm
     shodan-query: html:"npm-debug.log"
-  tags: npm,logs,exposure
+  tags: npm,logs,exposure,vuln
 
 http:
   - method: GET
@@ -34,4 +34,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100d9b4a478c4058646a2d69ed4b183c1c3921d57ac3d83b3d466f756234d1dacb302207ef298b9dda30cb659feec0357d751fb711fd038a5e5c2f234ef0e3b0a770279:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402206b7d7e88fe100e1197f01d09ab2c57988a82ef8dbbe466d3c7ce3462f15b6cd002203280654f24c539afebee95bd0dadbb7331ba3c4e75ac3ef77ba4d804ff23bf28:922c64590222798bb761d5b6d8e72950

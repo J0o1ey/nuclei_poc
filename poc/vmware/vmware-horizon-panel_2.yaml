@@ -1,36 +1,36 @@
 id: vmware-horizon-panel
-info:
-  name: VMware Horizon Login
-  author:
-  - dhiyaneshdk
-  description: |-
-    VMware Horizon 登录页泄露
-    安全配置错误可以发生在一个应用程序堆栈的任何层面，包括网络服务，平台，web服务器、应用服务器、数据库、框架、自定义的代码、预安装的虚拟机、容器、存储等。
-    这通常是由于不安全的默认配置、不完整的临时配置、开源云存储、错误的HTTP 标头配置以及包含敏感信息的详细错误信息所造成的。
-  severity: low
-  remediation: |-
-    官方修复方案：
-    1、建议用户到官方获取最新补丁或者最新版本程序：
-    https://www.vmware.com/
 
-    临时修复方案：
-    1、配置所有的安全机制
-    2、最小原则，关掉或限制不使用的服务
-    3、更改默认账户信息
-    4、使用日志和警报
-    5、回显信息不显示任何与实际错误相关的信息
-    6、检查和修复安全配置项
-requests:
-- matchers:
-  - type: word
-    part: body
-    words:
-    - <title>VMware Horizon</title>
-  - type: regex
-    part: body
-    regex:
-    - (?m)^Missing route token in request$
-  matchers-condition: or
-  path:
-  - '{{BaseURL}}/portal/webclient/index.html'
-  method: GET
+info:
+  name: VMware Horizon Login Panel - Detect
+  author: dhiyaneshDK,pdteam
+  severity: info
+  description: VMware Horizon login panel was detected.
+  reference:
+    - https://www.exploit-db.com/ghdb/6496
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cwe-id: CWE-200
+    cpe: cpe:2.3:a:vmware:horizon:*:*:*:*:macos:*:*:*
+  metadata:
+    max-request: 2
+    vendor: vmware
+    product: horizon
+  tags: horizon,vmware,edb,panel,discovery
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+      - '{{BaseURL}}/portal/webclient/index.html'
+
+    stop-at-first-match: true
+    host-redirects: true
+    max-redirects: 2
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - '(?m)^Missing route token in request$'
+          - 'VMware Horizon'
+        condition: or
+# digest: 4a0a004730450221008caa6cca523762309994eec13a36299e8d826bade71f4b69c5585c14300754a50220321869a50f57bffb750a65b1ad171fdb30815f79d309382df44a6a7061e61a8e:922c64590222798bb761d5b6d8e72950

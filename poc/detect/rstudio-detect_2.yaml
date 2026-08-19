@@ -10,7 +10,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel,rstudio
+  tags: panel,rstudio,discovery
 
 http:
   - method: GET
@@ -27,4 +27,4 @@ http:
       - type: status
         status:
           - 302
-# digest: 4a0a00473045022100b92bfdf5859227ea7394e177cb210c292337740c19ab71a7f6622d7df0f1a2e102202ff7c9509b80ed4f412f75c6b98259b01fae4847a1a6133794409cbe419ab935:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100d2bfc2266f7e25ce2341f910f3836240242987dd0ba71a915e5139f366015746022100e5f77e66d9bd83fe1838deb73100c39b7b3bf41c30c4dc8bd4161ecd0fed9112:922c64590222798bb761d5b6d8e72950

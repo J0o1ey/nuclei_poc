@@ -14,7 +14,7 @@ info:
     vendor: tigase
     product: tigase
     shodan-query: title:"Tigase XMPP Server"
-  tags: tigase,xmpp,server,panel,exposure
+  tags: tigase,xmpp,server,panel,exposure,discovery
 
 http:
   - method: GET
@@ -31,4 +31,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a0048304602210087b85958535288340541ac865ba306e794b1821887f31c21520603fcb05cde83022100be038929f160a6180d8b97e1c21c934aeccee2bf4dacbedb4c0a40c4c3d760d7:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502200c23992454b8f2e8a0cb909a02c9dca97787ef9bf98d9bbbdfb3167928f60bf20221009160c967766d44aedf8933271349653eaac5cdae5fc0cbcf0ba03b87b9500aad:922c64590222798bb761d5b6d8e72950

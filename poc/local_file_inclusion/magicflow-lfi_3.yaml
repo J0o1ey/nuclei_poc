@@ -12,9 +12,9 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:N/A:N
     cvss-score: 8.6
     cwe-id: CWE-22
-  tags: magicflow,lfi
   metadata:
     max-request: 2
+  tags: magicflow,lfi,vuln
 
 http:
   - method: GET
@@ -24,7 +24,6 @@ http:
 
     matchers-condition: and
     matchers:
-
       - type: regex
         part: body
         regex:
@@ -33,5 +32,4 @@ http:
       - type: status
         status:
           - 200
-
-# Enhanced by mp on 2022/05/30
+# digest: 4a0a00473045022100e97e0439117dda1469afa2cd880f39f1960465d5c2b945d26b3d26868f61cdd2022072956684a8b06e9598896195d1d8d2c10f75d7675dba1301a2dac8334dc91d9b:922c64590222798bb761d5b6d8e72950

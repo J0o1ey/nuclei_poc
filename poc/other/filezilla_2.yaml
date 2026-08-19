@@ -7,7 +7,7 @@ info:
   description: Filezilla internal file is exposed.
   metadata:
     max-request: 3
-  tags: exposure,files
+  tags: exposure,files,vuln
 
 http:
   - method: GET
@@ -32,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a0047304502207fee4a16c8cef6431b75e2c9a57daa38049fa72bff5505c2f2ce892d08546f1f0221009038a74f5d1bc892bbaa1e3e43c38df60b3ffc882b78ffd4f1dcafbb97baab95:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022056b2979ba91c8afb922a2cf78bc787f48d0f896b4e2e4d45a9a9a268671634e002204d0210ef14fcc473ea91ef489821db105e45b6d0736fc5a540e0e0d52a0e6ad2:922c64590222798bb761d5b6d8e72950

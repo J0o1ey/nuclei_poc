@@ -9,7 +9,7 @@ info:
   metadata:
     plugin_namespace: tinymce-advanced
     wpscan: https://wpscan.com/plugin/tinymce-advanced
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+  tags: tech,wordpress,wp-plugin,top-100,top-200,discovery
 
 http:
   - method: GET
@@ -46,4 +46,4 @@ http:
         part: body
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a00473045022100854bf0fe2566ef54ef49421d08a445872dd8afb4b6bf18f28199ad43a5be776b02206f9899113a3d1a82f51d5b9f03b38156e064b50d332cf353a402ad316b6dbd95:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022027b7aea830a2cf0ea5a7202fdd6897453763f60c6d371a4ddaa30685a9c3fbb30220248c9f13ea2d0155e4d93669fb4eec8307da66d4fb4fccf2f491d3ade8883d8f:922c64590222798bb761d5b6d8e72950

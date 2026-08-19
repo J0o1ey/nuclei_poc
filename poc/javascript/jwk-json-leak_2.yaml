@@ -10,13 +10,14 @@ info:
     - https://portswigger.net/web-security/jwt/algorithm-confusion
   classification:
     cpe: cpe:2.3:a:jwt_project:jwt:*:*:*:*:*:*:*:*
+    cwe-id: CWE-540
   metadata:
     verified: true
     max-request: 1
     vendor: jwt_project
     product: jwt
     shodan-query: html:"jwks.json"
-  tags: exposure,token,generic
+  tags: exposure,token,generic,vuln
 
 http:
   - method: GET
@@ -35,7 +36,7 @@ http:
       - type: word
         part: body
         words:
-          - '"kid":'
+          - '"kty":'
 
       - type: word
         part: content_type
@@ -45,4 +46,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a0046304402206475ac3aa8aa7a892c73189ad512378f3f8e5a868c86b18b667c59648e3f3ef302203097a2fd4086849e4700fd4b00b6903c45c68470e7eaef07804bcd6933208a65:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100910139f36f138cdf289bc798b8d9b24b8a8a300f21db218591ad3b75448d68ad0220638d5593ca2d3211a9a29d179b4ab5fc8d2506620533e03a8b12cd85a57d227a:922c64590222798bb761d5b6d8e72950

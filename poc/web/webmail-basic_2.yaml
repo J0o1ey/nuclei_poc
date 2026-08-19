@@ -2,8 +2,7 @@ id: webmail-basic-RCE
 info:
   name: Webmail Basic RCE
   author: SirBugs
-  severity: Critical
-
+  severity: critical
 requests:
   - raw:
       - |

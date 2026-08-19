@@ -1,7 +1,7 @@
 id: wordpress-wp-smushit
 
 info:
-  name: Smush Image Optimization – Optimize Images | Compress & Lazy Load Images | Convert WebP | Image CDN Detection
+  name: Smush Image Optimization – Optimize Images | Compress & Lazy Load Images | Convert WebP & AVIF | Image CDN Detection
   author: ricardomaia
   severity: info
   reference:
@@ -9,7 +9,7 @@ info:
   metadata:
     plugin_namespace: wp-smushit
     wpscan: https://wpscan.com/plugin/wp-smushit
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+  tags: tech,wordpress,wp-plugin,top-100,top-200,discovery
 
 http:
   - method: GET
@@ -46,4 +46,4 @@ http:
         part: body
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a00473045022100b6b751814412c4f0134bb8a4e480394ef4d47af214efdcceabe55e21cc2154630220184bccb8a7bd2a811c7b7d1d899da4e323fa2a68dd4eb4cf0930f4201a302d9c:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100c760cc806acefd78ef6367bca906246b5ab524e21e72b7a75c71e71932c78b9b022003b99e40eca7053bcce57db7ffce3289c5f2fcfe8d4ef79d1fd020b9ac63a02d:922c64590222798bb761d5b6d8e72950

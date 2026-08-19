@@ -10,6 +10,8 @@ info:
     - https://packetstormsecurity.com/files/168598/Joomla-MarvikShop-ShoppingCart-3.4-Cross-Site-Scripting.html
     - https://cxsecurity.com/issue/WLB-2022100015
     - https://extensions.joomla.org/
+  classification:
+    cwe-id: CWE-79,CWE-83
   metadata:
     verified: true
     max-request: 1
@@ -27,4 +29,4 @@ http:
           - 'contains(body, "<img src=a onerror=alert(document.domain)>") && contains(body, "TEP STOP")'
           - 'contains(content_type, "text/html")'
         condition: and
-# digest: 490a0046304402202dbbb47d358f68eaa95564a1596dc4e5f93b6f4d754a3ad65c9144a6fd478b2f02207fff29bce4602d839b8f7a0304293eda110c0d47e1dc59fcc20afc1e4a52e62d:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022038bc9e4c8ac2c72d5e8593420b8f8134096e85be9d0b63d8227b8b6470ec8fd902205323282ead1a174ce3c1c142ba7c3cf4904f8e63f6baa7532d3ff4fec41ac56b:922c64590222798bb761d5b6d8e72950

@@ -11,10 +11,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
-    google-query: intext:"webalizer"  intext:"Usage Statistics for"
-    max-request: 1
     verified: true
-  tags: panel,webalizer,edb
+    max-request: 1
+    google-query: intext:"webalizer"  intext:"Usage Statistics for"
+  tags: panel,webalizer,edb,discovery
 
 http:
   - method: GET
@@ -40,4 +40,4 @@ http:
         group: 1
         regex:
           - 'Webalizer Version ([0-9.-]+)'
-# digest: 4a0a004730450220571a4bbd66ce48f94761346a412fbea170ab8deeeb2eef89aac8f06369f2473c022100c48f43d6f48062d708653e65e513d257b84e056bc40d6e87e57e1f8ed854e8ec:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100b7286ad115d268d0838036b725a250b0f394e89e9d2bcdce551f905f91dfc3a60220409855ae09f586bdaba8ecb00709e1d41ff78aa316488c0e924073f1354815ef:922c64590222798bb761d5b6d8e72950

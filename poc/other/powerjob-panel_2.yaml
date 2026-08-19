@@ -8,11 +8,14 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
+    cpe: cpe:2.3:a:powerjob:powerjob:*:*:*:*:*:*:*:*
   metadata:
-    fofa-query: title="PowerJob"
-    max-request: 1
     verified: true
-  tags: panel,powerjob
+    max-request: 1
+    fofa-query: title="PowerJob"
+    product: powerjob
+    vendor: powerjob
+  tags: panel,powerjob,discovery
 
 http:
   - method: GET
@@ -29,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100ff2f65b82c2e8c8d1662c0017b293be7d607a05b43aae852289f85d0c50955da02204306f7a1bdee386ff4eb680e27a87db224f7495214f71a1cdef5890f9a32d8c5:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100b77a3abe88902ad39becc6c6634576db987a14bc30142a47d327f33734fff479022100fb02c2dc5e53f55220777c633e26f8f1b8b4e341344657951944061dea3fdb43:922c64590222798bb761d5b6d8e72950

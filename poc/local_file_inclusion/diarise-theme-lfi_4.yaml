@@ -10,10 +10,10 @@ info:
     - https://cxsecurity.com/issue/WLB-2019050123
     - https://woocommerce.com/?aff=1790
   classification:
-    cwe-id: CWE-98
+    cwe-id: CWE-22,CWE-73
   metadata:
     max-request: 1
-  tags: packetstorm,wordpress,wp-theme,lfi
+  tags: packetstorm,wordpress,wp-theme,lfi,vuln
 
 http:
   - method: GET
@@ -29,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a004730450220315a479de15b3f7b0e1c56efeaa3821fa193044e474c09c09b61ec1301c3ff10022100988f5f2eac0aad465902987b3663b412eb7d5ce2f831dfcc936b08539a928be5:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100fa878d1ab95b9aa15466da5359c5960999f701200b7316fe31233af36af4665a02203e85ba3a8ca2e56a6fb659566d8e0bf9f5a1570c65a4af3368b2a0cc7a2a1b85:922c64590222798bb761d5b6d8e72950

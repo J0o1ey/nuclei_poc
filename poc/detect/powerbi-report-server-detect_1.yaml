@@ -12,7 +12,7 @@ info:
     max-request: 1
     verified: true
     shodan-query: http.html:"report server web portal"
-  tags: panel,powerbi,detect
+  tags: panel,powerbi,detect,discovery
 
 http:
   - method: GET
@@ -36,4 +36,4 @@ http:
         name: version
         json:
           - '.ProductVersion'
-# digest: 490a0046304402200e206e1e83dbf589574093d5f83ad39d0be4ce0469a95b32ca92afd38951e0c10220233dc66ef381fdba0b5c11fadbee28dd7f999d93e49f084d5d55b17ab53c5bf5:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402206c5c48064372c818524de6a1ca99d133b0ebd5b6deda5903a10ca42640db8adb0220158c856434e5ec8eaead0154eedad3312bfe202a10ed6794ff519bbdbe6b14c0:922c64590222798bb761d5b6d8e72950

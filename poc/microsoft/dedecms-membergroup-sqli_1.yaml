@@ -17,7 +17,7 @@ info:
     shodan-query: http.html:"DedeCms"
     product: dedecms
     vendor: dedecms
-  tags: sqli,dedecms
+  tags: sqli,dedecms,vuln
 variables:
   num: "999999999"
 
@@ -36,4 +36,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a0046304402203c3ef84bb3525d46a7b477571d00b842170dc25c2dec64e5560fc09d110f0bc0022007ca46c82855b4bbe8a09a08f48829624ac9b574572572c0948b147d4373bfc9:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221009686c815baab5ed88133a63962255734b06be01c3bf9b3f8debb11020e6647a6022100b1f8d1fa824d43647bbb8bfc138a96859d8469a42b23fc627b1f60e3160554ec:922c64590222798bb761d5b6d8e72950

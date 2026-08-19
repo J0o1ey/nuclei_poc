@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: dlink,router,edb,panel
+  tags: dlink,router,edb,panel,discovery
 
 http:
   - method: GET
@@ -29,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a004830460221008ab81e88cc4159053a74046d8408ac1e13295ee06ca80d88778cc85145654945022100ea645966d0be1b7f0729428c61916c5e3183e1d1dbb9e67c866eb1f9909f97db:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100ff1eb38042f00479533ee903aaa61489ca85773011a55cfae89414a7ee6b5bcc0220266280da5d54e632d970b43ad181e15b74caac4d0d918dff39f77d8b960fcb5a:922c64590222798bb761d5b6d8e72950

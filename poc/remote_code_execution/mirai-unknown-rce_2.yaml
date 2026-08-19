@@ -10,11 +10,11 @@ info:
     - https://www.fortinet.com/blog/threat-research/the-ghosts-of-mirai
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
-    cvss-score: 10.0
+    cvss-score: 10
     cwe-id: CWE-77
-  tags: mirai,rce,oast
   metadata:
     max-request: 1
+  tags: mirai,rce,oast,vuln
 
 http:
   - raw:
@@ -30,5 +30,4 @@ http:
         part: interactsh_protocol # Confirms the HTTP Interaction
         words:
           - "http"
-
-# Enhanced by mp on 2022/05/30
+# digest: 4a0a00473045022100f375bff2c3210b0091ae0b07284e744ceeff27d648258db049fdc2407317e0d10220198c59b3963f7f76ac4f56f5952a9d316ab9ffd750d5d5364eb58dd24fbed232:922c64590222798bb761d5b6d8e72950

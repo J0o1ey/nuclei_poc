@@ -10,7 +10,7 @@ info:
     - https://figma.com
   metadata:
     max-request: 1
-  tags: phishing,figma,osint
+  tags: phishing,figma,osint,discovery
 http:
   - method: GET
     path:
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"figma.com")'
-# digest: 490a0046304402201854efab689c269796c70953830ff5a557e57f0fdbdba9102a73f97a81e3314f02203e6c54bddde54ea95a7ebb1206b8e0971e47e1e0cb03b357325ff3c7229ecdd4:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100d689e2e137beb0ad5c4b0252b38577a182edf65707261b3b03bfa48ff9f7fb2d02206535e59a44e9bd08fc884363901553b0e5f4abce61abe5ed11ae5141af1729e0:922c64590222798bb761d5b6d8e72950

@@ -10,7 +10,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel,landrayoa
+  tags: panel,landrayoa,discovery
 
 http:
   - method: GET
@@ -34,4 +34,4 @@ http:
         words:
           - 'isopen='
         part: header
-# digest: 490a00463044022075dfb0c451d3eface87f533a8dcb78b6fc6f77bacda8cb7d476eeec49f948b8e02205464126272930e02fbcd835d8e3b89b6e0c422ce3cc3bdc03b14d99328ec3e83:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220258051e16549130f91f5399962e9b44dd789a7f9c880268ed685d26b3d287e68022100828609ace3ab985dca500c5ae0fc48be7e1a63dc8c18358802bac8ba8531cba7:922c64590222798bb761d5b6d8e72950

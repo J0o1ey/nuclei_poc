@@ -9,7 +9,7 @@ info:
   metadata:
     plugin_namespace: hostinger
     wpscan: https://wpscan.com/plugin/hostinger
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+  tags: tech,wordpress,wp-plugin,top-100,top-200,discovery
 
 http:
   - method: GET
@@ -46,4 +46,4 @@ http:
         part: body
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a0047304502202cc468a375b57ce2e9d0940535abdbb058170c683ec3792a44da208c3db85a6c022100b4ac4734ed0c9fe8b90acd3df056d25cfbd199d570322e8fa03d4398e6fa01da:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022058af22e6f9ecaf4fe4d562aaa7f491c386e882d94959611683c7ddf308e5b9c6022100e33d96590c3f58aa079da0087673779e1ae1b38a84dae657ca39371eb37c3a6a:922c64590222798bb761d5b6d8e72950

@@ -10,10 +10,10 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-23,CWE-73
   metadata:
     max-request: 1
-  tags: aspose,ebook,wpscan,wordpress,wp-plugin,lfi
+  tags: aspose,ebook,wpscan,wordpress,wp-plugin,lfi,vuln
 
 http:
   - method: GET
@@ -32,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a004630440220222cbe80faab72aed448cce35bcd08c8842f934d2f06b84c1e7053175fa8a31a022076227ee2323e2ade490ae4d79274d9154537f361c818db9d131af7f87157bc41:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402201061f9a0f7630623e73dd410dffcb9ac7339e46ec1a908e44a9f30cc09da3757022021b65d6a974fe502f53f898b3e0c3650e561b07539c45a1a2371a1f0cbd1ae92:922c64590222798bb761d5b6d8e72950

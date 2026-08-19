@@ -15,7 +15,7 @@ info:
     fofa-query: title="Docebo E-learning"
     product: docebo
     vendor: docebo
-  tags: panel,docebo
+  tags: panel,docebo,discovery
 
 http:
   - method: GET
@@ -32,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100e25feacccc41a30b673344cb6c71bbdf79caeca937020c29764c8624265356a3022044142f15f79f95330a4ed77591160a8783481d692c0fd63b2c925ff1a7c6fd76:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022021678e55e4fe4deb3fdf4a8510711badf295fd5e868adbf9c2637d0dcd13c53d02207a9267b84fc1c49ea0e87c0c7d56684a133225b4ea619c3dd4c505743fce9a24:922c64590222798bb761d5b6d8e72950

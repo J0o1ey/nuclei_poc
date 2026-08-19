@@ -5,17 +5,17 @@ info:
   author: DhiyaneshDk
   severity: info
   description: NoVus IP login panel was detected.
-  classification:
-    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0.0
-    cwe-id: CWE-200
   reference:
     - https://www.exploit-db.com/ghdb/8002
+  classification:
+    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
+    cvss-score: 0
+    cwe-id: CWE-200
   metadata:
-    max-request: 1
     verified: true
+    max-request: 1
     google-query: intitle:"NoVus IP camera" -com
-  tags: camera,novus,edb,iot,panel
+  tags: camera,novus,edb,iot,panel,discovery
 
 http:
   - method: GET
@@ -36,5 +36,4 @@ http:
       - type: status
         status:
           - 200
-
-# Enhanced by mp on 2023/01/29
+# digest: 4a0a00473045022100f234a0e54326e4b031a834c6f6db7448489f63ba39b9c84d6131330959ee86ab02201b788a01d6d5d3c9a1b777a41d0131f9f7032c523ae2fdf35a162ef22186390d:922c64590222798bb761d5b6d8e72950

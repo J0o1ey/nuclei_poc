@@ -9,7 +9,7 @@ info:
     - https://github.com/EdOverflow/can-i-take-over-xyz/issues/89
   metadata:
     max-request: 1
-  tags: takeover,ghost
+  tags: takeover,ghost,vuln
 
 http:
   - method: GET
@@ -25,9 +25,16 @@ http:
       - type: word
         part: header
         words:
+          - 'error.ghost.org'
           - 'offline.ghost.org'
+        condition: or
 
       - type: status
         status:
           - 302
-# digest: 4a0a00473045022100a5aa3c5ce4a8bc142b327031cd1fb21f5732356c4fb0ea207c8f9752f67f4c35022001ad7f03961d10bd1810747fc83882f4f22b7c6a6b080da3ecf474d6d9ceba2e:922c64590222798bb761d5b6d8e72950
+
+    extractors:
+      - type: dsl
+        dsl:
+          - cname
+# digest: 490a004630440220329695afc53997db3695bb828fd096788c01356d6de4124531cf44060925bc2602206769f6bc9905088bbafeebe87b8da8bfb4e268c25304f8784c87dbbea0ffbf09:922c64590222798bb761d5b6d8e72950

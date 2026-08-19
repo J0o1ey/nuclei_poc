@@ -13,12 +13,22 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:qnap:photo_station:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 1
-    product: photo_station
-    shodan-query: http.title:"Photo Station"
-    vendor: qnap
     verified: true
-  tags: panel,photostation,qnap
+    max-request: 1
+    vendor: qnap
+    product: photo_station
+    shodan-query:
+      - http.title:"Photo Station"
+      - http.title:"photo station"
+      - http.title:"qnap"
+      - 'content-length: 580 "http server 1.0"'
+    fofa-query:
+      - title="photo station"
+      - title="qnap"
+    google-query:
+      - intitle:"qnap"
+      - intitle:"photo station"
+  tags: panel,photostation,qnap,discovery
 
 http:
   - method: GET
@@ -35,4 +45,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100e7528002bb2628c1efd482cdc12b43949367539a6bae9ab06334ecdb59e9090e02202797f3ae492b66eb281de9b8566bf6046c9fd81a56fc76e3b828ac5076fe29e8:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100f717109e1303ffa3fcd8fa71c425ce3df4980c761a7a0b85b19c248c4d76f340022100b04f2121dae1125ec8d4fc46f27b6dac15fbb9d0d376521a0609b9055024512b:922c64590222798bb761d5b6d8e72950

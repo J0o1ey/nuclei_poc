@@ -11,9 +11,11 @@ info:
     cpe: cpe:2.3:a:tiki:tikiwiki_cms\/groupware:*:*:*:*:*:*:*:*
   metadata:
     max-request: 2
-    product: tikiwiki_cms\/groupware
     vendor: tiki
-  tags: panel,tikiwiki,tiki
+    product: tikiwiki_cms\/groupware
+    shodan-query: http.html:"tiki wiki"
+    fofa-query: body="tiki wiki"
+  tags: panel,tikiwiki,tiki,discovery
 
 http:
   - method: GET
@@ -31,4 +33,4 @@ http:
         words:
           - "Tiki Wiki CMS Groupware"
         part: body
-# digest: 490a00463044022072d7d26c89b96a70245ae2b39a65f0600f05694aecaf0ed3a3c33d4a3a2d7c38022041eb8c0ed405e08a3bb878c8fec5b545824155e9a46e62b28ef345c1aa41fd70:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100e103e6879866ac6b6c4101e9d78903d33d830db75b628f4991770df092ab8b8402201b34f76c30601a3948f7978954a741b39eb4c14022d4b47e6b12b0dabcfa4036:922c64590222798bb761d5b6d8e72950

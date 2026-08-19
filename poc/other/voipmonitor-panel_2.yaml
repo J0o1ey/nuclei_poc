@@ -7,14 +7,18 @@ info:
   description: VoIPmonitor login panel was detected.
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0
     cwe-id: CWE-200
+    cpe: cpe:2.3:a:voipmonitor:voipmonitor:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
     vendor: voipmonitor
     product: voipmonitor
-    shodan-query: http.title:"VoIPmonitor"
-  tags: panel,voipmonitor,login
+    shodan-query:
+      - http.title:"VoIPmonitor"
+      - http.title:"voipmonitor"
+    fofa-query: title="voipmonitor"
+    google-query: intitle:"voipmonitor"
+  tags: panel,voipmonitor,login,discovery
 
 http:
   - method: GET
@@ -32,4 +36,4 @@ http:
           - "appShareUrl = 'share.voipmonitor.org'"
           - "VoIPmonitor"
         condition: and
-# digest: 4a0a0047304502200ffe37c7c66244dfb652c69910f1e3f7e5e54486e7f854569118d28c8a0d31b2022100ecd57d2fe9655ce41add2e8b78a8dbe7f553a52f33540022be9c6510e6142a0d:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502210095b7a36a1a4dee1697fbad617f2099721e6c8d9a38fdf2f04cd6557c57394ac5022079b1e482a6ace1acd263511b482ae3a8c2359735505fe7b652afc152f20afe99:922c64590222798bb761d5b6d8e72950

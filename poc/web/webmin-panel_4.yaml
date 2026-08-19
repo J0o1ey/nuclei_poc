@@ -16,7 +16,7 @@ info:
     shodan-query: http.title:"webmin"
     fofa-query: title="webmin"
     google-query: intitle:"webmin"
-  tags: panel,webmin
+  tags: panel,webmin,discovery
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
         words:
           - "<title>Login to Webmin</title>"
         part: body
-# digest: 4a0a0047304502206a1c6b25e446be720d4fa1d80abf2ca9d191e0b67b8f4a18309ea440f04cdce3022100a59c8413e01e093bf58c7c80c8499c222f5e70a476be8602f98d56cfef02263d:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221008c52efe43dea30fdb8f693b8fcb9a10e7decbe7e2471adebf6afeca4ef37487d022100931510a8b73038949588ee76b311bf238682bd8ac5ae2e57f71ff91e16da1a10:922c64590222798bb761d5b6d8e72950

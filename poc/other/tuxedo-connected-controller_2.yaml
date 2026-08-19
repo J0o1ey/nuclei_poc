@@ -12,7 +12,7 @@ info:
     cwe-id: CWE-200
   metadata:
     max-request: 1
-  tags: panel,tuxedo,edb
+  tags: panel,tuxedo,edb,discovery
 
 http:
   - method: GET
@@ -29,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100b979d71ab2f8934945480788bdf50eeff8ef49d105ed7fab46ee5060798be523022100852d6f8683baff164ee7dba46e08395102f544331042d09211fd5a79f6ab80d4:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502205f6eca25f49da2ba26cc28e8722f91e90f1927dee75eb743bc8b6865d305694a02210085863b31187a7e6bc261447955046827e68aad1773a60cd0c8f5537e691e4e54:922c64590222798bb761d5b6d8e72950

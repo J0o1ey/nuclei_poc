@@ -13,33 +13,38 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:L
     cvss-score: 8.3
     cwe-id: CWE-522
-  tags: config,exposure,laravel
+  metadata:
+    max-request: 22
+  tags: config,exposure,laravel,vuln
 
-requests:
+http:
   - method: GET
     path:
-      - "{{BaseURL}}/.env"
-      - "{{BaseURL}}/.env.bak"
-      - "{{BaseURL}}/.env.dev"
-      - "{{BaseURL}}/.env.dev.local"
-      - "{{BaseURL}}/.env.development.local"
-      - "{{BaseURL}}/.env.prod"
-      - "{{BaseURL}}/.env.prod.local"
-      - "{{BaseURL}}/.env.production"
-      - "{{BaseURL}}/.env.production.local"
-      - "{{BaseURL}}/.env.local"
-      - "{{BaseURL}}/.env.example"
-      - "{{BaseURL}}/.env.stage"
-      - "{{BaseURL}}/.env.live"
-      - "{{BaseURL}}/.env.backup"
-      - "{{BaseURL}}/.env.save"
-      - "{{BaseURL}}/.env.old"
-      - "{{BaseURL}}/.env.www"
-      - "{{BaseURL}}/.env_1"
-      - "{{BaseURL}}/.env_sample"
-      - "{{BaseURL}}/.env.{{DN}}"
-      - "{{BaseURL}}/.env.{{SD}}"
-      - "{{BaseURL}}/api/.env"
+      - "{{BaseURL}}{{paths}}"
+    payloads:
+      paths:
+        - "/.env"
+        - "/.env.bak"
+        - "/.env.dev"
+        - "/.env.dev.local"
+        - "/.env.development.local"
+        - "/.env.prod"
+        - "/.env.prod.local"
+        - "/.env.production"
+        - "/.env.production.local"
+        - "/.env.local"
+        - "/.env.example"
+        - "/.env.stage"
+        - "/.env.live"
+        - "/.env.backup"
+        - "/.env.save"
+        - "/.env.old"
+        - "/.env.www"
+        - "/.env_1"
+        - "/.env_sample"
+        - "/.env.{{DN}}"
+        - "/.env.{{SD}}"
+        - "/api/.env"
 
     matchers-condition: and
     matchers:
@@ -50,8 +55,11 @@ requests:
           - "(?mi)^DB_(HOST|PASSWORD|DATABASE)="
         condition: or
 
+      - type: dsl
+        dsl:
+          - "!contains(tolower(content_type), 'text/html')"
+
       - type: status
         status:
           - 200
-
-# Enhanced by mp on 2022/05/19
+# digest: 4a0a0047304502201fe182bc5b716fb15cc168d7ca597178c6dd0bba60f826aae4f3490d6b566044022100f50021648bb38e51bdaff1a5d18e5f18edf95d280604b77da04d368e08fa9579:922c64590222798bb761d5b6d8e72950

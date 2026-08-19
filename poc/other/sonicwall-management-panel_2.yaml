@@ -11,9 +11,9 @@ info:
     cpe: cpe:2.3:a:sonicwall:global_management_system:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    product: global_management_system
     vendor: sonicwall
-  tags: panel,sonicwall
+    product: global_management_system
+  tags: panel,sonicwall,discovery
 
 http:
   - method: GET
@@ -25,4 +25,4 @@ http:
         words:
           - "<title>SonicWall - Authentication</title>"
           - "SonicWall Administrator"
-# digest: 490a0046304402203a2aa56c3186a633cac2688c45b74f716a55709d66c0649e41fe35d7a886712402202679a5907419731186e758571c1b5dee35caf768b8ea2d2f66d29d285b764db2:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a0048304602210099938414dcc33500e009fed106c0a5b32fe49835cff26719a966f9d5d4a1bb58022100ff530d6269310b390df6d4b6926c471f9e8d09e40f904ee32bd381e52742db8a:922c64590222798bb761d5b6d8e72950

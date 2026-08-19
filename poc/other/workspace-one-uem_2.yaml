@@ -12,12 +12,15 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:vmware:workspace_one_uem:*:*:*:*:*:*:*:*
   metadata:
-    max-request: 1
-    product: workspace_one_uem
-    shodan-query: http.html:"Airwatch"
-    vendor: vmware
     verified: true
-  tags: panel,workspaceone,vmware
+    max-request: 1
+    vendor: vmware
+    product: workspace_one_uem
+    shodan-query:
+      - http.html:"Airwatch"
+      - http.html:"airwatch"
+    fofa-query: body="airwatch"
+  tags: panel,workspaceone,vmware,discovery
 
 http:
   - method: GET
@@ -29,7 +32,6 @@ http:
         part: body
         words:
           - "About VMware AirWatch"
-          - 'content="AirWatch'
           - "/AirWatch/Images"
         condition: or
-# digest: 4a0a00473045022100a94b7fa1c3d6c4246d098f769cf0673371037b80436b4234f4ad46dedc51058e0220503024a34c35a936a62095594548f9c722c272cbd2266766f3d9dd02b795bc24:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100f4445604a8da4ab2fe05c028120da16041660308b12f530cc895ad4d1044697a02203832f967318d30994139a72ed29779d5eadcdcb00af0155bacd08e85e47dd600:922c64590222798bb761d5b6d8e72950

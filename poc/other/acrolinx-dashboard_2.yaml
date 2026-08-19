@@ -10,11 +10,11 @@ info:
   classification:
     cwe-id: CWE-200
   metadata:
-    fofa-query: title=="Acrolinx Dashboard"
-    google-query: inurl:"Acrolinx Dashboard"
     max-request: 1
     shodan-query: http.title:"Acrolinx Dashboard"
-  tags: acrolinx,panel
+    fofa-query: title=="Acrolinx Dashboard"
+    google-query: inurl:"Acrolinx Dashboard"
+  tags: acrolinx,panel,discovery
 
 http:
   - method: GET
@@ -33,4 +33,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a0046304402205965d1f8f3014c3afa77c395ccd721fb9d246c033490941dc9a4a2144ce9079d02204aa25b74e616928bf04e4e7001533d146ffe81a887963fd91dd6c902341394bc:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100b3292875371c6ad8006bec76642ab435fa33faaa5c76f5241bc08ead4e7e54b002201750a32d72e9d42a8a0e5356e3241cd3330597b2aa3aefed9af3ff37c4bfb68f:922c64590222798bb761d5b6d8e72950

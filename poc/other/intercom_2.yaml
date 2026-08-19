@@ -4,10 +4,11 @@ info:
   name: Intercom widget detection
   author: tess
   severity: info
-  tags: intercom,tech
-  reference: https://www.intercom.com
+  reference:
+    - https://www.intercom.com
   metadata:
     max-request: 1
+  tags: intercom,tech,discovery
 
 http:
   - method: GET
@@ -20,3 +21,4 @@ http:
       - type: word
         words:
           - 'intercom'
+# digest: 4a0a0047304502205156e98fbdaa07f9e72315eab0d624740c46bd88ec443d20b879785571caea0c022100821b8b5622ea50750a009d06438cf8d5118912f92030b48ff024181a0d429aae:922c64590222798bb761d5b6d8e72950

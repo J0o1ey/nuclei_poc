@@ -7,10 +7,14 @@ info:
   description: Finds friendly path exposed that can be used to access signup page and create new user accounts.
   reference:
     - https://clarkvoss.medium.com/how-to-harpon-big-blue-c163722638d8
+  classification:
+    cpe: cpe:2.3:a:ibm:websphere_portal:*:*:*:*:*:*:*:*
   metadata:
     max-request: 5
+    vendor: ibm
+    product: websphere_portal
     shodan-query: http.html:"IBM WebSphere Portal"
-  tags: ibm,exposure,websphere,misconfig
+  tags: ibm,exposure,websphere,misconfig,vuln
 
 http:
   - method: GET
@@ -40,4 +44,9 @@ http:
         status:
           - 200
 
-# digest: 4b0a00483046022100b8ffb455a810ccfda40f96bae3dcea77b4f56ea1d00eb89ba0114e9e3848f86c022100ae09577f1858fdc2203f5e21d548b4032dcf74c4489a6757df180c2361853698:922c64590222798bb761d5b6d8e72950
+      - type: regex
+        part: header
+        regex:
+          - "Content-Location: .+"
+        negative: true
+# digest: 4a0a0047304502201606b49b4e6c0361488f87ade6121dd0b9a282c4b1bca2b9c42169c5305d65c2022100f35448ced070896bc191d0e1a01600ecdab66ed96143c0dec77b4b9191731393:922c64590222798bb761d5b6d8e72950

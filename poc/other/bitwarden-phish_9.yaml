@@ -10,7 +10,7 @@ info:
     - https://bitwarden.com
   metadata:
     max-request: 1
-  tags: phishing,bitwarden,osint
+  tags: phishing,bitwarden,osint,discovery
 http:
   - method: GET
     path:
@@ -32,4 +32,4 @@ http:
       - type: dsl
         dsl:
           - '!contains(host,"bitwarden.com")'
-# digest: 4a0a004730450220677e177be1c449d8abb3f85f0b860102621f091022561057239d9646609a562e022100e2b1e8b2a7695b6f5a6793e22676892132153624697bb2e969363591d91d7681:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100daa0035de7a8077e8f6e2aa3422582c63eb6c4d2b426ba7515c878f5eaf61553022100d11b450061d051434273f4d96a55536bb42cb4a510694a6e0bd421a2d164115f:922c64590222798bb761d5b6d8e72950

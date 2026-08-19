@@ -7,9 +7,11 @@ info:
   description: FCM Server Key is leaked.
   reference:
     - https://abss.me/posts/fcm-takeover
+  classification:
+    cwe-id: CWE-540
   metadata:
     max-request: 1
-  tags: exposure,token,google
+  tags: exposure,token,google,vuln
 
 http:
   - method: GET
@@ -21,4 +23,4 @@ http:
         part: body
         regex:
           - "AAAA[a-zA-Z0-9_-]{7}:[a-zA-Z0-9_-]{140}"
-# digest: 490a004630440220775b28edd740ef27ac029ee72bc65edbfec2b15993dfc9b3bd5a254ec7b141bf02205024a5d17710e4653e446e25ab85f303b31e8aa7c5bd590c033f8fe4ed97eb2b:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022015b635bb7cb14973cbfe4323897cb637592d18c9b8aa4f7f2e0ffbe7a1670b5802210081c8e45be97059eb9bef31e179beb8b5f1109f4d6c730d48e8fd7dc372b0a24c:922c64590222798bb761d5b6d8e72950

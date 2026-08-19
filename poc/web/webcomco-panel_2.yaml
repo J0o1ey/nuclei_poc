@@ -10,7 +10,7 @@ info:
     verified: true
     max-request: 1
     shodan-query: title:"WebcomCo"
-  tags: panel,webcomco,login
+  tags: panel,webcomco,login,discovery
 
 http:
   - method: GET
@@ -30,4 +30,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a0046304402202fd3156b05565477243b615f0b8a0ec425c5dc720979700f7ea9d6a9e4afc88d0220665f7055d444cbbf8b3020570028d2389455ca160e47126a9a994760a828f622:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022054fd777295d06ebd455637652d8e437129b85438a11a9e8ea0b5d7c7e2dd4c9f022100e9c6d4c52cabcba3e67e9e2560342214c735e004a1abbcc1e48d8e408cb57ebd:922c64590222798bb761d5b6d8e72950

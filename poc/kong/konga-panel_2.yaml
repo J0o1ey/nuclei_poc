@@ -13,9 +13,9 @@ info:
     cpe: cpe:2.3:a:pantsel:konga:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    product: konga
     vendor: pantsel
-  tags: tech,konga,oss,panel,pantsel
+    product: konga
+  tags: tech,konga,oss,panel,pantsel,discovery
 
 http:
   - method: GET
@@ -39,4 +39,4 @@ http:
         group: 1
         regex:
           - 'konga_version = "(.*)";'
-# digest: 4b0a00483046022100cee67d8332bc365d95943590fe53ee8aae2cfd1b4330c5cdcf70375e3d2d01fa0221009a7043e4cff94cfec581f0e17e99379356d87f8c28955b1731fed3024ae3beb7:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022003a1c77bc6a9a44cec45f88aada8c998e1d17a7f403b4d3fe92130fed540230a022100c10376e67df37efab6a116d7c85ca3b6ded1d84d8865d665b8aa1a3b62947a99:922c64590222798bb761d5b6d8e72950

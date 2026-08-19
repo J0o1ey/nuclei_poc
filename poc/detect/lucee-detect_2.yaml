@@ -9,7 +9,7 @@ info:
     max-request: 2
     shodan-query: "html:\"Lucee\""
     fofa-query: "app=\"Lucee-Engine\""
-  tags: tech,lucee
+  tags: tech,lucee,discovery
 
 http:
   - method: GET
@@ -32,4 +32,4 @@ http:
         part: body
         words:
           - "Lucee Function Reference"
-# digest: 4a0a00473045022075f26792907c6d74be5f38bbe41be081199595519e306502ecd4bdfee409f2f7022100b02b3b2ac7b94271edb6835e15e0b302f6270605125e9312412d075effba137d:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402206c24e148bc8afa4cf7aef39185f2a0a571c02b39a2ee1e20717822b6895af79d022021bcfdc2c67c3332689148e27d9bb87158d14c0c0e3a481e478103303506fcd8:922c64590222798bb761d5b6d8e72950

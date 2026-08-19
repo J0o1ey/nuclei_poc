@@ -9,10 +9,10 @@ info:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
   metadata:
+    verified: true
     max-request: 1
     shodan-query: title:"VMware Carbon Black EDR"
-    verified: true
-  tags: panel,vmware
+  tags: panel,vmware,discovery
 
 http:
   - method: GET
@@ -29,4 +29,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100bd529282a8c2c5a13a777d8a7584d91ba4246cf3993e7445ad53705f2d60413d022100bb0340aa011f93449132e367cfbb2b61a7ae685330333c128c9144ca0fc27b13:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022007b8ad2b934375a6c4003fbcb0985774157f7d22feacb31f2c66c3ce6240c546022024fd6c542eb2e3ff820d563c3e515eba8ac8a93010878c5e0a032bec290ad90b:922c64590222798bb761d5b6d8e72950

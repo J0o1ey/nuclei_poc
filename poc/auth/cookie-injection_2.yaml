@@ -7,22 +7,28 @@ info:
   reference:
     - https://www.invicti.com/blog/web-security/understanding-cookie-poisoning-attacks/
     - https://docs.imperva.com/bundle/on-premises-knowledgebase-reference-guide/page/cookie_injection.htm
-  tags: reflected,dast,cookie,injection
+  metadata:
+    max-request: 1
+  tags: reflected,dast,cookie,injection,vuln
 
 variables:
   first: "cookie_injection"
 
 http:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
+  - pre-condition:
+      - type: dsl
+        dsl:
+          - 'method == "GET"'
+          - 'method == "POST"'
+          - 'method == "PUT"'
     payloads:
       reflection:
         - "{{first}}"
 
     fuzzing:
-      - part: query
+      - parts:
+          - query
+          - body
         type: postfix
         fuzz:
           - "{{reflection}}"
@@ -32,3 +38,4 @@ http:
         part: header
         regex:
           - '(?m)(?i)(^set-cookie.*cookie_injection.*)'
+# digest: 4a0a00473045022100fcc832957048d66c083e01674bdb650b1f6aac2fe924de9a40f4175d15e9fcea022003ecffde416eccf471ecabcc2fb366f2280987da6a74bc0b23ef5abdd6829ae9:922c64590222798bb761d5b6d8e72950

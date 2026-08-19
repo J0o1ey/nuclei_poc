@@ -10,12 +10,14 @@ info:
     cwe-id: CWE-200
     cpe: cpe:2.3:a:traefik:traefik:*:*:*:*:*:*:*:*
   metadata:
+    verified: true
     max-request: 1
+    vendor: traefik
     product: traefik
     shodan-query: http.title:"traefik"
-    vendor: traefik
-    verified: true
-  tags: panel,traefik
+    fofa-query: title="traefik"
+    google-query: intitle:"traefik"
+  tags: panel,traefik,discovery
 
 http:
   - method: GET
@@ -27,4 +29,4 @@ http:
         words:
           - "<meta name=description content=\"Traefik UI\">"
         part: body
-# digest: 4a0a00473045022100a88d6b24ba28fe09e5ae9760da0ab1cbdd55b99e6158cc015d5b140e006467e002206844b47a6739b7386805da3d644bafef3975db1acf88b1c91c44d47f3ba867cc:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220517f70e3e91492ff9214570a8b0a8c7d0b336add7f29b6b26ae43de98ebdaad80220263cf034cc172e8cac891abf95d15f53cd9a17c6971155b8712f8a2f3c072f59:922c64590222798bb761d5b6d8e72950

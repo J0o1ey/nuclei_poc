@@ -7,21 +7,24 @@ info:
   description: |
     Docker Daemon exposed on the network map can help remote attacker to gain access to the Docker containers and potentially the host system.
   metadata:
+    verified: true
     max-request: 1
     shodan-query: port:2375 product:"docker"
-    verified: true
-  tags: network,docker,exposure
-
+  tags: network,docker,exposure,tcp,discovery
 tcp:
   - inputs:
-      - data: "Docker:\nVersion:\n"
+      - data: "GET /_ping HTTP/1.0\r\n\r\n"
 
     host:
       - "{{Hostname}}"
     port: 2375
 
+    matchers-condition: and
     matchers:
       - type: word
         words:
           - "Server: Docker"
-# digest: 4a0a004730450220792d0d412002d52b515c5d7b8571f50f811fd63509b8501a207f0fcc67aecbb0022100a3351de58b4a5ff4c58d43a6edee20c9db34a07fe2c7627ff27e8ac84f51c38f:922c64590222798bb761d5b6d8e72950
+      - type: word
+        words:
+          - "Api-Version:"
+# digest: 4b0a00483046022100ba8f242ac74299752ff3a724b2e1c393449caa8da2f50a046014d61e1b9bddb7022100c398d40b0b7fde1649a42d1e0f405e0a2fb7855e538502b452eeb3c555e6329f:922c64590222798bb761d5b6d8e72950

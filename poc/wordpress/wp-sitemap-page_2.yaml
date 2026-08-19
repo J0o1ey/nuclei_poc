@@ -9,7 +9,7 @@ info:
   metadata:
     plugin_namespace: wp-sitemap-page
     wpscan: https://wpscan.com/plugin/wp-sitemap-page
-  tags: tech,wordpress,wp-plugin,top-200
+  tags: tech,wordpress,wp-plugin,top-200,discovery
 
 http:
   - method: GET
@@ -46,4 +46,4 @@ http:
         part: body
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4b0a00483046022100b58fd93f92699f55f05298bd400ba7a6c9b35db712ecdb7ee309c667ed0d0f000221008f69f06a001c8ebb05167706559ed8632065dcac4f65ce13eac5b8d3a8621e3f:922c64590222798bb761d5b6d8e72950
+# digest: 490a004630440220081319028d573b431f671563aa8fe3b32a1c11cef88e05eb40a0c16ec0948c81022012c6ac18a13bfba4d58b7ee7cd7003c0827e1729f3bae9e431d1bf0397e428b1:922c64590222798bb761d5b6d8e72950

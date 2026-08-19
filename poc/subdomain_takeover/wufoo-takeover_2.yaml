@@ -4,11 +4,12 @@ info:
   name: wufoo takeover detection
   author: pdteam
   severity: high
+  description: wufoo takeover was detected.
   reference:
     - https://github.com/EdOverflow/can-i-take-over-xyz
   metadata:
     max-request: 1
-  tags: takeover
+  tags: takeover,vuln
 
 http:
   - method: GET
@@ -26,4 +27,9 @@ http:
           - Profile not found
           - Hmmm....something is not right.
         condition: and
-# digest: 4a0a00473045022100c5ac1fe67f52232b3d3cb4c97ea31c756165f3d86f587bb0e08e3e2f3a6b1c500220762b670e9498ee3bd8d842604c942ec026c244be13dc980c6c758c60c7aa65ce:922c64590222798bb761d5b6d8e72950
+
+    extractors:
+      - type: dsl
+        dsl:
+          - cname
+# digest: 4b0a00483046022100ae4326442929b8b6dd38be67d92c97d17f16a1888f157e8a60c6c6232aa210cc022100a78fcc21b495caa843feaaac3e0d7c0a459f09ad4cf5ec0aa65d648893b4ac17:922c64590222798bb761d5b6d8e72950

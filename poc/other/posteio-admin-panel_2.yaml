@@ -5,11 +5,15 @@ info:
   author: ritikchaddha
   severity: info
   description: Poste.io login panel was detected.
+  classification:
+    cpe: cpe:2.3:a:analogic:poste.io:*:*:*:*:*:*:*:*
   metadata:
     verified: true
     max-request: 1
+    vendor: analogic
+    product: poste.io
     shodan-query: title:"Administration login" html:"poste<span"
-  tags: panel,poste,login,detect
+  tags: panel,poste,login,detect,discovery
 
 http:
   - method: GET
@@ -28,4 +32,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a0047304502206d11de7670596406fc1fd665bf0263ae0c764b93ef1c083ccea64f3d02960c87022100b523f619b615dc23cb8688226e2da8ba06edb3fcdc62cb3676b0f8f9f35e4111:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100dda097a6b4f191523f0b02e4ee0ce6f83403c3098462dc96ed24af2b4f8e2aa60220429bbcbebd0d9210f74b35a95bb46a7a8b1e44188ac81ef3421f25a549427b30:922c64590222798bb761d5b6d8e72950

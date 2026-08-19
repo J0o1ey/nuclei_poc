@@ -4,12 +4,17 @@ info:
   name: Query hashed password via QueryBuilder Servlet
   author: DhiyaneshDk
   severity: medium
+  description: AEM hased password can be queried via QueryBuilder Servlet.
   reference:
     - https://twitter.com/AEMSecurity/status/1372392101829349376
+  classification:
+    cpe: cpe:2.3:a:adobe:acs_aem_commons:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
+    vendor: adobe
+    product: acs_aem_commons
     shodan-query: http.component:"Adobe Experience Manager"
-  tags: aem,misconfig
+  tags: aem,misconfig,vuln
 
 http:
   - raw:
@@ -31,5 +36,4 @@ http:
           - '"success":true'
           - 'rep:password'
         condition: and
-
-# digest: 4b0a00483046022100ba9e4e7ef1ed32094d5f6dc266c88571cd6274e0ff5965996d3b49c8806bbcac022100fbd16313016104e93dc15147568fb6b14af5ecaa3b0d2661225487edb4c08342:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022006ec8d7671dea9387155b2d1c1c058e7297c8350244a191bef5aee84b0637c8e0220419bd8b6f7c1da4dfb53b6b19af95d697475fef1b78fb377a311b64cd0e6dd21:922c64590222798bb761d5b6d8e72950

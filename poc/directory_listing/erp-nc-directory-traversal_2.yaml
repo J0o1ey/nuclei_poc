@@ -10,10 +10,10 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
     cvss-score: 7.5
-    cwe-id: CWE-22
+    cwe-id: CWE-22,CWE-73
   metadata:
     max-request: 1
-  tags: lfi,erp-nc
+  tags: lfi,erp-nc,vuln
 
 http:
   - method: GET
@@ -33,4 +33,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100c5bf129f40b1bf05554114f5718e936b041e34ef25d31e6f44153f5cd06a57a5022100cc0651763f719a4bbaf11ff154245ed768a36c08cd67e8b24119fee07e93619a:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402203673dab8d62ef3d942709e430d77e785fcd6e5c703a9b086a6545e600193ff87022066a6de056281c6b0ca93b339a70fda3711d9e9486ccc46d12642067c0c97a8a0:922c64590222798bb761d5b6d8e72950

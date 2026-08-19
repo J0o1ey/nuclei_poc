@@ -9,7 +9,7 @@ info:
   metadata:
     plugin_namespace: custom-post-type-ui
     wpscan: https://wpscan.com/plugin/custom-post-type-ui
-  tags: tech,wordpress,wp-plugin,top-100,top-200
+  tags: tech,wordpress,wp-plugin,top-100,top-200,discovery
 
 http:
   - method: GET
@@ -46,4 +46,4 @@ http:
         part: body
         regex:
           - '(?i)Stable.tag:\s?([\w.]+)'
-# digest: 4a0a00473045022100b99130396d99950a9db9ad916155d92f9d1ae3c6b1c3f652d4c6e7d92098514a0220307206d98c1371e86b793b98420b6c335c775802d86c74fdb7c60b53b02a5002:922c64590222798bb761d5b6d8e72950
+# digest: 490a0046304402203c6e1da4dd83966bb07b2c6a47600b894bbf62441e962619a46df81e7f9e8c6a0220690d46908a00d405ffc2afe052e919a69a328741b4185edd58874f219b34ea08:922c64590222798bb761d5b6d8e72950

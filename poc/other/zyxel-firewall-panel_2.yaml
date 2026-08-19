@@ -8,11 +8,14 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
+    cpe: cpe:2.3:o:zyxel:zywall_vpn50_firmware:*:*:*:*:*:*:*:*
   metadata:
+    verified: true
     max-request: 1
     shodan-query: http.favicon.hash:-440644339
-    verified: true
-  tags: panel,xyxel,firewall
+    product: zywall_vpn50_firmware
+    vendor: zyxel
+  tags: panel,xyxel,firewall,discovery
 
 http:
   - method: GET
@@ -40,4 +43,4 @@ http:
         group: 1
         regex:
           - "<title>(.*)</title>"
-# digest: 490a0046304402206516f5a8a2c476dcc98883975e410b1412c74d67dc7b955403e732a4058c4ea202207c174fa651ec6407e8fa49d6d9ffb353442b8a56cb3312ba449bac8e2c90d888:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a004730450220717d2b1cf86bb116fdc22f1c1bb440ea47f3458f8677d231d78b3b10691fcb13022100e8d4fddd1b50cade22f18c2d3b95713d9e8b83c88ed447b2ae0a163d1f2c8a4c:922c64590222798bb761d5b6d8e72950

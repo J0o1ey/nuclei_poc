@@ -4,11 +4,12 @@ info:
   name: surge takeover detection
   author: pdteam
   severity: high
+  description: surge takeover was detected.
   reference:
-    - https://github.com/EdOverflow/can-i-take-over-xyz
+    - https://github.com/EdOverflow/can-i-take-over-xyz/issues/198
   metadata:
     max-request: 1
-  tags: takeover
+  tags: takeover,vuln
 
 http:
   - method: GET
@@ -24,4 +25,13 @@ http:
       - type: word
         words:
           - project not found
-# digest: 490a0046304402203dc65591002c8d38cfe311fe866e767ca6eb9e3cd0f02d1e636f2c26c2d0bfc90220276eddd2f42c3f233559ad4afcc9d077a8d8bee4256659c5eae7f5eb9cd2dfd5:922c64590222798bb761d5b6d8e72950
+
+      - type: status
+        status:
+          - 404
+
+    extractors:
+      - type: dsl
+        dsl:
+          - cname
+# digest: 4b0a00483046022100c41aefb8b76f18692065d1f45ba5242af385481d1622be2c4038ef8937768521022100895ce7f7cc7f964e01025e3754e3f45b018573b89804f92dea2ae530225deeed:922c64590222798bb761d5b6d8e72950

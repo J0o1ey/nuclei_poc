@@ -5,11 +5,15 @@ info:
   author: PR3R00T
   severity: high
   description: Manage Engine AD Manager service can be configured to allow anonymous users to browse the AD list remotely.
+  classification:
+    cpe: cpe:2.3:a:zohocorp:manageengine_admanager_plus:*:*:*:*:*:*:*:*
   metadata:
     verified: true
     max-request: 1
+    vendor: zohocorp
+    product: manageengine_admanager_plus
     shodan-query: title:"ManageEngine"
-  tags: unauth,misconfig
+  tags: unauth,misconfig,vuln
 
 http:
   - method: GET
@@ -34,5 +38,4 @@ http:
       - type: status
         status:
           - 200
-
-# digest: 4a0a00473045022074265f61eea8f5d170a6a71de9470b85fa69ad269f080759c9b2b4237f05dc72022100af312aa6397b9b68a20b5c312e0bc870cfb6b57ee9fd193396ef950da766261b:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a00473045022100f4bac2f97a1e48cd1ef71c34e2b0804123bf7dbbc5a76a7bdea497498dd2f5c102201d22d1e591f516e842c170bfecc7ee7b59fa52cf51babbf01a0d848a08cf663c:922c64590222798bb761d5b6d8e72950

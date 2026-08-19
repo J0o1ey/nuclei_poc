@@ -1,21 +1,27 @@
 id: tumblr
 
 info:
-  name: tumblr
+  name: Tumblr User Name Information - Detect
   author: dwisiswant0
-  description: This OSINT template looks for information about a user name.
   severity: info
+  description: Tumblr user name information check was conducted.
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0.0
+    cvss-score: 0
     cwe-id: CWE-200
-  tags: osint,osint-images,tumblr
+  metadata:
+    max-request: 1
+  tags: osint,osint-images,tumblr,discovery
 
 self-contained: true
-requests:
+
+variables:
+  valid_username: "{{replace(user, '.', '')}}"
+
+http:
   - method: GET
     path:
-      - "https://{{user}}.tumblr.com"
+      - "https://{{valid_username}}.tumblr.com"
 
     matchers-condition: and
     matchers:
@@ -27,3 +33,4 @@ requests:
         part: body
         words:
           - "avatar"
+# digest: 4a0a00473045022100b8351df680fe3447ac2f0c6563e3373525f67ed506f472a8fb6c30e5fa035a2602201ed5316cc5e94e3b74f8ef9656d0df05790e17dfe26de3486c65958dbaff6c6c:922c64590222798bb761d5b6d8e72950

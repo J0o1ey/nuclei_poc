@@ -12,12 +12,12 @@ info:
     - https://www.acunetix.com/vulnerabilities/web/wordpress-user-registration-enabled/
   classification:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cvss-score: 0.0
+    cvss-score: 0
     cwe-id: CWE-200
   metadata:
-    max-request: 1
     verified: true
-  tags: wordpress,wp,misconfig
+    max-request: 1
+  tags: wordpress,wp,misconfig,vuln
 
 http:
   - method: GET
@@ -25,7 +25,6 @@ http:
       - "{{BaseURL}}/wp-login.php"
 
     matchers-condition: and
-
     matchers:
       - type: word
         part: body
@@ -40,5 +39,4 @@ http:
       - type: status
         status:
           - 200
-
-# Enhanced by md on 2023/02/06
+# digest: 4b0a00483046022100a12214540fbbe455be9d87702c8b4ab20d006a8bbc4774c3de53cd61310f30b90221008508185312d4dfb20187dcaa381bde43dad3094ca22878c0eb0bc96660dfd874:922c64590222798bb761d5b6d8e72950

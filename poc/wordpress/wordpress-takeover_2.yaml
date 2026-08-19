@@ -4,12 +4,13 @@ info:
   name: WordPress takeover detection
   author: pdteam,geeknik
   severity: high
+  description: Bigcartel takeover was detected.
   reference:
     - https://github.com/EdOverflow/can-i-take-over-xyz/pull/176
     - https://hackerone.com/reports/274336
   metadata:
     max-request: 1
-  tags: takeover,wordpress,hackerone
+  tags: takeover,wordpress,hackerone,vuln
 
 http:
   - method: GET
@@ -32,4 +33,9 @@ http:
         words:
           - "cannot be registered"
         negative: true
-# digest: 4a0a00473045022100b6482b25c273f80d9a829af8433bec2b59e51d3573cae9087a01108defe43e3a02202e6c7f7d7a0d70b367aa80de4ba8b4da27c72dc6f34de442d00125f100b0afa1:922c64590222798bb761d5b6d8e72950
+
+    extractors:
+      - type: dsl
+        dsl:
+          - cname
+# digest: 4b0a00483046022100e220a42f9ff9b7cd3dafc63a868b2ad63a37bb72cd634317c3ed5bb8af7d08b9022100fe2379f5a580dbfc131648eb2dfe8dd5f5052a331d6bd31471661ae887912eed:922c64590222798bb761d5b6d8e72950

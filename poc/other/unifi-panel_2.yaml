@@ -8,10 +8,13 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
     cwe-id: CWE-200
+    cpe: cpe:2.3:a:ui:unifi_network_application:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
     shodan-query: http.title:"UniFi Network"
-  tags: unifi,ubnt,panel
+    product: unifi_network_application
+    vendor: ui
+  tags: unifi,ubnt,panel,discovery
 
 http:
   - method: GET
@@ -31,4 +34,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 490a0046304402204dcf29f887e31c036f68c0229d594640c9a9cfb6e91a6480540b279203b6a3bd022033bc5c42ba885fbbda80fd15cce0c5b4e49df0927ddca5564e5027d5cee435a4:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100c13a9105d0e9976a0fea60c8e2d9f50f3bb3f1ff847cbbfcddbbbe37666ea97c022100e92ad151ee7d046ee4e68c7bdd7a74687ecd3f89c579eff64ab33dea1d60d0ea:922c64590222798bb761d5b6d8e72950

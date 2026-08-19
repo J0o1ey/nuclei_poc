@@ -17,7 +17,7 @@ info:
     vendor: uptime.kuma
     product: uptime_kuma
     shodan-query: title:"Uptime Kuma"
-  tags: uptime,kuma,panel,login,detect
+  tags: uptime,kuma,panel,login,detect,discovery
 
 http:
   - method: GET
@@ -33,4 +33,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a004730450221009a82f45ea590cd6f92cfed23a9c895b5d92a5d3c5cb7f675d6aa8cb6a4ccc73002200a8842726e1ce8a366ad9a06efc4b2bfe1e4a6ee184efbde0d2af83ca78807ff:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502201b7735225c88f607c44ad1ecf0dccde6593b71e7363a24578b5350e06b374dad022100faeb7697e0f4ef8bbd97adf53b7026584036c60387a965f8a0b0d095d138f2ba:922c64590222798bb761d5b6d8e72950

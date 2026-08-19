@@ -5,10 +5,11 @@ info:
   author: pussycat0x
   severity: info
   description: Searches for sensitive directories present in the easy-media-gallery-pro plugin.
-  reference: https://www.exploit-db.com/ghdb/6455
+  reference:
+    - https://www.exploit-db.com/ghdb/6455
   metadata:
     max-request: 1
-  tags: wordpress,listing,wp-plugin
+  tags: wordpress,listing,wp-plugin,vuln
 
 http:
   - method: GET
@@ -26,5 +27,4 @@ http:
       - type: status
         status:
           - 200
-
-# digest: 4b0a00483046022100ca7f146f315e78f9045d1967f5585951f9d1f21ef74f898175e9566902bb604302210091bbad3bbeb5e7844186b5073ec43f7749a88b3f7cd94f9882b672c8a80a83e5:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100ee836008de34c2e3fe622250982202e2375aa378c7ccd7c37390ba011f61358c022100a45c3004493a3632fbd8fce746dd7b2c12c75f06f899629f41b56ba246a4ced8:922c64590222798bb761d5b6d8e72950

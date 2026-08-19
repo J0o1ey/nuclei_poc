@@ -11,10 +11,14 @@ info:
     cpe: cpe:2.3:a:jeedom:jeedom:*:*:*:*:*:*:*:*
   metadata:
     max-request: 1
-    product: jeedom
-    shodan-query: http.title:"Jeedom"
     vendor: jeedom
-  tags: panel,jeedom,login
+    product: jeedom
+    shodan-query:
+      - http.title:"Jeedom"
+      - http.title:"jeedom"
+    fofa-query: title="jeedom"
+    google-query: intitle:"jeedom"
+  tags: panel,jeedom,login,discovery
 
 http:
   - method: GET
@@ -33,4 +37,4 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022057c1fe8264cd32f0d3b5b2d2b50170a93251da81927db9d0e2e520e8b20cbadf022100ecc2e5dcc5bb4d0cad6f590aefc0f19c9cc555cf24b149d80b1893d584f99866:922c64590222798bb761d5b6d8e72950
+# digest: 490a00463044022058ef0091df4057bf340332fcde418e8c557c0ff9951aa8d0dfa130a93d2c80ff02206cbd82c2bdf4cde22f3e3c1a362f602b22d66fd6a9389a6175feb33964b40e03:922c64590222798bb761d5b6d8e72950
