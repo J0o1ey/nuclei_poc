@@ -1,47 +1,32 @@
-id: manageengine-adaudit
-
+id: manageengine-adaudit 2
 info:
-  name: ZOHO ManageEngine ADAudit/ADManager Panel - Detect
-  author: dhiyaneshDK,PR3R00T,idealphase
+  author: dhiyaneshDK,PR3R00T
+  name: ZOHO ManageEngine ADAudit/ADManager Panel
+  reference: https://www.shodan.io/search?query=http.title%3A%22ManageEngine+-+ADManager+Plus%22
   severity: info
-  description: |
-    ZOHO ManageEngine ADAudit/ADManager panel was detected.
-  reference:
-    - https://www.manageengine.com/products/active-directory-audit/
-    - https://www.manageengine.com/products/ad-manager/
-  classification:
-    cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N
-    cwe-id: CWE-200
-    cpe: cpe:2.3:a:zohocorp:manageengine_adaudit_plus:*:*:*:*:*:*:*:*
-  metadata:
-    verified: true
-    max-request: 2
-    vendor: zohocorp
-    product: manageengine_adaudit_plus
-    shodan-query:
-      - http.title:"ADAudit Plus" || http.title:"ManageEngine - ADManager Plus"
-      - http.title:"adaudit plus" || http.title:"manageengine - admanager plus"
-    fofa-query: title="adaudit plus" || http.title:"manageengine - admanager plus"
-    google-query: intitle:"adaudit plus" || http.title:"manageengine - admanager plus"
-  tags: panel,zoho,manageengine,zohocorp
+  tags: panel,zoho,manageengine
+requests:
+- attack: sniper
+  matchers:
+  - type: word
+    words:
+    - <title>ManageEngine - ADManager Plus</title>
+  - status:
+    - 200
+    type: status
+  matchers-condition: and
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'GET / HTTP/1.1
 
-http:
-  - method: GET
-    path:
-      - '{{BaseURL}}'
-      - "{{BaseURL}}/authorization.do"
+    Host: {{Subdomains}}
 
-    stop-at-first-match: true
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
 
-    matchers-condition: and
-    matchers:
-      - type: word
-        words:
-          - 'ManageEngine - ADManager Plus'
-          - 'ADAudit Plus'
-        condition: or
+    Accept-Encoding: gzip, deflate
 
-      - type: status
-        status:
-          - 200
-# digest: 4a0a00473045022100c12703f7d87c90a5a68be0cb3c7ad35abe4aa17062f4b94fb42a47190775bcbf02201375fe602744a431d38a9ce134f1549b5e2aecb5f247c48db1a2bdbd4905b5ce:922c64590222798bb761d5b6d8e72950
+    Accept: */*
+
+    '
+  threads: 100

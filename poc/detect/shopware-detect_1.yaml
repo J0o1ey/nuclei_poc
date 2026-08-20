@@ -1,44 +1,36 @@
-id: shopware-detect
-
+id: shopware-detect 1
 info:
-  name: Shopware CMS detect
-  author: cyllective,pascalheidmann
-  severity: info
+  author: cyllective
   description: Detects Shopware CMS
+  name: Shopware CMS detect
   reference:
-    - https://github.com/shopware/shopware
-    - https://github.com/shopware/platform
-  classification:
-    cpe: cpe:2.3:a:shopware:shopware:*:*:*:*:*:*:*:*
-  metadata:
-    verified: true
-    max-request: 2
-    vendor: shopware
-    product: shopware
-    shodan-query: title:"shopware AG"
+  - https://github.com/shopware/shopware
+  - https://github.com/shopware/platform
+  severity: info
   tags: tech,shopware,cms
+requests:
+- attack: sniper
+  matchers:
+  - condition: or
+    part: body
+    type: word
+    words:
+    - Realisiert mit Shopware
+    - Realised with Shopware
+    - Shopware Administration (c) shopware AG
+    - <title>Shopware 5 - Backend (c) shopware AG</title>
+  payloads:
+    Subdomains: /home/mahmoud/Wordlist/AllSubdomains.txt
+  raw:
+  - 'GET /admin HTTP/1.1
 
-http:
-  - method: GET
-    path:
-      - "{{BaseURL}}/admin"
-      - "{{BaseURL}}/backend"
+    Host: {{Subdomains}}
 
-    stop-at-first-match: true
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; rv:68.0) Gecko/20100101 Firefox/68.0
 
-    matchers-condition: and
-    matchers:
-      - type: word
-        part: body
-        words:
-          - 'Realisiert mit Shopware'
-          - 'Realised with Shopware'
-          - 'Shopware Administration (c) shopware AG'
-          - '<title>Shopware 5 - Backend (c) shopware AG</title>'
-          - 'Shopware.Application.start'
-        condition: or
+    Accept-Encoding: gzip, deflate
 
-      - type: status
-        status:
-          - 200
-# digest: 4a0a00473045022100f0c661b873a389effaf597e55bae12eba7015dcc45b7d96365adc153632a0f6302207099c382e98eac10152afca34a5cbd38c203dd25b7bc555e10aaebbbaf970a5d:922c64590222798bb761d5b6d8e72950
+    Accept: */*
+
+    '
+  threads: 100

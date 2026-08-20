@@ -7,7 +7,7 @@ info:
   description: Jenkins Dashboard is exposed to external users.
   metadata:
     max-request: 2
-  tags: jenkins,vuln
+  tags: jenkins
 
 http:
   - method: GET
@@ -21,10 +21,8 @@ http:
       - type: word
         words:
           - Dashboard [Jenkins]
-          - Dashboard - Jenkins
-        condition: or
 
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100e64a2a17dba56cc34880fa5cc27d4b79c95ca290a381b793e09cbc41ff159161022008df8a52719d22b7d8fe18428e7c9586ca0918901b620d6b0b3da72596de0fd7:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a00483046022100eaa214337a4f9a9f22eaad3b6333188f8ad83e50ea2c66830e0ab9adc5a26364022100df26dc8c84ea5f5d3c6102094ca35d5f32f002e11c162331e4b55dbdb3f51b5d:922c64590222798bb761d5b6d8e72950

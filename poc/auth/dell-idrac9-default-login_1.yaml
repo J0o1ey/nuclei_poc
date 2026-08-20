@@ -10,8 +10,6 @@ info:
   classification:
     cwe-id: cwe-798
   tags: dell,idrac,default-login
-  metadata:
-    max-request: 1
 
 http:
   - raw:

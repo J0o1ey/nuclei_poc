@@ -5,12 +5,11 @@ info:
   author: pussycat0x
   severity: high
   metadata:
-    max-request: 1
     verified: true
     shodan-query: html:"Mercurial repositories index"
   tags: misconfig,unauth,mercurial
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}"

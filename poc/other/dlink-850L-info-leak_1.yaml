@@ -4,11 +4,8 @@ info:
   name: Dlink Dir-850L Info Leak
   author: pikpikcu
   severity: info
-  reference:
-    - https://xz.aliyun.com/t/2941
+  reference: https://xz.aliyun.com/t/2941
   tags: dlink
-  metadata:
-    max-request: 1
 
 http:
   - method: POST

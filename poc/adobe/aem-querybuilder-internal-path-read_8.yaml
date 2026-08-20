@@ -9,13 +9,12 @@ info:
     - https://speakerdeck.com/0ang3el/aem-hacker-approaching-adobe-experience-manager-webapps-in-bug-bounty-programs?slide=91
   classification:
     cpe: cpe:2.3:a:adobe:experience_manager:*:*:*:*:*:*:*:*
-    cwe-id: CWE-22,CWE-73
   metadata:
     max-request: 4
     vendor: adobe
     product: experience_manager
     shodan-query: http.component:"Adobe Experience Manager"
-  tags: aem,misconfig,vuln
+  tags: aem,misconfig
 
 http:
   - method: GET
@@ -38,4 +37,4 @@ http:
           - 'jcr:path'
           - 'success'
         condition: and
-# digest: 4a0a00473045022100bc33114db7e0300617820d77161e51c7f23c316954023b109cae686707b2d94c0220558c2cb702e75e83e3976fde904f1cc16beb9e0ed735b62c2ad0af6561a0ef21:922c64590222798bb761d5b6d8e72950
+# digest: 4b0a004830460221009f84d411df59808ab0aab9c87704183f380d28cbde5439087f8b1071a2300cd7022100ade3790473fc91c225acbe63b274b65dd22f8a4c593552388c9352d8369337bd:922c64590222798bb761d5b6d8e72950

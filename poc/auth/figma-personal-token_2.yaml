@@ -7,13 +7,10 @@ info:
   reference:
     - https://github.com/praetorian-inc/noseyparker/blob/main/crates/noseyparker/data/default/rules/figma.yml
     - https://www.figma.com/developers/api
-    - https://www.figma.com/developers/api#access-tokens
-  classification:
-    cwe-id: CWE-540
   metadata:
     verified: true
     max-request: 1
-  tags: figma,exposure,token,vuln
+  tags: figma,exposure,token
 
 http:
   - method: GET
@@ -25,4 +22,4 @@ http:
         part: body
         regex:
           - (?i)figma.{0,20}\b([0-9a-f]{4}-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b
-# digest: 4a0a004730450220754b29de0b92a54f2c3e83a1f11b13c526e91799566f40b6c43c7ac7bedc51cc022100a0529db7fec665628b1ae1216247321bfaad52bec8b5432712d05825a4790115:922c64590222798bb761d5b6d8e72950
+# digest: 4a0a0047304502207185a1746611e7346dd1256ace9f58b6f3f13edabe7b5b7fc8e2916e9b5d32b10221008c69643da77fbe33b8315546398e95e39eee50f176f552108df8ab471fe37403:922c64590222798bb761d5b6d8e72950

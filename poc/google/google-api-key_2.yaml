@@ -3,17 +3,17 @@ id: google-api-key
 info:
   name: Google API Key
   author: Swissky
-  severity: info
-  tags: exposure,token,google
-  metadata:
-    max-request: 2
+  severity: medium
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}"
-      - "{{BaseURL}}/hopfully404"
-
+    matchers:
+      - type: regex
+        part: body
+        regex:
+          - "AIza[0-9A-Za-z\\-_]{35}"
     extractors:
       - type: regex
         part: body

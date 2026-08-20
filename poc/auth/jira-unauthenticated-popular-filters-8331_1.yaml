@@ -2,7 +2,7 @@ id: jira-unauthenticated-popular-filters
 info:
   name: Jira Unauthenticated Popular Filters
   author: TechbrunchFR
-  severity: info
+  severity: Info
 requests:
   - method: GET
     path:

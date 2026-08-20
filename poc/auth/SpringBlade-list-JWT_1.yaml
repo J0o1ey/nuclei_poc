@@ -3,7 +3,7 @@ id: SpringBlade-list
 info:
   name: SpringBlade list接口访问日志漏洞
   author: David
-  severity: high
+  severity: High
   description: 结合SpringBlade JTW认证缺陷问题可访问错误日志。
   reference:
     - https://
