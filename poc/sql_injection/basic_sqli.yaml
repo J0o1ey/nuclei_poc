@@ -3,7 +3,8 @@ id: SQLInjection_ERROR
 info:
   name: SQLINJECTION Detection
   author: 0x240x23elu & OFJAAAH
-  severity: high
+  severity: High
+
 requests:
   - method: GET
 

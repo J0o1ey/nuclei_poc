@@ -12,10 +12,10 @@ info:
   classification:
     cvss-metrics: CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N
     cvss-score: 7.2
-    cwe-id: CWE-80
+    cwe-id: CWE-79
   metadata:
     max-request: 1
-  tags: xss,drupal,edb,packetstorm,vuln
+  tags: xss,drupal,edb,packetstorm
 
 http:
   - method: GET
@@ -37,4 +37,5 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100ec7496ee28b48183dcb531a7354a15ad0cdcb91a60c6dd385ed9b7bb8dd6f14b022100d38f5736bc7f93a258f6eb2ff70ad6a04980255213708b36f83143e0383fe91c:922c64590222798bb761d5b6d8e72950
+
+# digest: 4a0a0047304502202953d874e635dc0087e4b036fa1ab4f2b8e6b1b20a2355e30a7042d2e8741e60022100ed63d6613db2fdd835d6b2ed9697214831feb85607e0b635e31e1421d9b859db:922c64590222798bb761d5b6d8e72950

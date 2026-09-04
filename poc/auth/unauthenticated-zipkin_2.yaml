@@ -9,7 +9,7 @@ info:
     - https://zipkin.io/
   metadata:
     max-request: 1
-  tags: unauth,misconfig,vuln
+  tags: unauth,misconfig
 
 http:
   - method: GET
@@ -33,4 +33,5 @@ http:
           - defaultLookback
         part: body
         condition: and
-# digest: 490a0046304402205dea6ad9e185454bd442adb6c27245d55123b16dea6df10220aac8b55ad4e2ce02207c9d4c98b75bf20adeca2c92c91001df147da9892d6af48da8bc285cb37221bb:922c64590222798bb761d5b6d8e72950
+
+# digest: 4b0a00483046022100f1704763adb088a26cc4db7814c35fbe64b9b51abec0479fda2fce4ca09e1977022100e6ea82953984d03028b0078d2bca4812d94d2c81f61d466281d7232d12f0d01e:922c64590222798bb761d5b6d8e72950

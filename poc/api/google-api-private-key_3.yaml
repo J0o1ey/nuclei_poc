@@ -4,14 +4,12 @@ info:
   name: Google Api Private Key
   author: DhiyaneshDK
   severity: medium
-  description: Google API private keys are exposed in files.
-  reference:
-    - https://www.exploit-db.com/ghdb/6037
+  reference: https://www.exploit-db.com/ghdb/6037
   metadata:
     verified: true
     max-request: 3
     google-query: intitle:"index of" "google-api-private-key.json"
-  tags: exposure,cloud,google,devops,files,vuln
+  tags: exposure,cloud,google,devops,files
 
 http:
   - method: GET
@@ -33,4 +31,5 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a0047304502207d5675e9d264d81fc246e777bec837a4513678b9a92afb3757a73e318fdca3880221008700d76b4e7e22286e9e99f22617adf49a4c17ecfb97985de03c2981500d467e:922c64590222798bb761d5b6d8e72950
+
+# digest: 4a0a00473045022100e4184e22f4f05bf0809ca9b243e6ed234f0abf94ccf01eedec42a2e5622ec48b022008c4d9aabe3a42e06ea30a6d775c593d6582e9128062586310131f38038154b2:922c64590222798bb761d5b6d8e72950

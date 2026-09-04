@@ -9,7 +9,7 @@ info:
     - https://github.com/getgrav/grav
   metadata:
     max-request: 1
-  tags: tech,grav,cms,discovery
+  tags: tech,grav,cms
 
 http:
   - method: GET
@@ -27,4 +27,5 @@ http:
         part: body
         words:
           - '<meta name="generator" content="GravCMS" />'
-# digest: 490a00463044022012f93fcb5c1562fc66249115f551055cea2e9d77d489d549d0910336a8a54aa402207bb669d9efd1fed8cf2ae2c73a9e640140e4ac9fbbfd273949fa80621dbf7cbd:922c64590222798bb761d5b6d8e72950
+
+# digest: 4a0a004730450220700f01b8d8cc3f19f9e349fa7d8bc87eb4b0f09ecad8c8f1e37be766e7453cfd022100f4b5bb3e4a84e6ed6b6c28794c87106d3438c342b846f96d096abb9bc3ad60c4:922c64590222798bb761d5b6d8e72950

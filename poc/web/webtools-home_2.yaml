@@ -4,11 +4,10 @@ info:
   name: Webtools Home
   author: dhiyaneshDK
   severity: info
-  description: Webtools panel was detected.
   metadata:
     max-request: 1
     shodan-query: http.title:"Webtools"
-  tags: iot,discovery
+  tags: iot
 
 http:
   - method: GET
@@ -24,4 +23,5 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a0047304502206b745b67db1e78ccee992f70ef5ff99b2125dd78ca940d43370481127183a636022100bd611cdd34ddb34165bc8d25898c24441f00a260cb1fa62f1bad325640fbb121:922c64590222798bb761d5b6d8e72950
+
+# digest: 4b0a00483046022100f3d6b75a7638a8769657a5da18f42513fd5adbe8220a9f58a13e6c00a144e09d02210089d21a4e51c19e50caab6f6e1dfa4465d9b6062bc1e341b31321780bbc40be4b:922c64590222798bb761d5b6d8e72950

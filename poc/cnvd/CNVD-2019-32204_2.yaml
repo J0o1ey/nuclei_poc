@@ -13,7 +13,7 @@ info:
     cwe-id: CWE-77
   metadata:
     max-request: 1
-  tags: cnvd,cnvd2019,fanwei,rce,vuln
+  tags: fanwei,cnvd,cnvd2019,rce
 
 http:
   - raw:
@@ -28,4 +28,5 @@ http:
       - type: regex
         regex:
           - "root:.*:0:0:"
-# digest: 4b0a00483046022100f57fb3c89c164c8224dfc8939e9dafc330384a9946339b16f939c2af873d1216022100b48025093141afb1beae3012f9f8db1612c5fd3e138a9a336eb2afb620b84df7:922c64590222798bb761d5b6d8e72950
+
+# digest: 4a0a0047304502200737b4766489cce5eaac9a1fd6d4b2456c8c259c3dc6591e5fbfe2cc53c11225022100e120e0d0a615037c438d21401935982b49b4f718cb823da8dedbd2efb34cd385:922c64590222798bb761d5b6d8e72950

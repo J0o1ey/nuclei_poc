@@ -4,7 +4,7 @@ id: jira-unauthenticated-dashboards
 info:
   name: Jira Unauthenticated Dashboards
   author: TechbrunchFR
-  severity: info
+  severity: Info
 requests:
   - method: GET
     path:
