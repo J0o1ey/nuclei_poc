@@ -3,14 +3,13 @@ id: puppetserver-detect
 info:
   name: Puppetserver Detection
   author: c-sh0
-  severity: info
   reference:
-    - https://insinuator.net/2020/09/puppet-assessment-techniques/
+     - https://insinuator.net/2020/09/puppet-assessment-techniques/
+  severity: info
+  description: Puppetserver Detection
   tags: tech,puppet,exposure
-  metadata:
-    max-request: 1
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/puppet-ca/v1/certificate_request/{{randstr}}"
@@ -36,3 +35,4 @@ http:
       - type: kval
         kval:
           - x_puppet_version
+

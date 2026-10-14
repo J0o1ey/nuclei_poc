@@ -7,19 +7,20 @@ info:
   description: Larvel Debug method is enabled.
   metadata:
     max-request: 1
-  tags: debug,laravel,misconfig,vuln
+  tags: debug,laravel,misconfig
 
 http:
   - method: GET
     path:
       - "{{BaseURL}}"
-      - "{{BaseURL}}///////this-should-not-exist,.<>!@#$%^&*()_+"
-      - "{{BaseURL}}/%00"
 
-    stop-at-first-match: true
     matchers-condition: and
     matchers:
       - type: word
         words:
-          - <title>Whoops! There was an error
-# digest: 4a0a004730450220271456fdd04d88fe0b445338f15cb03f02e4710d8930351a08cf6ab4fae1301a022100d2047a4f27cde7c9112ac9889720885b6472d068d7e69ff0262c8596157b96ae:922c64590222798bb761d5b6d8e72950
+          - Whoops! There was an error
+
+      - type: status
+        status:
+          - 500
+# digest: 4b0a00483046022100a27980313b04765c0889cf3781ae98a717537c8bf226181548f1befb4b88bc0b022100b5c1947c8918d39d6a6e27b7917edc78bb098d331d886b26e3ac00da1603a76c:922c64590222798bb761d5b6d8e72950
